@@ -5,6 +5,7 @@ import { InjectedConnector } from 'wagmi/connectors/injected'
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect'
 import { alchemyProvider } from 'wagmi/providers/alchemy'
+import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'
 
 const { chains, provider, webSocketProvider } = configureChains(
   [
@@ -13,6 +14,16 @@ const { chains, provider, webSocketProvider } = configureChains(
   ],
   [
     alchemyProvider({ apiKey: import.meta.env.VITE_ALCHEMY_API_KEY! }),
+    jsonRpcProvider(
+      {
+        rpc: chain => {
+          if (chain.id === foundry.id) {
+            return {http: 'http://localhost:8545'}
+          }
+          return null
+        }
+      }
+    )
   ],
 )
 
