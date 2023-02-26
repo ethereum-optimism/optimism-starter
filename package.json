@@ -18,6 +18,7 @@
     "@eth-optimism/contracts-periphery": "^1.0.7",
     "@openzeppelin/contracts": "4.7.3",
     "@openzeppelin/contracts-upgradeable": "4.7.3",
+    "@rainbow-me/rainbowkit": "^0.11.0",
     "@wagmi/cli": "~0.1.5",
     "buffer": "^6.0.3",
     "ethers": "^5.7.2",
