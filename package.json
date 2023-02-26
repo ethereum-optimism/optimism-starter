@@ -13,6 +13,7 @@
     "wagmi": "wagmi generate"
   },
   "dependencies": {
+    "@eth-optimism/atst": "^0.0.0-20230225152958",
     "@wagmi/cli": "~0.1.5",
     "buffer": "^6.0.3",
     "ethers": "^5.7.2",
