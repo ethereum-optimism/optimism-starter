@@ -10,15 +10,7 @@ import {
   useAttestationStationAttestations,
 } from '../generated'
 
-export function Counter() {
-  return (
-    <div>
-      <Attest />
-    </div>
-  )
-}
-
-function Attest() {
+export function Attestooooooor() {
   const {address} = useAccount()
   const [value, setValue] = useState('')
 
@@ -30,7 +22,7 @@ function Attest() {
         /**
          * TODO update stringifyAttestationBytes to return a string instead of Uint8Array
          */
-        val: BigNumber.from(stringifyAttestationBytes(value)).toHexString() as `0x${string}`,
+        val: '0x0',
       }
     ]],
     enabled: Boolean(value && address),
@@ -48,9 +40,9 @@ function Attest() {
 
   return (
     <div>
-      Attestor:
+      <h2>Attestoooor</h2>
       <div>
-        Current attestation: {parseAttestationBytes(data, 'string')}
+        Current attestation: {attestation ? parseAttestationBytes(attestation, 'string') : 'none'}
       </div>
       <input
         disabled={isLoading}
@@ -61,6 +53,9 @@ function Attest() {
         Set
       </button>
       {isLoading && <ProcessingMessage hash={data?.hash} />}
+      <div>
+        Gas fee: <span>{config.request?.gasLimit.toString()}</span>
+      </div>
     </div>
   )
 }
