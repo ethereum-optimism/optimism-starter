@@ -7,7 +7,7 @@ export function App() {
 
   return (
     <>
-      <h1>wagmi + Vite</h1>
+      <h1>OP Eth Denver Hackathon</h1>
 
       <Connect />
 
