@@ -1,6 +1,7 @@
 import { parseAttestationBytes } from '@eth-optimism/atst'
 import { stringifyAttestationBytes } from '@eth-optimism/atst/src/lib/stringifyAttestationBytes'
 import { BigNumber } from 'ethers'
+import { formatBytes32String, toUtf8Bytes } from 'ethers/lib/utils.js'
 import { useState } from 'react'
 import { useAccount, useNetwork, useWaitForTransaction } from 'wagmi'
 
@@ -14,15 +15,17 @@ export function Attestooooooor() {
   const {address} = useAccount()
   const [value, setValue] = useState('')
 
+  const key = 'example_key'
+
   const { config } = usePrepareAttestationStationAttest({
     args: [[
       {
-        about: '0x000000',
-        key: '0x000000',
+        about: address!,
+        key: formatBytes32String(key) as `0x${string}`,
         /**
          * TODO update stringifyAttestationBytes to return a string instead of Uint8Array
          */
-        val: '0x0',
+        val: stringifyAttestationBytes(value) as unknown as `0x${string}`,
       }
     ]],
     enabled: Boolean(value && address),
@@ -32,7 +35,9 @@ export function Attestooooooor() {
     onSuccess: () => setValue(''),
   })
 
-  const { refetch, data: attestation } = useAttestationStationAttestations()
+  const { refetch, data: attestation } = useAttestationStationAttestations({
+    args: [address!, address!, formatBytes32String(key) as `0x${string}`],
+  })
   const { isLoading } = useWaitForTransaction({
     hash: data?.hash,
     onSuccess: () => refetch(),
