@@ -1,6 +1,7 @@
+import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { useAccount } from 'wagmi'
 
-import { Account, Connect, Counter, NetworkSwitcher } from './components'
+import { Account, Attestooooooor} from './components'
 
 export function App() {
   const { isConnected } = useAccount()
@@ -9,15 +10,14 @@ export function App() {
     <>
       <h1>OP Eth Denver Hackathon</h1>
 
-      <Connect />
+      <ConnectButton />
 
       {isConnected && (
         <>
           <Account />
           <hr />
-          <Counter />
+          <Attestooooooor />
           <hr />
-          <NetworkSwitcher />
         </>
       )}
     </>
