@@ -1,4 +1,4 @@
 export { Account } from './Account'
 export { Connect } from './Connect'
-export { Counter } from './Counter'
+export { Counter } from './Attestor'
 export { NetworkSwitcher } from './NetworkSwitcher'
