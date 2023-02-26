@@ -1,13 +1,14 @@
 import { configureChains, createClient } from "wagmi";
-import { foundry, goerli, mainnet } from "wagmi/chains";
+import { foundry, optimism, optimismGoerli } from "wagmi/chains";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 import { getDefaultWallets } from "@rainbow-me/rainbowkit";
 
 const { chains, provider, webSocketProvider } = configureChains(
 	[
-		mainnet,
-		...(import.meta.env?.MODE === "development" ? [goerli, foundry] : []),
+    optimism,
+    optimismGoerli,
+		foundry,
 	],
 	[
 		alchemyProvider({ apiKey: import.meta.env.VITE_ALCHEMY_API_KEY! }),
