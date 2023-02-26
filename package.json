@@ -14,6 +14,8 @@
   },
   "dependencies": {
     "@eth-optimism/atst": "^0.0.0-20230225152958",
+    "@eth-optimism/contracts-bedrock": "^0.12.1",
+    "@eth-optimism/contracts-periphery": "^1.0.7",
     "@wagmi/cli": "~0.1.5",
     "buffer": "^6.0.3",
     "ethers": "^5.7.2",
