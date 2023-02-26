@@ -1,0 +1,32 @@
+{
+  "name": "optimism-starter",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "anvil": "source .env && anvil --fork-url $ANVIL_FORK_URL --chain-id $ANVIL_CHAIN_ID",
+    "deploy": "source .env && forge create contracts/src/Counter.sol:Counter --rpc-url $FORGE_RPC_URL --private-key $FORGE_PRIVATE_KEY --etherscan-api-key $ETHERSCAN_API_KEY --verify",
+    "deploy:anvil": "source .env && forge create contracts/src/Counter.sol:Counter --rpc-url http://127.0.0.1:8545 --private-key 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80",
+    "dev": "npm run wagmi && vite",
+    "dev:foundry": "npm run dev & wagmi generate --watch & npm run anvil",
+    "build": "npm run wagmi && tsc && vite build",
+    "preview": "vite preview",
+    "wagmi": "wagmi generate"
+  },
+  "dependencies": {
+    "@wagmi/cli": "~0.1.5",
+    "buffer": "^6.0.3",
+    "ethers": "^5.7.2",
+    "process": "^0.11.10",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "util": "^0.12.4",
+    "wagmi": "~0.11.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.3",
+    "@vitejs/plugin-react": "^2.1.0",
+    "typescript": "^4.9.4",
+    "vite": "^3.1.8"
+  }
+}

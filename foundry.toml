@@ -1,0 +1,8 @@
+[profile.default]
+src = 'contracts/src'
+test = 'contracts/test'
+out = 'contracts/out'
+libs = ['contracts/lib']
+solc = '0.8.13'
+
+# See more config options https://github.com/foundry-rs/foundry/tree/master/config
