@@ -11,12 +11,12 @@ import {
   UsePrepareContractWriteConfig,
   useContractEvent,
   UseContractEventConfig,
-} from 'wagmi'
+} from "wagmi";
 import {
   ReadContractResult,
   WriteContractMode,
   PrepareWriteContractResult,
-} from 'wagmi/actions'
+} from "wagmi/actions";
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // AttestationStation
@@ -28,76 +28,76 @@ import {
  * -
  */
 export const attestationStationABI = [
-  { stateMutability: 'nonpayable', type: 'constructor', inputs: [] },
+  { stateMutability: "nonpayable", type: "constructor", inputs: [] },
   {
-    type: 'event',
+    type: "event",
     anonymous: false,
     inputs: [
       {
-        name: 'creator',
-        internalType: 'address',
-        type: 'address',
+        name: "creator",
+        internalType: "address",
+        type: "address",
         indexed: true,
       },
       {
-        name: 'about',
-        internalType: 'address',
-        type: 'address',
+        name: "about",
+        internalType: "address",
+        type: "address",
         indexed: true,
       },
-      { name: 'key', internalType: 'bytes32', type: 'bytes32', indexed: true },
-      { name: 'val', internalType: 'bytes', type: 'bytes', indexed: false },
+      { name: "key", internalType: "bytes32", type: "bytes32", indexed: true },
+      { name: "val", internalType: "bytes", type: "bytes", indexed: false },
     ],
-    name: 'AttestationCreated',
+    name: "AttestationCreated",
   },
   {
-    stateMutability: 'nonpayable',
-    type: 'function',
+    stateMutability: "nonpayable",
+    type: "function",
     inputs: [
       {
-        name: '_attestations',
-        internalType: 'struct AttestationStation.AttestationData[]',
-        type: 'tuple[]',
+        name: "_attestations",
+        internalType: "struct AttestationStation.AttestationData[]",
+        type: "tuple[]",
         components: [
-          { name: 'about', internalType: 'address', type: 'address' },
-          { name: 'key', internalType: 'bytes32', type: 'bytes32' },
-          { name: 'val', internalType: 'bytes', type: 'bytes' },
+          { name: "about", internalType: "address", type: "address" },
+          { name: "key", internalType: "bytes32", type: "bytes32" },
+          { name: "val", internalType: "bytes", type: "bytes" },
         ],
       },
     ],
-    name: 'attest',
+    name: "attest",
     outputs: [],
   },
   {
-    stateMutability: 'nonpayable',
-    type: 'function',
+    stateMutability: "nonpayable",
+    type: "function",
     inputs: [
-      { name: '_about', internalType: 'address', type: 'address' },
-      { name: '_key', internalType: 'bytes32', type: 'bytes32' },
-      { name: '_val', internalType: 'bytes', type: 'bytes' },
+      { name: "_about", internalType: "address", type: "address" },
+      { name: "_key", internalType: "bytes32", type: "bytes32" },
+      { name: "_val", internalType: "bytes", type: "bytes" },
     ],
-    name: 'attest',
+    name: "attest",
     outputs: [],
   },
   {
-    stateMutability: 'view',
-    type: 'function',
+    stateMutability: "view",
+    type: "function",
     inputs: [
-      { name: '', internalType: 'address', type: 'address' },
-      { name: '', internalType: 'address', type: 'address' },
-      { name: '', internalType: 'bytes32', type: 'bytes32' },
+      { name: "", internalType: "address", type: "address" },
+      { name: "", internalType: "address", type: "address" },
+      { name: "", internalType: "bytes32", type: "bytes32" },
     ],
-    name: 'attestations',
-    outputs: [{ name: '', internalType: 'bytes', type: 'bytes' }],
+    name: "attestations",
+    outputs: [{ name: "", internalType: "bytes", type: "bytes" }],
   },
   {
-    stateMutability: 'view',
-    type: 'function',
+    stateMutability: "view",
+    type: "function",
     inputs: [],
-    name: 'version',
-    outputs: [{ name: '', internalType: 'string', type: 'string' }],
+    name: "version",
+    outputs: [{ name: "", internalType: "string", type: "string" }],
   },
-] as const
+] as const;
 
 /**
  * - [__View Contract on Optimism Optimism Explorer__](https://explorer.optimism.io/address/0xEE36eaaD94d1Cc1d0eccaDb55C38bFfB6Be06C77)
@@ -105,10 +105,10 @@ export const attestationStationABI = [
  * -
  */
 export const attestationStationAddress = {
-  10: '0xEE36eaaD94d1Cc1d0eccaDb55C38bFfB6Be06C77',
-  420: '0xEE36eaaD94d1Cc1d0eccaDb55C38bFfB6Be06C77',
-  31337: '0xEE36eaaD94d1Cc1d0eccaDb55C38bFfB6Be06C77',
-} as const
+  10: "0xEE36eaaD94d1Cc1d0eccaDb55C38bFfB6Be06C77",
+  420: "0xEE36eaaD94d1Cc1d0eccaDb55C38bFfB6Be06C77",
+  31337: "0xEE36eaaD94d1Cc1d0eccaDb55C38bFfB6Be06C77",
+} as const;
 
 /**
  * - [__View Contract on Optimism Optimism Explorer__](https://explorer.optimism.io/address/0xEE36eaaD94d1Cc1d0eccaDb55C38bFfB6Be06C77)
@@ -118,7 +118,7 @@ export const attestationStationAddress = {
 export const attestationStationConfig = {
   address: attestationStationAddress,
   abi: attestationStationABI,
-} as const
+} as const;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Counter
@@ -131,42 +131,42 @@ export const attestationStationConfig = {
  */
 export const counterABI = [
   {
-    type: 'event',
+    type: "event",
     anonymous: false,
     inputs: [
-      { name: 'from', internalType: 'address', type: 'address', indexed: true },
-      { name: 'to', internalType: 'address', type: 'address', indexed: true },
+      { name: "from", internalType: "address", type: "address", indexed: true },
+      { name: "to", internalType: "address", type: "address", indexed: true },
       {
-        name: 'value',
-        internalType: 'uint256',
-        type: 'uint256',
+        name: "value",
+        internalType: "uint256",
+        type: "uint256",
         indexed: false,
       },
     ],
-    name: 'Transfer',
+    name: "Transfer",
   },
   {
-    stateMutability: 'nonpayable',
-    type: 'function',
+    stateMutability: "nonpayable",
+    type: "function",
     inputs: [],
-    name: 'increment',
+    name: "increment",
     outputs: [],
   },
   {
-    stateMutability: 'view',
-    type: 'function',
+    stateMutability: "view",
+    type: "function",
     inputs: [],
-    name: 'number',
-    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
+    name: "number",
+    outputs: [{ name: "", internalType: "uint256", type: "uint256" }],
   },
   {
-    stateMutability: 'nonpayable',
-    type: 'function',
-    inputs: [{ name: 'newNumber', internalType: 'uint256', type: 'uint256' }],
-    name: 'setNumber',
+    stateMutability: "nonpayable",
+    type: "function",
+    inputs: [{ name: "newNumber", internalType: "uint256", type: "uint256" }],
+    name: "setNumber",
     outputs: [],
   },
-] as const
+] as const;
 
 /**
  * - [__View Contract on Ethereum Etherscan__](https://etherscan.io/address/0x1A61839Eb5fC6eBBcAe01eD5E79062E598792Dac)
@@ -174,10 +174,10 @@ export const counterABI = [
  * -
  */
 export const counterAddress = {
-  1: '0x1A61839Eb5fC6eBBcAe01eD5E79062E598792Dac',
-  5: '0x78991BB1D194C1235fe285240af8489CFA552151',
-  31337: '0xbe18A1B61ceaF59aEB6A9bC81AB4FB87D56Ba167',
-} as const
+  1: "0x1A61839Eb5fC6eBBcAe01eD5E79062E598792Dac",
+  5: "0x78991BB1D194C1235fe285240af8489CFA552151",
+  31337: "0xbe18A1B61ceaF59aEB6A9bC81AB4FB87D56Ba167",
+} as const;
 
 /**
  * - [__View Contract on Ethereum Etherscan__](https://etherscan.io/address/0x1A61839Eb5fC6eBBcAe01eD5E79062E598792Dac)
@@ -187,7 +187,7 @@ export const counterAddress = {
 export const counterConfig = {
   address: counterAddress,
   abi: counterABI,
-} as const
+} as const;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Semver
@@ -195,22 +195,22 @@ export const counterConfig = {
 
 export const semverABI = [
   {
-    stateMutability: 'nonpayable',
-    type: 'constructor',
+    stateMutability: "nonpayable",
+    type: "constructor",
     inputs: [
-      { name: '_major', internalType: 'uint256', type: 'uint256' },
-      { name: '_minor', internalType: 'uint256', type: 'uint256' },
-      { name: '_patch', internalType: 'uint256', type: 'uint256' },
+      { name: "_major", internalType: "uint256", type: "uint256" },
+      { name: "_minor", internalType: "uint256", type: "uint256" },
+      { name: "_patch", internalType: "uint256", type: "uint256" },
     ],
   },
   {
-    stateMutability: 'view',
-    type: 'function',
+    stateMutability: "view",
+    type: "function",
     inputs: [],
-    name: 'version',
-    outputs: [{ name: '', internalType: 'string', type: 'string' }],
+    name: "version",
+    outputs: [{ name: "", internalType: "string", type: "string" }],
   },
-] as const
+] as const;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // React
@@ -224,12 +224,12 @@ export const semverABI = [
  * -
  */
 export function useAttestationStation(
-  config: Omit<UseContractConfig, 'abi' | 'address'> & {
-    chainId?: keyof typeof attestationStationAddress
+  config: Omit<UseContractConfig, "abi" | "address"> & {
+    chainId?: keyof typeof attestationStationAddress;
   } = {} as any,
 ) {
-  const { chain } = useNetwork()
-  const chainId = config.chainId ?? chain?.id
+  const { chain } = useNetwork();
+  const chainId = config.chainId ?? chain?.id;
   return useContract({
     abi: attestationStationABI,
     address:
@@ -237,7 +237,7 @@ export function useAttestationStation(
         chainId as keyof typeof attestationStationAddress
       ],
     ...config,
-  })
+  });
 }
 
 /**
@@ -257,11 +257,11 @@ export function useAttestationStationRead<
       TFunctionName,
       TSelectData
     >,
-    'abi' | 'address'
+    "abi" | "address"
   > & { chainId?: keyof typeof attestationStationAddress } = {} as any,
 ) {
-  const { chain } = useNetwork()
-  const chainId = config.chainId ?? chain?.id
+  const { chain } = useNetwork();
+  const chainId = config.chainId ?? chain?.id;
   return useContractRead({
     abi: attestationStationABI,
     address:
@@ -269,11 +269,7 @@ export function useAttestationStationRead<
         chainId as keyof typeof attestationStationAddress
       ],
     ...config,
-  } as UseContractReadConfig<
-    typeof attestationStationABI,
-    TFunctionName,
-    TSelectData
-  >)
+  } as UseContractReadConfig<typeof attestationStationABI, TFunctionName, TSelectData>);
 }
 
 /**
@@ -286,33 +282,29 @@ export function useAttestationStationRead<
 export function useAttestationStationAttestations<
   TSelectData = ReadContractResult<
     typeof attestationStationABI,
-    'attestations'
+    "attestations"
   >,
 >(
   config: Omit<
     UseContractReadConfig<
       typeof attestationStationABI,
-      'attestations',
+      "attestations",
       TSelectData
     >,
-    'abi' | 'address' | 'functionName'
+    "abi" | "address" | "functionName"
   > & { chainId?: keyof typeof attestationStationAddress } = {} as any,
 ) {
-  const { chain } = useNetwork()
-  const chainId = config.chainId ?? chain?.id
+  const { chain } = useNetwork();
+  const chainId = config.chainId ?? chain?.id;
   return useContractRead({
     abi: attestationStationABI,
     address:
       attestationStationAddress[
         chainId as keyof typeof attestationStationAddress
       ],
-    functionName: 'attestations',
+    functionName: "attestations",
     ...config,
-  } as UseContractReadConfig<
-    typeof attestationStationABI,
-    'attestations',
-    TSelectData
-  >)
+  } as UseContractReadConfig<typeof attestationStationABI, "attestations", TSelectData>);
 }
 
 /**
@@ -323,28 +315,24 @@ export function useAttestationStationAttestations<
  * -
  */
 export function useAttestationStationVersion<
-  TSelectData = ReadContractResult<typeof attestationStationABI, 'version'>,
+  TSelectData = ReadContractResult<typeof attestationStationABI, "version">,
 >(
   config: Omit<
-    UseContractReadConfig<typeof attestationStationABI, 'version', TSelectData>,
-    'abi' | 'address' | 'functionName'
+    UseContractReadConfig<typeof attestationStationABI, "version", TSelectData>,
+    "abi" | "address" | "functionName"
   > & { chainId?: keyof typeof attestationStationAddress } = {} as any,
 ) {
-  const { chain } = useNetwork()
-  const chainId = config.chainId ?? chain?.id
+  const { chain } = useNetwork();
+  const chainId = config.chainId ?? chain?.id;
   return useContractRead({
     abi: attestationStationABI,
     address:
       attestationStationAddress[
         chainId as keyof typeof attestationStationAddress
       ],
-    functionName: 'version',
+    functionName: "version",
     ...config,
-  } as UseContractReadConfig<
-    typeof attestationStationABI,
-    'version',
-    TSelectData
-  >)
+  } as UseContractReadConfig<typeof attestationStationABI, "version", TSelectData>);
 }
 
 /**
@@ -359,10 +347,10 @@ export function useAttestationStationWrite<
   TFunctionName extends string,
   TChainId extends number = keyof typeof attestationStationAddress,
 >(
-  config: TMode extends 'prepared'
+  config: TMode extends "prepared"
     ? UseContractWriteConfig<
         TMode,
-        PrepareWriteContractResult<typeof attestationStationABI, string>['abi'],
+        PrepareWriteContractResult<typeof attestationStationABI, string>["abi"],
         TFunctionName
       > & { address?: `0x${string}`; chainId?: TChainId }
     : UseContractWriteConfig<
@@ -370,13 +358,13 @@ export function useAttestationStationWrite<
         typeof attestationStationABI,
         TFunctionName
       > & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
+        abi?: never;
+        address?: never;
+        chainId?: TChainId;
       } = {} as any,
 ) {
-  const { chain } = useNetwork()
-  const chainId = config.chainId ?? chain?.id
+  const { chain } = useNetwork();
+  const chainId = config.chainId ?? chain?.id;
   return useContractWrite<TMode, typeof attestationStationABI, TFunctionName>({
     abi: attestationStationABI,
     address:
@@ -384,7 +372,7 @@ export function useAttestationStationWrite<
         chainId as keyof typeof attestationStationAddress
       ],
     ...config,
-  } as any)
+  } as any);
 }
 
 /**
@@ -398,37 +386,37 @@ export function useAttestationStationAttest<
   TMode extends WriteContractMode,
   TChainId extends number = keyof typeof attestationStationAddress,
 >(
-  config: TMode extends 'prepared'
+  config: TMode extends "prepared"
     ? UseContractWriteConfig<
         TMode,
         PrepareWriteContractResult<
           typeof attestationStationABI,
-          'attest'
-        >['abi'],
-        'attest'
+          "attest"
+        >["abi"],
+        "attest"
       > & {
-        address?: `0x${string}`
-        chainId?: TChainId
-        functionName?: 'attest'
+        address?: `0x${string}`;
+        chainId?: TChainId;
+        functionName?: "attest";
       }
-    : UseContractWriteConfig<TMode, typeof attestationStationABI, 'attest'> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'attest'
+    : UseContractWriteConfig<TMode, typeof attestationStationABI, "attest"> & {
+        abi?: never;
+        address?: never;
+        chainId?: TChainId;
+        functionName?: "attest";
       } = {} as any,
 ) {
-  const { chain } = useNetwork()
-  const chainId = config.chainId ?? chain?.id
-  return useContractWrite<TMode, typeof attestationStationABI, 'attest'>({
+  const { chain } = useNetwork();
+  const chainId = config.chainId ?? chain?.id;
+  return useContractWrite<TMode, typeof attestationStationABI, "attest">({
     abi: attestationStationABI,
     address:
       attestationStationAddress[
         chainId as keyof typeof attestationStationAddress
       ],
-    functionName: 'attest',
+    functionName: "attest",
     ...config,
-  } as any)
+  } as any);
 }
 
 /**
@@ -441,11 +429,11 @@ export function useAttestationStationAttest<
 export function usePrepareAttestationStationWrite<TFunctionName extends string>(
   config: Omit<
     UsePrepareContractWriteConfig<typeof attestationStationABI, TFunctionName>,
-    'abi' | 'address'
+    "abi" | "address"
   > & { chainId?: keyof typeof attestationStationAddress } = {} as any,
 ) {
-  const { chain } = useNetwork()
-  const chainId = config.chainId ?? chain?.id
+  const { chain } = useNetwork();
+  const chainId = config.chainId ?? chain?.id;
   return usePrepareContractWrite({
     abi: attestationStationABI,
     address:
@@ -453,10 +441,7 @@ export function usePrepareAttestationStationWrite<TFunctionName extends string>(
         chainId as keyof typeof attestationStationAddress
       ],
     ...config,
-  } as UsePrepareContractWriteConfig<
-    typeof attestationStationABI,
-    TFunctionName
-  >)
+  } as UsePrepareContractWriteConfig<typeof attestationStationABI, TFunctionName>);
 }
 
 /**
@@ -468,21 +453,21 @@ export function usePrepareAttestationStationWrite<TFunctionName extends string>(
  */
 export function usePrepareAttestationStationAttest(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof attestationStationABI, 'attest'>,
-    'abi' | 'address' | 'functionName'
+    UsePrepareContractWriteConfig<typeof attestationStationABI, "attest">,
+    "abi" | "address" | "functionName"
   > & { chainId?: keyof typeof attestationStationAddress } = {} as any,
 ) {
-  const { chain } = useNetwork()
-  const chainId = config.chainId ?? chain?.id
+  const { chain } = useNetwork();
+  const chainId = config.chainId ?? chain?.id;
   return usePrepareContractWrite({
     abi: attestationStationABI,
     address:
       attestationStationAddress[
         chainId as keyof typeof attestationStationAddress
       ],
-    functionName: 'attest',
+    functionName: "attest",
     ...config,
-  } as UsePrepareContractWriteConfig<typeof attestationStationABI, 'attest'>)
+  } as UsePrepareContractWriteConfig<typeof attestationStationABI, "attest">);
 }
 
 /**
@@ -495,11 +480,11 @@ export function usePrepareAttestationStationAttest(
 export function useAttestationStationEvent<TEventName extends string>(
   config: Omit<
     UseContractEventConfig<typeof attestationStationABI, TEventName>,
-    'abi' | 'address'
+    "abi" | "address"
   > & { chainId?: keyof typeof attestationStationAddress } = {} as any,
 ) {
-  const { chain } = useNetwork()
-  const chainId = config.chainId ?? chain?.id
+  const { chain } = useNetwork();
+  const chainId = config.chainId ?? chain?.id;
   return useContractEvent({
     abi: attestationStationABI,
     address:
@@ -507,7 +492,7 @@ export function useAttestationStationEvent<TEventName extends string>(
         chainId as keyof typeof attestationStationAddress
       ],
     ...config,
-  } as UseContractEventConfig<typeof attestationStationABI, TEventName>)
+  } as UseContractEventConfig<typeof attestationStationABI, TEventName>);
 }
 
 /**
@@ -519,24 +504,21 @@ export function useAttestationStationEvent<TEventName extends string>(
  */
 export function useAttestationStationAttestationCreatedEvent(
   config: Omit<
-    UseContractEventConfig<typeof attestationStationABI, 'AttestationCreated'>,
-    'abi' | 'address' | 'eventName'
+    UseContractEventConfig<typeof attestationStationABI, "AttestationCreated">,
+    "abi" | "address" | "eventName"
   > & { chainId?: keyof typeof attestationStationAddress } = {} as any,
 ) {
-  const { chain } = useNetwork()
-  const chainId = config.chainId ?? chain?.id
+  const { chain } = useNetwork();
+  const chainId = config.chainId ?? chain?.id;
   return useContractEvent({
     abi: attestationStationABI,
     address:
       attestationStationAddress[
         chainId as keyof typeof attestationStationAddress
       ],
-    eventName: 'AttestationCreated',
+    eventName: "AttestationCreated",
     ...config,
-  } as UseContractEventConfig<
-    typeof attestationStationABI,
-    'AttestationCreated'
-  >)
+  } as UseContractEventConfig<typeof attestationStationABI, "AttestationCreated">);
 }
 
 /**
@@ -547,17 +529,17 @@ export function useAttestationStationAttestationCreatedEvent(
  * -
  */
 export function useCounter(
-  config: Omit<UseContractConfig, 'abi' | 'address'> & {
-    chainId?: keyof typeof counterAddress
+  config: Omit<UseContractConfig, "abi" | "address"> & {
+    chainId?: keyof typeof counterAddress;
   } = {} as any,
 ) {
-  const { chain } = useNetwork()
-  const chainId = config.chainId ?? chain?.id
+  const { chain } = useNetwork();
+  const chainId = config.chainId ?? chain?.id;
   return useContract({
     abi: counterABI,
     address: counterAddress[chainId as keyof typeof counterAddress],
     ...config,
-  })
+  });
 }
 
 /**
@@ -573,16 +555,16 @@ export function useCounterRead<
 >(
   config: Omit<
     UseContractReadConfig<typeof counterABI, TFunctionName, TSelectData>,
-    'abi' | 'address'
+    "abi" | "address"
   > & { chainId?: keyof typeof counterAddress } = {} as any,
 ) {
-  const { chain } = useNetwork()
-  const chainId = config.chainId ?? chain?.id
+  const { chain } = useNetwork();
+  const chainId = config.chainId ?? chain?.id;
   return useContractRead({
     abi: counterABI,
     address: counterAddress[chainId as keyof typeof counterAddress],
     ...config,
-  } as UseContractReadConfig<typeof counterABI, TFunctionName, TSelectData>)
+  } as UseContractReadConfig<typeof counterABI, TFunctionName, TSelectData>);
 }
 
 /**
@@ -593,21 +575,21 @@ export function useCounterRead<
  * -
  */
 export function useCounterNumber<
-  TSelectData = ReadContractResult<typeof counterABI, 'number'>,
+  TSelectData = ReadContractResult<typeof counterABI, "number">,
 >(
   config: Omit<
-    UseContractReadConfig<typeof counterABI, 'number', TSelectData>,
-    'abi' | 'address' | 'functionName'
+    UseContractReadConfig<typeof counterABI, "number", TSelectData>,
+    "abi" | "address" | "functionName"
   > & { chainId?: keyof typeof counterAddress } = {} as any,
 ) {
-  const { chain } = useNetwork()
-  const chainId = config.chainId ?? chain?.id
+  const { chain } = useNetwork();
+  const chainId = config.chainId ?? chain?.id;
   return useContractRead({
     abi: counterABI,
     address: counterAddress[chainId as keyof typeof counterAddress],
-    functionName: 'number',
+    functionName: "number",
     ...config,
-  } as UseContractReadConfig<typeof counterABI, 'number', TSelectData>)
+  } as UseContractReadConfig<typeof counterABI, "number", TSelectData>);
 }
 
 /**
@@ -622,25 +604,25 @@ export function useCounterWrite<
   TFunctionName extends string,
   TChainId extends number = keyof typeof counterAddress,
 >(
-  config: TMode extends 'prepared'
+  config: TMode extends "prepared"
     ? UseContractWriteConfig<
         TMode,
-        PrepareWriteContractResult<typeof counterABI, string>['abi'],
+        PrepareWriteContractResult<typeof counterABI, string>["abi"],
         TFunctionName
       > & { address?: `0x${string}`; chainId?: TChainId }
     : UseContractWriteConfig<TMode, typeof counterABI, TFunctionName> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
+        abi?: never;
+        address?: never;
+        chainId?: TChainId;
       } = {} as any,
 ) {
-  const { chain } = useNetwork()
-  const chainId = config.chainId ?? chain?.id
+  const { chain } = useNetwork();
+  const chainId = config.chainId ?? chain?.id;
   return useContractWrite<TMode, typeof counterABI, TFunctionName>({
     abi: counterABI,
     address: counterAddress[chainId as keyof typeof counterAddress],
     ...config,
-  } as any)
+  } as any);
 }
 
 /**
@@ -654,31 +636,31 @@ export function useCounterIncrement<
   TMode extends WriteContractMode,
   TChainId extends number = keyof typeof counterAddress,
 >(
-  config: TMode extends 'prepared'
+  config: TMode extends "prepared"
     ? UseContractWriteConfig<
         TMode,
-        PrepareWriteContractResult<typeof counterABI, 'increment'>['abi'],
-        'increment'
+        PrepareWriteContractResult<typeof counterABI, "increment">["abi"],
+        "increment"
       > & {
-        address?: `0x${string}`
-        chainId?: TChainId
-        functionName?: 'increment'
+        address?: `0x${string}`;
+        chainId?: TChainId;
+        functionName?: "increment";
       }
-    : UseContractWriteConfig<TMode, typeof counterABI, 'increment'> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'increment'
+    : UseContractWriteConfig<TMode, typeof counterABI, "increment"> & {
+        abi?: never;
+        address?: never;
+        chainId?: TChainId;
+        functionName?: "increment";
       } = {} as any,
 ) {
-  const { chain } = useNetwork()
-  const chainId = config.chainId ?? chain?.id
-  return useContractWrite<TMode, typeof counterABI, 'increment'>({
+  const { chain } = useNetwork();
+  const chainId = config.chainId ?? chain?.id;
+  return useContractWrite<TMode, typeof counterABI, "increment">({
     abi: counterABI,
     address: counterAddress[chainId as keyof typeof counterAddress],
-    functionName: 'increment',
+    functionName: "increment",
     ...config,
-  } as any)
+  } as any);
 }
 
 /**
@@ -692,31 +674,31 @@ export function useCounterSetNumber<
   TMode extends WriteContractMode,
   TChainId extends number = keyof typeof counterAddress,
 >(
-  config: TMode extends 'prepared'
+  config: TMode extends "prepared"
     ? UseContractWriteConfig<
         TMode,
-        PrepareWriteContractResult<typeof counterABI, 'setNumber'>['abi'],
-        'setNumber'
+        PrepareWriteContractResult<typeof counterABI, "setNumber">["abi"],
+        "setNumber"
       > & {
-        address?: `0x${string}`
-        chainId?: TChainId
-        functionName?: 'setNumber'
+        address?: `0x${string}`;
+        chainId?: TChainId;
+        functionName?: "setNumber";
       }
-    : UseContractWriteConfig<TMode, typeof counterABI, 'setNumber'> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'setNumber'
+    : UseContractWriteConfig<TMode, typeof counterABI, "setNumber"> & {
+        abi?: never;
+        address?: never;
+        chainId?: TChainId;
+        functionName?: "setNumber";
       } = {} as any,
 ) {
-  const { chain } = useNetwork()
-  const chainId = config.chainId ?? chain?.id
-  return useContractWrite<TMode, typeof counterABI, 'setNumber'>({
+  const { chain } = useNetwork();
+  const chainId = config.chainId ?? chain?.id;
+  return useContractWrite<TMode, typeof counterABI, "setNumber">({
     abi: counterABI,
     address: counterAddress[chainId as keyof typeof counterAddress],
-    functionName: 'setNumber',
+    functionName: "setNumber",
     ...config,
-  } as any)
+  } as any);
 }
 
 /**
@@ -729,16 +711,16 @@ export function useCounterSetNumber<
 export function usePrepareCounterWrite<TFunctionName extends string>(
   config: Omit<
     UsePrepareContractWriteConfig<typeof counterABI, TFunctionName>,
-    'abi' | 'address'
+    "abi" | "address"
   > & { chainId?: keyof typeof counterAddress } = {} as any,
 ) {
-  const { chain } = useNetwork()
-  const chainId = config.chainId ?? chain?.id
+  const { chain } = useNetwork();
+  const chainId = config.chainId ?? chain?.id;
   return usePrepareContractWrite({
     abi: counterABI,
     address: counterAddress[chainId as keyof typeof counterAddress],
     ...config,
-  } as UsePrepareContractWriteConfig<typeof counterABI, TFunctionName>)
+  } as UsePrepareContractWriteConfig<typeof counterABI, TFunctionName>);
 }
 
 /**
@@ -750,18 +732,18 @@ export function usePrepareCounterWrite<TFunctionName extends string>(
  */
 export function usePrepareCounterIncrement(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof counterABI, 'increment'>,
-    'abi' | 'address' | 'functionName'
+    UsePrepareContractWriteConfig<typeof counterABI, "increment">,
+    "abi" | "address" | "functionName"
   > & { chainId?: keyof typeof counterAddress } = {} as any,
 ) {
-  const { chain } = useNetwork()
-  const chainId = config.chainId ?? chain?.id
+  const { chain } = useNetwork();
+  const chainId = config.chainId ?? chain?.id;
   return usePrepareContractWrite({
     abi: counterABI,
     address: counterAddress[chainId as keyof typeof counterAddress],
-    functionName: 'increment',
+    functionName: "increment",
     ...config,
-  } as UsePrepareContractWriteConfig<typeof counterABI, 'increment'>)
+  } as UsePrepareContractWriteConfig<typeof counterABI, "increment">);
 }
 
 /**
@@ -773,18 +755,18 @@ export function usePrepareCounterIncrement(
  */
 export function usePrepareCounterSetNumber(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof counterABI, 'setNumber'>,
-    'abi' | 'address' | 'functionName'
+    UsePrepareContractWriteConfig<typeof counterABI, "setNumber">,
+    "abi" | "address" | "functionName"
   > & { chainId?: keyof typeof counterAddress } = {} as any,
 ) {
-  const { chain } = useNetwork()
-  const chainId = config.chainId ?? chain?.id
+  const { chain } = useNetwork();
+  const chainId = config.chainId ?? chain?.id;
   return usePrepareContractWrite({
     abi: counterABI,
     address: counterAddress[chainId as keyof typeof counterAddress],
-    functionName: 'setNumber',
+    functionName: "setNumber",
     ...config,
-  } as UsePrepareContractWriteConfig<typeof counterABI, 'setNumber'>)
+  } as UsePrepareContractWriteConfig<typeof counterABI, "setNumber">);
 }
 
 /**
@@ -797,16 +779,16 @@ export function usePrepareCounterSetNumber(
 export function useCounterEvent<TEventName extends string>(
   config: Omit<
     UseContractEventConfig<typeof counterABI, TEventName>,
-    'abi' | 'address'
+    "abi" | "address"
   > & { chainId?: keyof typeof counterAddress } = {} as any,
 ) {
-  const { chain } = useNetwork()
-  const chainId = config.chainId ?? chain?.id
+  const { chain } = useNetwork();
+  const chainId = config.chainId ?? chain?.id;
   return useContractEvent({
     abi: counterABI,
     address: counterAddress[chainId as keyof typeof counterAddress],
     ...config,
-  } as UseContractEventConfig<typeof counterABI, TEventName>)
+  } as UseContractEventConfig<typeof counterABI, TEventName>);
 }
 
 /**
@@ -818,25 +800,25 @@ export function useCounterEvent<TEventName extends string>(
  */
 export function useCounterTransferEvent(
   config: Omit<
-    UseContractEventConfig<typeof counterABI, 'Transfer'>,
-    'abi' | 'address' | 'eventName'
+    UseContractEventConfig<typeof counterABI, "Transfer">,
+    "abi" | "address" | "eventName"
   > & { chainId?: keyof typeof counterAddress } = {} as any,
 ) {
-  const { chain } = useNetwork()
-  const chainId = config.chainId ?? chain?.id
+  const { chain } = useNetwork();
+  const chainId = config.chainId ?? chain?.id;
   return useContractEvent({
     abi: counterABI,
     address: counterAddress[chainId as keyof typeof counterAddress],
-    eventName: 'Transfer',
+    eventName: "Transfer",
     ...config,
-  } as UseContractEventConfig<typeof counterABI, 'Transfer'>)
+  } as UseContractEventConfig<typeof counterABI, "Transfer">);
 }
 
 /**
  * Wraps __{@link useContract}__ with `abi` set to __{@link semverABI}__.
  */
-export function useSemver(config: Omit<UseContractConfig, 'abi'> = {} as any) {
-  return useContract({ abi: semverABI, ...config })
+export function useSemver(config: Omit<UseContractConfig, "abi"> = {} as any) {
+  return useContract({ abi: semverABI, ...config });
 }
 
 /**
@@ -848,30 +830,30 @@ export function useSemverRead<
 >(
   config: Omit<
     UseContractReadConfig<typeof semverABI, TFunctionName, TSelectData>,
-    'abi'
+    "abi"
   > = {} as any,
 ) {
   return useContractRead({ abi: semverABI, ...config } as UseContractReadConfig<
     typeof semverABI,
     TFunctionName,
     TSelectData
-  >)
+  >);
 }
 
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link semverABI}__ and `functionName` set to `"version"`.
  */
 export function useSemverVersion<
-  TSelectData = ReadContractResult<typeof semverABI, 'version'>,
+  TSelectData = ReadContractResult<typeof semverABI, "version">,
 >(
   config: Omit<
-    UseContractReadConfig<typeof semverABI, 'version', TSelectData>,
-    'abi' | 'functionName'
+    UseContractReadConfig<typeof semverABI, "version", TSelectData>,
+    "abi" | "functionName"
   > = {} as any,
 ) {
   return useContractRead({
     abi: semverABI,
-    functionName: 'version',
+    functionName: "version",
     ...config,
-  } as UseContractReadConfig<typeof semverABI, 'version', TSelectData>)
+  } as UseContractReadConfig<typeof semverABI, "version", TSelectData>);
 }

@@ -1,4 +1,8 @@
-import { formatBytes32String, toUtf8Bytes, toUtf8String } from "ethers/lib/utils.js";
+import {
+  formatBytes32String,
+  toUtf8Bytes,
+  toUtf8String,
+} from "ethers/lib/utils.js";
 import { useState } from "react";
 import { useAccount, useNetwork, useWaitForTransaction } from "wagmi";
 
@@ -87,8 +91,7 @@ export function Attestooooooor() {
     <div>
       <h2>Attestoooooor</h2>
       <div>
-        Current attestation:{" "}
-        {attestation ? toUtf8String(attestation) : "none"}
+        Current attestation: {attestation ? toUtf8String(attestation) : "none"}
       </div>
       <input
         disabled={isLoading}

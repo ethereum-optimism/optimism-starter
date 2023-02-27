@@ -23,7 +23,7 @@ export default defineConfig({
     },
   },
   /**
-   * Enables react 
+   * Enables react
    * @see https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md
    */
   plugins: [react()],

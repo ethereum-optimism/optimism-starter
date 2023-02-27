@@ -21,7 +21,7 @@ Run `npm run dev` in your terminal, and then open [localhost:5173](http://localh
 
 Once the webpage has loaded, changes made to files inside the `src/` directory (e.g. `src/App.tsx`) will automatically update the webpage.
 
-See below for general usage instructions or [FAQ](todo.todo.todo) for answers to general questions such as 
+See below for general usage instructions or [FAQ](https://github.com/ethereum-optimism/optimism-starter/blob/main/FAQ.md) for answers to general questions such as
 
 - where to get goerli eth
 - how to deploy to vercel/fleek
@@ -76,7 +76,8 @@ Go ahead and open up your `.env` file, and enter the following env vars:
 - `FORGE_RPC_URL`: The RPC URL of the network to deploy to.
 - `FORGE_PRIVATE_KEY`: The private key of the wallet you want to deploy from.
 
-*note* Optimism goerli requires signing up for an etherscan key on optimism goerli etherscan rather than mainnet etherscan
+_note_ Optimism goerli requires signing up for an etherscan key on optimism goerli etherscan rather than mainnet etherscan
+
 ## Deploy contract
 
 You can now deploy your contract!
@@ -127,7 +128,7 @@ Head to [localhost:5173](http://localhost:5173) in your browser, connect your wa
 
 ## ATST
 
-To interact with the attestation station this library uses the minimal [@eth-optimism/atst](todo.todo.todo) package currently in beta as well as it's accompioning cli.   Feel free to open up issues for ideas of improvements for atst.   We are also happy to give you ideas of how you could build an even better version of ATST or make it better for your hack!
+To interact with the attestation station this library uses the minimal [@eth-optimism/atst](todo.todo.todo) package currently in beta as well as it's accompioning cli. Feel free to open up issues for ideas of improvements for atst. We are also happy to give you ideas of how you could build an even better version of ATST or make it better for your hack!
 
 ## ATST indexers
 
@@ -135,7 +136,7 @@ TODO document what you can use for backends for atst
 
 ## Alternatives
 
-Looking to use burner wallets?   Prefer hardhat?   Prefer NEXT.js?    Check out these amazing alternatives:
+Looking to use burner wallets? Prefer hardhat? Prefer NEXT.js? Check out these amazing alternatives:
 
 - [create wagmi cli](https://wagmi.sh/cli/create-wagmi) - A flexible cli with many templates (this starterkit was started from vite-react-cli-foundry)
 - [scaffold-eth](https://github.com/scaffold-eth/se-2) - The new 2nd version of a popular NEXT.js based starter including hardhat, burner wallets, great documentation, and an active telegram for support
