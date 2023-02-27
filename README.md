@@ -53,7 +53,7 @@ npm run wagmi
 
 This will use the wagmi config (`wagmi.config.ts`) to generate a `src/generated.ts` file which will include your ABIs & Hooks that you can start using in your project.
 
-[Here is an example](./src/components/Counter.tsx) of where Hooks from the generated file is being used.
+[Here is an example](https://github.com/ethereum-optimism/optimism-starter/blob/main/src/components/Attestoooooor.tsx#L77) of where Hooks from the generated file is being used.
 
 # Deploying Contracts
 
