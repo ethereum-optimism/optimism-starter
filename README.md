@@ -20,7 +20,48 @@ This is a [Optimism](https://github.com/ethereum-optimism) + [wagmi](https://wag
 
 # Getting Started
 
-Run `npm run dev` in your terminal, and then open [localhost:5173](http://localhost:5173) in your browser.
+<details>
+<summary>
+
+## Prerequisites
+
+</summary>
+
+### Install Node
+
+[See here](https://nodejs.org/en/download/).
+Note that you need Node at a later version than 14.18.0, or 16 and above.
+These instructions were verified with Node 18.
+
+### Install Foundry
+
+You will need to install [Foundry](https://book.getfoundry.sh/getting-started/installation) to build your smart contracts. 
+
+1. Run the following command:
+
+   ```sh
+   curl -L https://foundry.paradigm.xyz | bash
+   ```
+
+1. Source your environment as requested by Foundry.
+
+1. Run `foundryup`.
+
+
+</details>
+
+## Start the application
+
+1. Install the necessary node packages:
+
+   ```sh
+   npm install
+   ```
+
+1. Run `npm run dev` in your terminal
+   If you get errors during this step, you might need to [update your Foundry to the latest version](#install-foundry).
+
+1. Open [localhost:5173](http://localhost:5173) in your browser.
 
 Once the webpage has loaded, changes made to files inside the `src/` directory (e.g. `src/App.tsx`) will automatically update the webpage.
 
@@ -35,31 +76,17 @@ This project comes with `@wagmi/cli` built-in, which means you can generate wagm
 
 To generate ABIs & Hooks, follow the steps below.
 
-## Install Foundry
-
-First, you will need to install [Foundry](https://book.getfoundry.sh/getting-started/installation) in order to build your smart contracts. This can be done by running the following command:
-
-```bash
-curl -L https://foundry.paradigm.xyz | bash
-```
-
-## Install node_modules
-
-```bash
-npm install
-```
-
 ## Generate code
 
 To generate ABIs & React Hooks from your Foundry project (in `./contracts`), you can run:
 
-```
+```sh
 npm run wagmi
 ```
 
 This will use the wagmi config (`wagmi.config.ts`) to generate a `src/generated.ts` file which will include your ABIs & Hooks that you can start using in your project.
 
-[Here is an example](https://github.com/ethereum-optimism/optimism-starter/blob/main/src/components/Attestoooooor.tsx#L77) of where Hooks from the generated file is being used.
+[Here is an example](https://github.com/ethereum-optimism/optimism-starter/blob/main/src/components/Attestoooooor.tsx#L77) of Hooks from the generated file being used.
 
 # Deploying Contracts
 
@@ -67,64 +94,70 @@ To deploy your contracts to a network, you can use Foundry's [Forge](https://boo
 
 You can read a more in-depth guide on using Forge to deploy a smart contract [here](https://book.getfoundry.sh/forge/deploying), but we have included a simple script in the `package.json` to get you started.
 
-Below are the steps to deploying a smart contract to Optimism Goerli using Forge:
+Below are the steps to deploying a smart contract to Ethereum Mainnet using Forge:
 
-## Install Foundry
-
-Make sure you have Foundry installed & set up.
-
-[See the above instructions](#install-foundry).
 
 ## Set up environment
 
+### Get an Etherscan key
+
+1. Register for [Etherscan on Optimism](https://explorer.optimism.io/register).
+   This account is different from your normal Etherscan account.
+
+1. Go to [the API keys page](https://explorer.optimism.io/myapikey) and click **Add** to create a new API key.
+
+### Specify .env
+
 You will first need to set up your `.env` to tell Forge where to deploy your contract.
 
-Go ahead and open up your `.env` file, and enter the following env vars:
+1. Copy `.env.example` to `.env`.
 
-- `ETHERSCAN_API_KEY`: Your Etherscan API Key.
-- `FORGE_RPC_URL`: The RPC URL of the network to deploy to.
-- `FORGE_PRIVATE_KEY`: The private key of the wallet you want to deploy from.
+   ```sh
+   cd .env.example .env
+   ```
 
-_note_ Optimism goerli requires signing up for an etherscan key on optimism goerli etherscan rather than mainnet etherscan
+1. Edit your `.env` to specify the environment variables.
+
+   - `ETHERSCAN_API_KEY`: Your Etherscan API Key.
+
+   - `FORGE_RPC_URL`: The RPC URL of the network to which you deploy.
+   If you use [Alchemy](https://github.com/ethereum-optimism/optimism-tutorial/tree/main/ecosystem/alchemy), your URL will look like this: `https://opt-goerli.g.alchemy.com/v2/<Alchemy API Key>`
+ 
+   - `FORGE_PRIVATE_KEY`: The private key of the wallet you want to deploy from.
+
 
 ## Deploy contract
 
 You can now deploy your contract!
 
-```bash
+```sh
 npm run deploy
 ```
 
-# Developing with Anvil (Goerli Fork)
+# Developing with Anvil (Optimism Mainnet Fork)
 
 Let's combine the above sections and use Anvil alongside our development environment to use our contracts (`./contracts`) against an Optimism fork.
-
-## Install Foundry
-
-Make sure you have Foundry installed & set up.
-
-[See the above instructions](#install-foundry).
 
 ## Start dev server
 
 Run the command:
 
-```
+```sh
 npm run dev:foundry
 ```
 
 This will:
 
-- Start a vite dev server,
+- Start a Next.js dev server,
 - Start the `@wagmi/cli` in [**watch mode**](https://wagmi.sh/cli/commands/generate#options) to listen to changes in our contracts, and instantly generate code,
-- Start an Anvil instance (Optimism Goerli Fork) on an RPC URL.
+- Start an Anvil instance (Goerli Optimism Fork) on an RPC URL.
 
 ## Deploy our contract to Anvil
 
 Now that we have an Anvil instance up and running, let's deploy our smart contract to the Anvil network:
 
-```
-pnpm run deploy:anvil
+```sh
+npm run deploy:anvil
 ```
 
 ## Start developing
@@ -137,11 +170,11 @@ Head to [localhost:5173](http://localhost:5173) in your browser, connect your wa
 
 ## ATST
 
-To interact with the attestation station this library uses the minimal [@eth-optimism/atst](todo.todo.todo) package currently in beta as well as it's accompioning cli. Feel free to open up issues for ideas of improvements for atst. We are also happy to give you ideas of how you could build an even better version of ATST or make it better for your hack!
+To interact with the attestation station this library uses the minimal [@eth-optimism/atst](https://www.npmjs.com/package/@eth-optimism/atst) package currently in beta as well as it's accompioning cli. Feel free to open up issues for ideas of improvements for atst. We are also happy to give you ideas of how you could build an even better version of ATST or make it better for your hack!
 
 ## ATST indexers
 
-Check out [nxyz attestation station](https://docs.n.xyz/reference/attestation-station) for a well documented indexer option while hacking on the [attestation station](https://community.optimism.io/docs/governance/attestation-station/)
+TODO document what you can use for backends for atst
 
 ## Alternatives
 
