@@ -1,10 +1,30 @@
-This is a [wagmi](https://wagmi.sh) + [Foundry](https://book.getfoundry.sh/) + [Vite](https://vitejs.dev/) project bootstrapped with [`create-wagmi`](https://github.com/wagmi-dev/wagmi/tree/main/packages/create-wagmi)
+<div align="center">
+  <br />
+  <br />
+  <a href="https://optimism.io"><img alt="Optimism" src="https://raw.githubusercontent.com/ethereum-optimism/brand-kit/main/assets/svg/OPTIMISM-R.svg" width=600></a>
+  <br />
+  <h3><a href="https://optimism.io">Optimism</a> ETH Denver hackathon starterkit.</h3>
+  <br />
+</div>
+
+This is a [Optimism](https://github.com/ethereum-optimism) + [wagmi](https://wagmi.sh) + [Foundry](https://book.getfoundry.sh/) + + [Rainbowkit](https://www.rainbowkit.com/) + [Vite](https://vitejs.dev/) project originally bootstrapped with [`create-wagmi`](https://github.com/wagmi-dev/wagmi/tree/main/packages/create-wagmi) built with ❤️ for [Eth Denver](https://www.ethdenver.com/) hackers
+
+# Who is this for
+
+- Hackers hacking on [optimism](https://www.optimism.io/)
+- Hackers hacking on the [attestation station](https://community.optimism.io/docs/governance/attestation-station/)
+- Hackers interested in using [the most modern and robust web3 full stack development stack](https://twitter.com/gakonst/status/1630038261941796866)
 
 # Getting Started
 
 Run `npm run dev` in your terminal, and then open [localhost:5173](http://localhost:5173) in your browser.
 
 Once the webpage has loaded, changes made to files inside the `src/` directory (e.g. `src/App.tsx`) will automatically update the webpage.
+
+See below for general usage instructions or [FAQ](todo.todo.todo) for answers to general questions such as 
+
+- where to get goerli eth
+- how to deploy to vercel/fleek
 
 # Generating ABIs & React Hooks
 
@@ -56,17 +76,18 @@ Go ahead and open up your `.env` file, and enter the following env vars:
 - `FORGE_RPC_URL`: The RPC URL of the network to deploy to.
 - `FORGE_PRIVATE_KEY`: The private key of the wallet you want to deploy from.
 
+*note* Optimism goerli requires signing up for an etherscan key on optimism goerli etherscan rather than mainnet etherscan
 ## Deploy contract
 
 You can now deploy your contract!
 
-```
+```bash
 npm run deploy
 ```
 
-# Developing with Anvil (Mainnet Fork)
+# Developing with Anvil (Goerli Fork)
 
-Let's combine the above sections and use Anvil alongside our development environment to use our contracts (`./contracts`) against an Ethereum Mainnet fork.
+Let's combine the above sections and use Anvil alongside our development environment to use our contracts (`./contracts`) against an Optimism fork.
 
 ## Install Foundry
 
@@ -104,9 +125,26 @@ Head to [localhost:5173](http://localhost:5173) in your browser, connect your wa
 
 > Tip: If you import an Anvil private key into your browser wallet (MetaMask, Coinbase Wallet, etc) – you will have 10,000 ETH to play with 😎. The private key is found in the terminal under "Private Keys" when you start up an Anvil instance with `npm run dev:foundry`.
 
+## ATST
+
+To interact with the attestation station this library uses the minimal [@eth-optimism/atst](todo.todo.todo) package currently in beta as well as it's accompioning cli.   Feel free to open up issues for ideas of improvements for atst.   We are also happy to give you ideas of how you could build an even better version of ATST or make it better for your hack!
+
+## ATST indexers
+
+TODO document what you can use for backends for atst
+
+## Alternatives
+
+Looking to use burner wallets?   Prefer hardhat?   Prefer NEXT.js?    Check out these amazing alternatives:
+
+- [create wagmi cli](https://wagmi.sh/cli/create-wagmi) - A flexible cli with many templates (this starterkit was started from vite-react-cli-foundry)
+- [scaffold-eth](https://github.com/scaffold-eth/se-2) - The new 2nd version of a popular NEXT.js based starter including hardhat, burner wallets, great documentation, and an active telegram for support
+- [Awesome wagmi](https://github.com/wagmi-dev/awesome-wagmi#templates) - Has other alternative examples
+- [Create Eth App](https://usedapp-docs.netlify.app/docs/Getting%20Started/Create%20Eth%20App) - Uses a wagmi alternative called useDapp that is used at OP Labs
+
 # Learn more
 
-To learn more about [Vite](https://vitejs.dev/), [Foundry](https://book.getfoundry.sh/) or [wagmi](https://wagmi.sh), check out the following resources:
+To learn more about [Optimism](https://optimism.io) [Vite](https://vitejs.dev/), [Foundry](https://book.getfoundry.sh/), [Rainbow kit](https://www.rainbowkit.com/) or [wagmi](https://wagmi.sh), check out the following resources:
 
 - [Foundry Documentation](https://book.getfoundry.sh/) – learn more about the Foundry stack (Anvil, Forge, etc).
 - [wagmi Documentation](https://wagmi.sh) – learn about wagmi Hooks and API.

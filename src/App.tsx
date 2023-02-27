@@ -1,25 +1,29 @@
-import { ConnectButton } from '@rainbow-me/rainbowkit'
-import { useAccount } from 'wagmi'
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { useAccount } from "wagmi";
 
-import { Account, Attestooooooor} from './components'
+import { Attestooooooor } from "./components";
 
 export function App() {
-  const { isConnected } = useAccount()
+  /**
+   * Wagmi hook for getting account information
+   * @see https://wagmi.sh/docs/hooks/useAccount
+   */
+  const { isConnected } = useAccount();
 
   return (
     <>
       <h1>OP Eth Denver Hackathon</h1>
 
+      {/** @see https://www.rainbowkit.com/docs/connect-button */}
       <ConnectButton />
 
       {isConnected && (
         <>
-          <Account />
           <hr />
           <Attestooooooor />
           <hr />
         </>
       )}
     </>
-  )
+  );
 }

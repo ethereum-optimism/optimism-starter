@@ -1,38 +1,65 @@
 import { configureChains, createClient } from "wagmi";
 import { foundry, optimism, optimismGoerli } from "wagmi/chains";
-import { alchemyProvider } from "wagmi/providers/alchemy";
 import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 import { getDefaultWallets } from "@rainbow-me/rainbowkit";
 
+/**
+ * Tell wagmi which chains you want to support
+ * To add a new chain simply import it and add it here
+ * @see https://wagmi.sh/react/providers/configuring-chains
+ */
 const { chains, provider, webSocketProvider } = configureChains(
-	[
-    optimism,
-    optimismGoerli,
-		foundry,
-	],
-	[
-		alchemyProvider({ apiKey: import.meta.env.VITE_ALCHEMY_API_KEY! }),
-		jsonRpcProvider({
-			rpc: (chain) => {
-				if (chain.id === foundry.id) {
-					return { http: "http://localhost:8545" };
-				}
-				return null;
-			},
-		}),
-	],
+  [optimism, optimismGoerli, foundry],
+  [
+	/**
+	 * Uncomment this line to use Alchemy as your provider
+	 * @see https://wagmi.sh/react/providers/alchemy 
+	 */
+    // alchemyProvider({ apiKey: import.meta.env.VITE_ALCHEMY_API_KEY! }),
+	/**
+	 * Tells wagmi to use the default RPC URL for each chain
+	 * for some dapps the higher rate limits of Alchemy may be required
+	 */
+    jsonRpcProvider({
+      rpc: (chain) => {
+        if (chain.id === foundry.id) {
+          return { http: "http://localhost:8545" };
+        }
+        if (chain.id === optimism.id) {
+		  return { http: "https://mainnet.optimism.io" };
+		}
+		if (chain.id === optimismGoerli.id) {
+					return { http: "https://goerli.optimism.io" };
+		}
+		return { http: chain.rpcUrls.default.http[0] }
+      },
+    }),
+  ]
 );
 
-export { chains };
+/**
+ * Export chains to be used by rainbowkit
+ * @see https://wagmi.sh/react/providers/configuring-chains
+ */
+export { chains }
 
+/**
+ * Configures wagmi connectors for rainbowkit
+ * @see https://www.rainbowkit.com/docs/custom-wallet-list
+ * @see https://wagmi.sh/react/connectors
+ */
 const { connectors } = getDefaultWallets({
-	appName: "Optimism attestation station + Forge + Wagmi + RainbowKit App",
-	chains,
+  appName: "Optimism attestation station + Forge + Wagmi + RainbowKit + Vite App",
+  chains,
 });
 
+/**
+ * Creates a singleton wagmi client for the app
+ * @see https://wagmi.sh/react/client
+ */
 export const client = createClient({
-	autoConnect: true,
-	connectors: connectors,
-	provider,
-	webSocketProvider,
+  autoConnect: true,
+  connectors: connectors,
+  provider,
+  webSocketProvider,
 });
