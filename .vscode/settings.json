@@ -1,0 +1,16 @@
+{
+  "npm.packageManager": "npm",
+  "editor.formatOnSaveMode": "file",
+  "editor.tabCompletion": "on",
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "files.eol": "\n",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.trimTrailingWhitespace": true
+}
