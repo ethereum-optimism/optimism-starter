@@ -1,6 +1,4 @@
-import { parseAttestationBytes } from "@eth-optimism/atst";
-import { stringifyAttestationBytes } from "@eth-optimism/atst/src/lib/stringifyAttestationBytes";
-import { formatBytes32String, toUtf8Bytes } from "ethers/lib/utils.js";
+import { formatBytes32String, toUtf8String } from "ethers/lib/utils.js";
 import { useState } from "react";
 import { useAccount, useNetwork, useWaitForTransaction } from "wagmi";
 
@@ -34,14 +32,9 @@ export function Attestooooooor() {
   const key = formatBytes32String("eth-denver");
   /**
    * Value of the attestation
-   * stringifyAttestationBytes can take the following datatypes
-   * - string
-   * - number
-   * - boolean
-   * - hexString
    * @see https://www.npmjs.com/package/@eth-optimism/atst
    */
-  const newAttestation = stringifyAttestationBytes(value) as `0x${string}`;
+  const newAttestation = toUtf8String(value) as `0x${string}`;
 
   /**
    * Automatically generated hook to prepare the transaction
@@ -94,7 +87,7 @@ export function Attestooooooor() {
       <h2>Attestoooooor</h2>
       <div>
         Current attestation:{" "}
-        {attestation ? parseAttestationBytes(attestation, "string") : "none"}
+        {attestation ? toUtf8String(attestation) : "none"}
       </div>
       <input
         disabled={isLoading}
