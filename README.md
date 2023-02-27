@@ -1,4 +1,5 @@
 <div align="center">
+  <a href="https://www.ethdenver.com"><img alt="EthDenver" src="https://user-images.githubusercontent.com/35039927/221527216-7f3733d4-761b-43fa-aa99-5539a2a4720f.png" width=600></a>
   <br />
   <br />
   <a href="https://optimism.io"><img alt="Optimism" src="https://raw.githubusercontent.com/ethereum-optimism/brand-kit/main/assets/svg/OPTIMISM-R.svg" width=600></a>
