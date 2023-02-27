@@ -26,7 +26,7 @@ contract AttestationStationScript is Script {
         vm.startBroadcast(deployerPrivateKey);
 
         // deploy AttestationStation
-        AttestationStation counter = new AttestationStation();
+        AttestationStation attestationStation = new AttestationStation();
 
         // stop broadcasting transactions
         vm.stopBroadcast();

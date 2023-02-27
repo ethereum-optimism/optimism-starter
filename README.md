@@ -131,7 +131,7 @@ pnpm run deploy:anvil
 
 Now that your contract has been deployed to Anvil, you can start playing around with your contract straight from the web interface!
 
-Head to [localhost:5173](http://localhost:5173) in your browser, connect your wallet, and try increment the counter on the Foundry chain.
+Head to [localhost:5173](http://localhost:5173) in your browser, connect your wallet, and try adding an attestation.
 
 > Tip: If you import an Anvil private key into your browser wallet (MetaMask, Coinbase Wallet, etc) – you will have 10,000 ETH to play with 😎. The private key is found in the terminal under "Private Keys" when you start up an Anvil instance with `npm run dev:foundry`.
 
