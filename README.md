@@ -65,10 +65,10 @@ You will need to install [Foundry](https://book.getfoundry.sh/getting-started/in
 
 Once the webpage has loaded, changes made to files inside the `src/` directory (e.g. `src/App.tsx`) will automatically update the webpage.
 
-See below for general usage instructions or [FAQ](https://github.com/ethereum-optimism/optimism-starter/blob/main/FAQ.md) for answers to general questions such as
+See below for general usage instructions or [FAQ](./FAQ.md) for answers to general questions such as:
 
-- where to get goerli eth
-- how to deploy to vercel/fleek
+- [Where to get goerli eth]().
+- [How to deploy a public version of your app](./FAQ.md#how-do-i-deploy-this).
 
 # Generating ABIs & React Hooks
 
