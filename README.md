@@ -20,6 +20,17 @@ This is a [Optimism](https://github.com/ethereum-optimism) + [wagmi](https://wag
 
 # Getting Started
 
+<details>
+<summary>
+
+## Prerequisites
+
+</summary>
+
+Stuff goes here
+
+</details>
+
 Run `npm run dev` in your terminal, and then open [localhost:5173](http://localhost:5173) in your browser.
 
 Once the webpage has loaded, changes made to files inside the `src/` directory (e.g. `src/App.tsx`) will automatically update the webpage.
