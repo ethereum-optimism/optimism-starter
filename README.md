@@ -16,6 +16,8 @@ This is a [Optimism](https://github.com/ethereum-optimism) + [wagmi](https://wag
 - Hackers hacking on the [attestation station](https://community.optimism.io/docs/governance/attestation-station/)
 - Hackers interested in using [the most modern and robust web3 full stack development stack](https://twitter.com/gakonst/status/1630038261941796866)
 
+## [Optimism in Denver!](https://oplabs.notion.site/Optimism-in-Denver-5f3f32a7469b4bbb94c11cf71ada8529)
+
 # Getting Started
 
 Run `npm run dev` in your terminal, and then open [localhost:5173](http://localhost:5173) in your browser.
