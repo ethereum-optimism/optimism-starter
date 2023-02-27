@@ -39,8 +39,14 @@ To generate ABIs & Hooks, follow the steps below.
 
 First, you will need to install [Foundry](https://book.getfoundry.sh/getting-started/installation) in order to build your smart contracts. This can be done by running the following command:
 
-```
+```bash
 curl -L https://foundry.paradigm.xyz | bash
+```
+
+## Install node_modules
+
+```bash
+npm install
 ```
 
 ## Generate code
