@@ -7,25 +7,25 @@ Definitely go with what you have previous experience and are comfortable with. O
 1. [Vercel](https://vercel.com/evmts) is a great choice because of how easy it is to deploy to. It will allow you to focus on building your app
 2. [Fleek](https://fleek.co/) is a great web3 native choice that we used sometimes at OP labs. It allows you to deploy both to a CDN and to IPFS with minimal setup with a similar experience to vercel
 
-**note** getting forge to build on vercel can be a blocker. To make it easier for hackers there is a `npm run build:production` command that does not build forge before building
+**Note:** Getting forge to build on vercel can be a blocker. To make it easier for hackers there is a `npm run build:production` command that does not build forge before building
 
 You can also just be happy using local host :).
 
-If you have any trouble deploying email [will@oplabs.co](will@oplabs.co) with a link to your github repo and a description of your issue or visit the OP labs booth at ETH denver
+If you have any trouble deploying email [will@oplabs.co](will@oplabs.co) with a link to your github repo and a description of your issue or visit the OP Labs booth at ETHDenver.
 
-## How do I get goerli eth?
+## How do I get Optimism Goerli ETH?
 
-TODO
+[See here](https://community.optimism.io/docs/useful-tools/faucets/).
 
-## What is the attestation station
+## What is the Attestation Station
 
-TODO
+[See here](https://community.optimism.io/docs/governance/attestation-station/).
 
-## I'm not hacking on the attestation station. Can I still use this?
+## I'm not hacking on the Attestation Station. Can I still use this?
 
 Absolutely! It's a great start for any full stack hack project
 
-## I'm not even hacking on optimism. Can I still use this?
+## I'm not even hacking on Optimism. Can I still use this?
 
 You dissapoint us. But yes. With minor tweeks this boilerplate will work on any EVM chain
 
