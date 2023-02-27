@@ -29,7 +29,7 @@ const { chains, provider, webSocketProvider } = configureChains(
         return { http: chain.rpcUrls.default.http[0] };
       },
     }),
-  ]
+  ],
 );
 
 /**

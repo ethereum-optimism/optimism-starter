@@ -59,10 +59,6 @@ Forge is a superfast and robust toolchain that reduces context switching, speeds
 
 Compared to NEXT.js vite is a better choice for a hackathon. It has a faster and better dev server, is simpler, and very easy to deploy since it's build output is just static assets. That said, NEXT.js is also a great choice and we recomend using [Wagmi CLI](https://wagmi.sh/cli/create-wagmi) if you believe NEXT.js would be more productive for your project
 
-## Why no linter?
-
-When you are hacking in the same room as your fellow hackers you don't need things like a linter. That said, if you want to use one I recomend using [prettier](https://prettier.io/) with no config or if you want something that includes common lint rules try using the super fast [rome](https://rome.tools/) with a config similar to [this one](https://github.com/evmts/evmts-monorepo/blob/main/packages/plugin-rollup/rome.json)
-
 ## Why no javascript tests
 
 Bless your heart for writing tests at a hackathon! You are awesome! I recomend using [vitest](https://vitest.dev/) which will work with 0 config and has a nearly identical API to jest
