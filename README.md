@@ -61,7 +61,7 @@ To deploy your contracts to a network, you can use Foundry's [Forge](https://boo
 
 You can read a more in-depth guide on using Forge to deploy a smart contract [here](https://book.getfoundry.sh/forge/deploying), but we have included a simple script in the `package.json` to get you started.
 
-Below are the steps to deploying a smart contract to Ethereum Mainnet using Forge:
+Below are the steps to deploying a smart contract to Optimism Goerli using Forge:
 
 ## Install Foundry
 
@@ -109,9 +109,9 @@ npm run dev:foundry
 
 This will:
 
-- Start a Next.js dev server,
+- Start a vite dev server,
 - Start the `@wagmi/cli` in [**watch mode**](https://wagmi.sh/cli/commands/generate#options) to listen to changes in our contracts, and instantly generate code,
-- Start an Anvil instance (Mainnet Fork) on an RPC URL.
+- Start an Anvil instance (Optimism Goerli Fork) on an RPC URL.
 
 ## Deploy our contract to Anvil
 
