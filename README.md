@@ -42,6 +42,8 @@ curl -L https://foundry.paradigm.xyz | bash
 
 </details>
 
+## Start the application
+
 1. Install the necessary node packages:
 
    ```sh
