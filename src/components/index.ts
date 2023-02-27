@@ -1,2 +1,1 @@
-export { Account } from './Account'
-export { Attestooooooor } from './Attestoooooor'
+export { Attestooooooor } from "./Attestoooooor";

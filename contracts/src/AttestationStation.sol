@@ -8,6 +8,8 @@ import {Semver} from "@eth-optimism/contracts-bedrock/contracts/universal/Semver
  * @author Optimism Collective
  * @author Gitcoin
  * @notice Where attestations live.
+ * @dev This contract is originally from the Optimism monorepo.
+ *       https://github.com/ethereum-optimism/optimism/blob/develop/packages/contracts-periphery/contracts/universal/op-nft/AttestationStation.sol
  */
 contract AttestationStation is Semver {
     /**
@@ -56,7 +58,11 @@ contract AttestationStation is Semver {
      * @param _key   A key used to namespace the attestation.
      * @param _val   An arbitrary value stored as part of the attestation.
      */
-    function attest(address _about, bytes32 _key, bytes memory _val) public {
+    function attest(
+        address _about,
+        bytes32 _key,
+        bytes memory _val
+    ) public {
         attestations[msg.sender][_about][_key] = _val;
 
         emit AttestationCreated(msg.sender, _about, _key, _val);
