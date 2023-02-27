@@ -27,11 +27,30 @@ This is a [Optimism](https://github.com/ethereum-optimism) + [wagmi](https://wag
 
 </summary>
 
-Stuff goes here
+### Install Node
+
+[See here](https://nodejs.org/en/download/)
+
+### Install Foundry
+
+You will need to install [Foundry](https://book.getfoundry.sh/getting-started/installation) to build your smart contracts. This can be done by running the following command:
+
+```sh
+curl -L https://foundry.paradigm.xyz | bash
+```
+
 
 </details>
 
-Run `npm run dev` in your terminal, and then open [localhost:5173](http://localhost:5173) in your browser.
+1. Install the necessary node packages:
+
+   ```sh
+   npm install
+   ```
+
+2. Run `npm run dev` in your terminal
+
+3. Open [localhost:5173](http://localhost:5173) in your browser.
 
 Once the webpage has loaded, changes made to files inside the `src/` directory (e.g. `src/App.tsx`) will automatically update the webpage.
 
@@ -45,14 +64,6 @@ See below for general usage instructions or [FAQ](https://github.com/ethereum-op
 This project comes with `@wagmi/cli` built-in, which means you can generate wagmi-compatible (type safe) ABIs & React Hooks straight from the command line.
 
 To generate ABIs & Hooks, follow the steps below.
-
-## Install Foundry
-
-First, you will need to install [Foundry](https://book.getfoundry.sh/getting-started/installation) in order to build your smart contracts. This can be done by running the following command:
-
-```
-curl -L https://foundry.paradigm.xyz | bash
-```
 
 ## Generate code
 
