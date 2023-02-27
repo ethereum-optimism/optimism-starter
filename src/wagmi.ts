@@ -1,6 +1,7 @@
 import { configureChains, createClient } from "wagmi";
 import { foundry, optimism, optimismGoerli } from "wagmi/chains";
 import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
+// import { alchemyProvider } from "wagmi/providers/alchemy";
 import { getDefaultWallets } from "@rainbow-me/rainbowkit";
 
 /**
@@ -11,27 +12,21 @@ import { getDefaultWallets } from "@rainbow-me/rainbowkit";
 const { chains, provider, webSocketProvider } = configureChains(
   [optimism, optimismGoerli, foundry],
   [
-	/**
-	 * Uncomment this line to use Alchemy as your provider
-	 * @see https://wagmi.sh/react/providers/alchemy 
-	 */
+    /**
+     * Uncomment this line to use Alchemy as your provider
+     * @see https://wagmi.sh/react/providers/alchemy
+     */
     // alchemyProvider({ apiKey: import.meta.env.VITE_ALCHEMY_API_KEY! }),
-	/**
-	 * Tells wagmi to use the default RPC URL for each chain
-	 * for some dapps the higher rate limits of Alchemy may be required
-	 */
+    /**
+     * Tells wagmi to use the default RPC URL for each chain
+     * for some dapps the higher rate limits of Alchemy may be required
+     */
     jsonRpcProvider({
       rpc: (chain) => {
         if (chain.id === foundry.id) {
           return { http: "http://localhost:8545" };
         }
-        if (chain.id === optimism.id) {
-		  return { http: "https://mainnet.optimism.io" };
-		}
-		if (chain.id === optimismGoerli.id) {
-					return { http: "https://goerli.optimism.io" };
-		}
-		return { http: chain.rpcUrls.default.http[0] }
+        return { http: chain.rpcUrls.default.http[0] };
       },
     }),
   ]
@@ -41,7 +36,7 @@ const { chains, provider, webSocketProvider } = configureChains(
  * Export chains to be used by rainbowkit
  * @see https://wagmi.sh/react/providers/configuring-chains
  */
-export { chains }
+export { chains };
 
 /**
  * Configures wagmi connectors for rainbowkit
@@ -49,7 +44,8 @@ export { chains }
  * @see https://wagmi.sh/react/connectors
  */
 const { connectors } = getDefaultWallets({
-  appName: "Optimism attestation station + Forge + Wagmi + RainbowKit + Vite App",
+  appName:
+    "Optimism attestation station + Forge + Wagmi + RainbowKit + Vite App",
   chains,
 });
 
