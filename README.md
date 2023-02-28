@@ -187,7 +187,7 @@ Looking to use burner wallets? Prefer hardhat? Prefer NEXT.js? Check out these a
 
 # Learn more
 
-To learn more about [Optimism](https://optimism.io) [Vite](https://vitejs.dev/), [Foundry](https://book.getfoundry.sh/), [Rainbow kit](https://www.rainbowkit.com/) or [wagmi](https://wagmi.sh), check out the following resources:
+To learn more about [Optimism](https://optimism.io), [Vite](https://vitejs.dev/), [Foundry](https://book.getfoundry.sh/), [Rainbow kit](https://www.rainbowkit.com/) or [wagmi](https://wagmi.sh), check out the following resources:
 
 - [Foundry Documentation](https://book.getfoundry.sh/) – learn more about the Foundry stack (Anvil, Forge, etc).
 - [wagmi Documentation](https://wagmi.sh) – learn about wagmi Hooks and API.
