@@ -181,7 +181,7 @@ Head to [localhost:5173](http://localhost:5173) in your browser, connect your wa
 
 # Attestation station
 
-This starkit comes preloaded with tools for working with the attestation station! To learn more check out [attestation-station.md](/attestation-station.md)
+This starterkit comes preloaded with tools for working with the attestation station! To learn more check out [attestation-station.md](/attestation-station.md)
 
 # Alternatives
 
