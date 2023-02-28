@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://www.ethdenver.com"><img alt="EthDenver" src="https://user-images.githubusercontent.com/5679180/221992438-c7454b1b-0066-409d-9bfb-e86504fe3d23.png" width=600></a>
+  <a href="https://www.ethdenver.com"><img alt="EthDenver" src="[https://user-images.githubusercontent.com/5679180/221992438-c7454b1b-0066-409d-9bfb-e86504fe3d23.png](https://user-images.githubusercontent.com/5679180/221993686-fc725cf1-9347-4e0b-8b17-3e90a4d06111.png)" width=600></a>
   <br />
   <br />
   ✦
