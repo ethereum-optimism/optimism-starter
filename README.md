@@ -1,8 +1,11 @@
 <div align="center">
-  <a href="https://www.ethdenver.com"><img alt="EthDenver" src="https://user-images.githubusercontent.com/35039927/221527216-7f3733d4-761b-43fa-aa99-5539a2a4720f.png" width=600></a>
+  <a href="https://www.ethdenver.com"><img alt="EthDenver" src="https://user-images.githubusercontent.com/5679180/221992438-c7454b1b-0066-409d-9bfb-e86504fe3d23.png" width=600></a>
   <br />
   <br />
-  <a href="https://optimism.io"><img alt="Optimism" src="https://raw.githubusercontent.com/ethereum-optimism/brand-kit/main/assets/svg/OPTIMISM-R.svg" width=600></a>
+  ✦
+  <br />
+  <br />
+  <a href="https://optimism.io"><img alt="Optimism" src="https://raw.githubusercontent.com/ethereum-optimism/brand-kit/main/assets/svg/OPTIMISM-R.svg" width=320></a>
   <br />
   <h2><a href="https://optimism.io">Optimism</a> ETH Denver hackathon starterkit.</h2>
   <br />
