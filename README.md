@@ -4,7 +4,7 @@
   <br />
   <a href="https://optimism.io"><img alt="Optimism" src="https://raw.githubusercontent.com/ethereum-optimism/brand-kit/main/assets/svg/OPTIMISM-R.svg" width=600></a>
   <br />
-  <h3><a href="https://optimism.io">Optimism</a> ETH Denver hackathon starterkit.</h3>
+  <h2><a href="https://optimism.io">Optimism</a> ETH Denver hackathon starterkit.</h2>
   <br />
 </div>
 
@@ -16,14 +16,14 @@ This is a [Optimism](https://github.com/ethereum-optimism) + [wagmi](https://wag
 - Hackers hacking on the [attestation station](https://community.optimism.io/docs/governance/attestation-station/)
 - Hackers interested in using [the most modern and robust web3 full stack development stack](https://twitter.com/gakonst/status/1630038261941796866)
 
-## [Optimism in Denver!](https://oplabs.notion.site/Optimism-in-Denver-5f3f32a7469b4bbb94c11cf71ada8529)
+#### [Optimism in Denver!](https://oplabs.notion.site/Optimism-in-Denver-5f3f32a7469b4bbb94c11cf71ada8529)
 
 # Getting Started
 
 <details>
 <summary>
 
-## Prerequisites
+## Prerequisites (Node, Foundry)
 
 </summary>
 
@@ -52,18 +52,28 @@ You will need to install [Foundry](https://book.getfoundry.sh/getting-started/in
 
 ## Start the application
 
+1. Clone/fork the optimism-starter repo
+
+   ```sh
+   git clone https://github.com/ethereum-optimism/optimism-starter.git
+   ```
+    
 1. Install the necessary node packages:
 
    ```sh
+   cd optimism-starter
    npm install
    ```
 
-1. Run `npm run dev` in your terminal
+1. Start the frontend with `npm run dev`
+   ```sh
+   npm run dev
+   ```
    If you get errors during this step, you might need to [update your Foundry to the latest version](#install-foundry).
 
 1. Open [localhost:5173](http://localhost:5173) in your browser.
 
-Once the webpage has loaded, changes made to files inside the `src/` directory (e.g. `src/App.tsx`) will automatically update the webpage.
+   Once the webpage has loaded, changes made to files inside the `src/` directory (e.g. `src/App.tsx`) will automatically update the webpage.
 
 See below for general usage instructions or [FAQ](./FAQ.md) for answers to general questions such as:
 
@@ -168,15 +178,15 @@ Head to [localhost:5173](http://localhost:5173) in your browser, connect your wa
 
 > Tip: If you import an Anvil private key into your browser wallet (MetaMask, Coinbase Wallet, etc) – you will have 10,000 ETH to play with 😎. The private key is found in the terminal under "Private Keys" when you start up an Anvil instance with `npm run dev:foundry`.
 
-## ATST
+# ATST
 
-To interact with the attestation station this library uses the minimal [@eth-optimism/atst](https://www.npmjs.com/package/@eth-optimism/atst) package currently in beta as well as it's accompioning cli. Feel free to open up issues for ideas of improvements for atst. We are also happy to give you ideas of how you could build an even better version of ATST or make it better for your hack!
+To interact with the attestation station this library uses the minimal [@eth-optimism/atst](https://www.npmjs.com/package/@eth-optimism/atst) package currently in beta as well as it's accompanying cli. Feel free to open up issues for ideas of improvements for atst. We are also happy to give you ideas of how you could build an even better version of ATST or make it better for your hack!
 
 ## ATST indexers
 
 TODO document what you can use for backends for atst
 
-## Alternatives
+# Alternatives
 
 Looking to use burner wallets? Prefer hardhat? Prefer NEXT.js? Check out these amazing alternatives:
 
