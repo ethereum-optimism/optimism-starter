@@ -1,33 +1,29 @@
 <div align="center">
-  <a href="https://www.ethdenver.com"><img alt="EthDenver" src="https://user-images.githubusercontent.com/35039927/221527216-7f3733d4-761b-43fa-aa99-5539a2a4720f.png" width=600></a>
+  <a href="https://www.ethdenver.com"><img alt="EthDenver" src="https://user-images.githubusercontent.com/5679180/221993686-fc725cf1-9347-4e0b-8b17-3e90a4d06111.png" width=600></a>
   <br />
   <br />
-  <a href="https://optimism.io"><img alt="Optimism" src="https://raw.githubusercontent.com/ethereum-optimism/brand-kit/main/assets/svg/OPTIMISM-R.svg" width=600></a>
+  ✦
+  <br />
+  <br />
+  <a href="https://optimism.io"><img alt="Optimism" src="https://raw.githubusercontent.com/ethereum-optimism/brand-kit/main/assets/svg/OPTIMISM-R.svg" width=320></a>
   <br />
   <h2><a href="https://optimism.io">Optimism</a> ETH Denver hackathon starterkit.</h2>
   <br />
 </div>
 
-This is a [Optimism](https://github.com/ethereum-optimism) + [wagmi](https://wagmi.sh) + [Foundry](https://book.getfoundry.sh/) + [Rainbowkit](https://www.rainbowkit.com/) + [Vite](https://vitejs.dev/) project originally bootstrapped with [`create-wagmi`](https://github.com/wagmi-dev/wagmi/tree/main/packages/create-wagmi) built with ❤️ for [Eth Denver](https://www.ethdenver.com/) hackers
+This is a [Optimism](https://github.com/ethereum-optimism) + [wagmi](https://wagmi.sh) + [Foundry](https://book.getfoundry.sh/) + [Rainbowkit](https://www.rainbowkit.com/) + [Vite](https://vitejs.dev/) project originally bootstrapped with [`create-wagmi`](https://github.com/wagmi-dev/wagmi/tree/main/packages/create-wagmi) built with ❤️ for [ETH Denver](https://www.ethdenver.com/) hackers.
 
-# Who is this for
+If you are attending ETH Denver and want to chat with folks from Optimism, check out 🔴 [Optimism in Denver!](https://oplabs.notion.site/Optimism-in-Denver-5f3f32a7469b4bbb94c11cf71ada8529)!
+
+## Who is this for?
 
 This starter is a great choice for any of the following groups:
 
-- Hackers hacking on [optimism](https://www.optimism.io/)
-- Hackers hacking on the [attestation station](https://community.optimism.io/docs/governance/attestation-station/)
+- Hackers hacking on [Optimism](https://www.optimism.io/)
+- Hackers hacking on the [Attestation Station](https://community.optimism.io/docs/governance/attestation-station/)
 - Hackers interested in using [the most modern and robust web3 full stack development stack](https://twitter.com/gakonst/status/1630038261941796866)
 
-#### [Optimism in Denver!](https://oplabs.notion.site/Optimism-in-Denver-5f3f32a7469b4bbb94c11cf71ada8529)
-
-# Getting Started
-
-<details>
-<summary>
-
-## Prerequisites (Node, Foundry)
-
-</summary>
+## Getting Started
 
 ### Install Node
 
@@ -83,7 +79,7 @@ See below for general usage instructions or [FAQ](./FAQ.md) for answers to gener
 - [Where to get goerli eth]().
 - [How to deploy a public version of your app](./FAQ.md#how-do-i-deploy-this).
 
-# Generating ABIs & React Hooks
+## Generate ABIs & React Hooks
 
 This project comes with `@wagmi/cli` built-in, which means you can generate wagmi-compatible (type safe) ABIs & React Hooks straight from the command line.
 
@@ -101,7 +97,7 @@ This will use the wagmi config (`wagmi.config.ts`) to generate a `src/generated.
 
 [Here is an example](https://github.com/ethereum-optimism/optimism-starter/blob/main/src/components/Attestoooooor.tsx#L77) of Hooks from the generated file being used.
 
-# Deploying Contracts
+## Deploying Contracts
 
 To deploy your contracts to a network, you can use Foundry's [Forge](https://book.getfoundry.sh/forge/) – a command-line tool to tests, build, and deploy your smart contracts.
 
@@ -145,11 +141,11 @@ You can now deploy your contract!
 npm run deploy
 ```
 
-# Developing with Anvil (Optimism Mainnet Fork)
+## Developing with Anvil (Optimism Mainnet Fork)
 
 Let's combine the above sections and use Anvil alongside our development environment to use our contracts (`./contracts`) against an Optimism fork.
 
-## Start dev server
+### Start dev server
 
 Run the command:
 
@@ -163,7 +159,7 @@ This will:
 - Start the `@wagmi/cli` in [**watch mode**](https://wagmi.sh/cli/commands/generate#options) to listen to changes in our contracts, and instantly generate code,
 - Start an Anvil instance (Goerli Optimism Fork) on an RPC URL.
 
-## Deploy our contract to Anvil
+### Deploy our contract to Anvil
 
 Now that we have an Anvil instance up and running, let's deploy our smart contract to the Anvil network:
 
@@ -179,11 +175,11 @@ Head to [localhost:5173](http://localhost:5173) in your browser, connect your wa
 
 > Tip: If you import an Anvil private key into your browser wallet (MetaMask, Coinbase Wallet, etc) – you will have 10,000 ETH to play with 😎. The private key is found in the terminal under "Private Keys" when you start up an Anvil instance with `npm run dev:foundry`.
 
-# Attestation station
+## Attestation station
 
 This starterkit comes preloaded with tools for working with the attestation station! To learn more check out [attestation-station.md](/attestation-station.md)
 
-# Alternatives
+## Alternatives
 
 Looking to use burner wallets? Prefer hardhat? Prefer NEXT.js? Check out these amazing alternatives:
 
@@ -192,7 +188,7 @@ Looking to use burner wallets? Prefer hardhat? Prefer NEXT.js? Check out these a
 - [Awesome wagmi](https://github.com/wagmi-dev/awesome-wagmi#templates) - Has other alternative examples
 - [Create Eth App](https://usedapp-docs.netlify.app/docs/Getting%20Started/Create%20Eth%20App) - Uses a wagmi alternative called useDapp that is used at OP Labs
 
-# Learn more
+## Learn more
 
 To learn more about [Optimism](https://optimism.io), [Vite](https://vitejs.dev/), [Foundry](https://book.getfoundry.sh/), [Rainbow kit](https://www.rainbowkit.com/) or [wagmi](https://wagmi.sh), check out the following resources:
 
