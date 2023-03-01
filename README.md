@@ -121,7 +121,7 @@ You will first need to set up your `.env` to tell Forge where to deploy your con
 1. Copy `.env.example` to `.env`.
 
    ```sh
-   cd .env.example .env
+   cp .env.example .env
    ```
 
 1. Edit your `.env` to specify the environment variables.
