@@ -177,7 +177,15 @@ Head to [localhost:5173](http://localhost:5173) in your browser, connect your wa
 
 ## Attestation station
 
-This starterkit comes preloaded with tools for working with the attestation station! To learn more check out [attestation-station.md](/attestation-station.md)
+This starterkit comes preloaded with tools for working with the attestation station!
+
+[@eth-optimism/atst](https://github.com/ethereum-optimism/optimism/blob/willc/alpha-final/packages/atst/docs/sdk.md) - Is a typescript sdk for easily interacting with the attestation in vanilla javascript and react. The react hooks for your convenience are also in this package at `src/generated.ts`
+
+Also included is a [CLI](https://github.com/ethereum-optimism/optimism/blob/willc/alpha-final/packages/atst/docs/cli.md) for interacting with the attestation. To get started run
+
+```bash
+npx atst --help
+```
 
 ## Alternatives
 
