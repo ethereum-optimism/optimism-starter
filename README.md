@@ -155,7 +155,7 @@ npm run dev:foundry
 
 This will:
 
-- Start a Next.js dev server,
+- Start a vite dev server,
 - Start the `@wagmi/cli` in [**watch mode**](https://wagmi.sh/cli/commands/generate#options) to listen to changes in our contracts, and instantly generate code,
 - Start an Anvil instance (Goerli Optimism Fork) on an RPC URL.
 
@@ -171,7 +171,7 @@ npm run deploy:anvil
 
 Now that your contract has been deployed to Anvil, you can start playing around with your contract straight from the web interface!
 
-Head to [localhost:5173](http://localhost:5173) in your browser, connect your wallet, and try increment the counter on the Foundry chain.
+Head to [localhost:5173](http://localhost:5173) in your browser, connect your wallet, and try increment a counter on the Foundry chain.   Use the generated code in `src/generated.ts` to do it and follow the [Attestooooor](https://github.com/ethereum-optimism/optimism-starter/blob/main/src/components/Attestoooooor.tsx) component as an example
 
 > Tip: If you import an Anvil private key into your browser wallet (MetaMask, Coinbase Wallet, etc) – you will have 10,000 ETH to play with 😎. The private key is found in the terminal under "Private Keys" when you start up an Anvil instance with `npm run dev:foundry`.
 
