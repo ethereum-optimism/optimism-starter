@@ -14,7 +14,7 @@ export function App() {
     <>
       <h1>OP Eth Denver Hackathon</h1>
 
-      {/** @see https://www.rainbowkit.com/docs/connect-button */}
+      {/* @see https://www.rainbowkit.com/docs/connect-button */}
       <ConnectButton />
 
       {isConnected && (
