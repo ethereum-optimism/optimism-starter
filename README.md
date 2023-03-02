@@ -49,6 +49,8 @@ You will need to install [Foundry](https://book.getfoundry.sh/getting-started/in
 
 ## Start the application
 
+<img width="479" alt="image" src="https://user-images.githubusercontent.com/35039927/222430870-3300a44e-91b3-4e9d-b116-adb81f3366c7.png">
+
 1. Clone/fork the optimism-starter repo
 
    ```sh
@@ -186,6 +188,8 @@ Also included is a [CLI](https://github.com/ethereum-optimism/optimism/blob/will
 ```bash
 npx atst --help
 ```
+
+![preview](https://user-images.githubusercontent.com/35039927/222435290-0271bc85-1e62-4d0a-b539-084af1e22ded.gif)
 
 ## Alternatives
 
