@@ -1,10 +1,10 @@
-import {
-  formatBytes32String,
-  toUtf8Bytes,
-  toUtf8String,
-} from "ethers/lib/utils.js";
 import { useState } from "react";
 import { useAccount, useNetwork, useWaitForTransaction } from "wagmi";
+import {
+  parseString,
+  stringifyAttestationBytes,
+  encodeRawKey,
+} from "@eth-optimism/atst";
 
 /**
  * These react hooks are generated with the wagmi cli via `wagmi generate`
@@ -33,32 +33,19 @@ export function Attestooooooor() {
    * The key of the attestation
    * @see https://www.npmjs.com/package/@eth-optimism/atst
    */
-  const key = formatBytes32String("eth-denver");
+  const key = encodeRawKey("hello-world");
   /**
    * Value of the attestation
    * @see https://www.npmjs.com/package/@eth-optimism/atst
-   * TODO make this less janky with atst
    */
-  const newAttestation = toUtf8Bytes(value) as unknown as `0x${string}`;
+  const newAttestation = stringifyAttestationBytes(value);
 
   /**
    * Automatically generated hook to prepare the transaction
    * @see https://wagmi.sh/react/prepare-hooks/usePrepareContractWrite
    */
   const { config } = usePrepareAttestationStationAttest({
-    args: [
-      [
-        {
-          about: address!,
-          key: key as `0x${string}`,
-          val: newAttestation,
-        },
-      ],
-    ],
-    /**
-     * Don't run the transaction if the value is empty or the user is not connected
-     */
-    enabled: Boolean(value && address),
+    args: [address!, key, newAttestation],
   });
 
   /**
@@ -75,7 +62,7 @@ export function Attestooooooor() {
    * @see https://wagmi.sh/react/execute-hooks/useContractRead
    */
   const { refetch, data: attestation } = useAttestationStationAttestations({
-    args: [address!, address!, key as `0x${string}`],
+    args: [address!, address!, key],
   });
 
   /**
@@ -91,7 +78,7 @@ export function Attestooooooor() {
     <div>
       <h2>Attestoooooor</h2>
       <div>
-        Current attestation: {attestation ? toUtf8String(attestation) : "none"}
+        Current attestation: {attestation ? parseString(attestation) : "none"}
       </div>
       <input
         disabled={isLoading}
