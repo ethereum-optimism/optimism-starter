@@ -16,7 +16,7 @@
     "wagmi": "wagmi generate"
   },
   "dependencies": {
-    "@eth-optimism/atst": "^0.1.0",
+    "@eth-optimism/atst": "^0.0.0-20230306200511",
     "@eth-optimism/contracts-bedrock": "^0.12.1",
     "@eth-optimism/contracts-periphery": "^1.0.7",
     "@eth-optimism/sdk": "0.0.0-20230301065104",
