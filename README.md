@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://www.ethdenver.com"><img alt="EthDenver" src="https://user-images.githubusercontent.com/5679180/221993686-fc725cf1-9347-4e0b-8b17-3e90a4d06111.png" width=600></a>
+  <img width="600" alt="scaling-ethereum" src="https://user-images.githubusercontent.com/389705/225776952-35eaad99-5180-4867-86dd-d02c250ab92d.png">
   <br />
   <br />
   ✦
@@ -7,13 +7,12 @@
   <br />
   <a href="https://optimism.io"><img alt="Optimism" src="https://raw.githubusercontent.com/ethereum-optimism/brand-kit/main/assets/svg/OPTIMISM-R.svg" width=320></a>
   <br />
-  <h2><a href="https://optimism.io">Optimism</a> ETH Denver hackathon starterkit.</h2>
+  <h2><a href="https://optimism.io">Optimism</a> starterkit.</h2>
   <br />
 </div>
 
-This is a [Optimism](https://github.com/ethereum-optimism) + [wagmi](https://wagmi.sh) + [Foundry](https://book.getfoundry.sh/) + [Rainbowkit](https://www.rainbowkit.com/) + [Vite](https://vitejs.dev/) project originally bootstrapped with [`create-wagmi`](https://github.com/wagmi-dev/wagmi/tree/main/packages/create-wagmi) built with ❤️ for [ETH Denver](https://www.ethdenver.com/) hackers.
+This is a [Optimism](https://github.com/ethereum-optimism) + [wagmi](https://wagmi.sh) + [Foundry](https://book.getfoundry.sh/) + [Rainbowkit](https://www.rainbowkit.com/) + [Vite](https://vitejs.dev/) project originally bootstrapped with [`create-wagmi`](https://github.com/wagmi-dev/wagmi/tree/main/packages/create-wagmi) built with ❤️ for hackers.
 
-If you are attending ETH Denver and want to chat with folks from Optimism, check out 🔴 [Optimism in Denver!](https://oplabs.notion.site/Optimism-in-Denver-5f3f32a7469b4bbb94c11cf71ada8529)!
 
 ## Who is this for?
 
@@ -49,7 +48,7 @@ You will need to install [Foundry](https://book.getfoundry.sh/getting-started/in
 
 ## Start the application
 
-<img width="479" alt="image" src="https://user-images.githubusercontent.com/35039927/222430870-3300a44e-91b3-4e9d-b116-adb81f3366c7.png">
+<img width="450" alt="starter-app-screenshot" src="https://user-images.githubusercontent.com/389705/225778318-4e6fb8c0-c5d7-4aea-9fc2-2efd17ca435c.png">
 
 1. Clone/fork the optimism-starter repo
 
