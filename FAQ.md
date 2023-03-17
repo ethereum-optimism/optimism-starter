@@ -11,7 +11,7 @@ Definitely go with what you have previous experience and are comfortable with. O
 
 You can also just be happy using local host :).
 
-If you have any trouble deploying email [will@oplabs.co](will@oplabs.co) with a link to your github repo and a description of your issue or visit the OP Labs booth at ETHDenver.
+If you have any trouble deploying email [will@oplabs.co](will@oplabs.co) with a link to your github repo and a description of your issue.
 
 ## How do I get Optimism Goerli ETH?
 
@@ -75,5 +75,5 @@ Try it out! You will be amazed at how much it will streamline your workflow of g
 
 ## Why don't typerrors break the build
 
-This repo uses esbuild to build and treats typechecking as a linting step.  
+This repo uses esbuild to build and treats typechecking as a linting step.
 This is in general a best practice anyways and it helps you stay productive while hacking without being slowed down by typescript
