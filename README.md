@@ -1,8 +1,4 @@
 <div align="center">
-  <img width="600" alt="scaling-ethereum" src="https://user-images.githubusercontent.com/389705/225776952-35eaad99-5180-4867-86dd-d02c250ab92d.png">
-  <br />
-  <br />
-  ✦
   <br />
   <br />
   <a href="https://optimism.io"><img alt="Optimism" src="https://raw.githubusercontent.com/ethereum-optimism/brand-kit/main/assets/svg/OPTIMISM-R.svg" width=320></a>
