@@ -1,31 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300&family=Raleway:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-h1 {
-  font-family: 'General Sans';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 42px;
-  line-height: 150%;
+/* Remove number type input arrows */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-h2 {
-
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
-h3 {
-
+@layer components {
+  /* Layout */
+  .page-container {
+    @apply flex flex-col justify-between w-screen pt-8 pb-16 desktop:flex-col mobile:px-4 tablet:px-8 desktop:px-16;
+  }
 }
 
-h4 {
+.mint-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 16px;
 
-}
+  width: 301px;
+  height: 52px;
 
-h5 {
+  background: #58c6aa;
+  /* Black Shadows/Black E1 */
 
-}
-
-h6 {
-
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  color: white;
 }

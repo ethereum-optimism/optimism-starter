@@ -1,0 +1,194 @@
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  scrollbar-color: transparent;
+  scrollbar-width: thin;
+  letter-spacing: 0.15008px;
+}
+
+/* Scroll bar */
+::-webkit-scrollbar {
+  scrollbar-width: 2px;
+  background-color: #010325;
+  height: 1rem;
+  width: 0.5rem;
+  border-radius: 9999px;
+  border-width: 1px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(86, 88, 105, 0.5);
+  border-color: rgba(86, 88, 105, 0.5);
+  border-radius: 9999px;
+  border-width: 1px;
+  box-shadow: 0 0 0 1px rgba(86, 88, 105, 0.5);
+}
+
+::-webkit-scrollbar:horizontal {
+  height: 0.5rem;
+  width: 1rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 9999px;
+}
+
+/* Input range */
+.slider {
+  -webkit-appearance: none;
+  height: 4px !important;
+  background: linear-gradient(55.87deg, #3383c5 19.25%, #29c4b8 80.38%);
+  outline: none;
+  opacity: 1;
+  margin-bottom: 1rem;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #50688a;
+  box-shadow: inset 0 0 0 1px rgba(86, 88, 105, 0.5);
+  cursor: pointer;
+  border: none;
+}
+
+.slider::-moz-range-thumb {
+  width: 5px;
+  height: 5px;
+  cursor: pointer;
+}
+
+/* Input Date */
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  height: 20px;
+  width: 20px;
+}
+
+body {
+  background: radial-gradient(103.85% 193.13% at 16.46% 50.06%, #81D6BF 10.77%, #A4E0D1 42.71%, #81D6BF 64.52%, #B4D1C1 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+
+  width: 100vw;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.main-wrapper {
+  flex-grow: 1;
+}
+
+.footer-container {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.no-break-word {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+label,
+button {
+  user-select: none;
+}
+
+@media screen and (max-width: 900px) {
+  .main-wrapper {
+    padding: 0;
+    padding-top: 80px;
+  }
+}
+
+#RFS-StepButton .active {
+  color: rgb(255, 255, 255);
+  background: white;
+  border-radius: 100px;
+  padding: 8px;
+  font-size: 1px;
+}
+
+.divider {
+  /* width: 100px; */
+  height: 3px;
+  background: #192f4d;
+  border-radius: 0px 0px 1px 1px;
+}
+
+.input-field {
+  background: #010325;
+  border: 1px solid #192f4d;
+  border-radius: 8px;
+  width: 320px;
+  height: 40px;
+  margin-top: 8px;
+  color: #a8a9b3;
+  padding: 15px;
+}
+
+.input-field:focus {
+  outline: none;
+}
+
+.text-area-field {
+  background: #010325;
+  border: 1px solid #192f4d;
+  border-radius: 8px;
+  width: 740px;
+  margin-top: 8px;
+  color: #a8a9b3;
+  padding: 15px;
+  height: 150px;
+}
+
+.text-area-field:focus {
+  outline: none;
+}
+
+.horizontal-slider {
+  width: 100%;
+  height: 50px;
+}
+.example-thumb {
+  cursor: pointer;
+  background: #192f4d;
+  box-shadow: 0px 1px 4px rgba(44, 63, 88, 0.25);
+  border-radius: 100%;
+  padding: 10px;
+}
+.example-thumb.active {
+  background-color: #192f4d;
+}
+.example-track {
+  background: #192f4d;
+  border-radius: 20px;
+}
+.example-track.example-track-0 {
+  background: linear-gradient(55.87deg, #3383c5 19.25%, #29c4b8 80.38%);
+}
+.horizontal-slider .example-track {
+  top: 22px;
+  height: 4px;
+}
+.horizontal-slider .example-thumb {
+  top: 15px;
+  width: 10px;
+  outline: none;
+  height: 10px;
+  line-height: 38px;
+}
+
