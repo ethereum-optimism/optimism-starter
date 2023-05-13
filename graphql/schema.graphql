@@ -1,0 +1,29 @@
+type Query {
+  swaps(first: Int, skip: Int, where: SwapFilter!): [Swap!]!
+  liquidityPositions(first: Int, skip: Int, where: LiquidityPositionFilter!): [LiquidityPosition!]!
+}
+
+type Swap {
+  id: ID!
+  timestamp: String!
+  amount0In: String!
+  amount1In: String!
+  amount0Out: String!
+  amount1Out: String!
+  createdAt: String!
+}
+
+input SwapFilter {
+  to: Bytes!
+}
+
+type LiquidityPosition {
+  id: ID!
+  liquidityTokenBalance: String!
+  timestamp: String!
+  createdAt: String!
+}
+
+input LiquidityPositionFilter {
+  user: Bytes!
+}
