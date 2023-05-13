@@ -1,27 +1,64 @@
-import React from 'react'
-import Twitter from '../../assets/social/twitter.svg'
-import Medium from '../../assets/social/medium.svg'
-import Instagram from '../../assets/social/instagram.svg'
+import React from "react";
+import Twitter from "../../assets/social/twitter.svg";
+import Medium from "../../assets/social/medium.svg";
+import Instagram from "../../assets/social/instagram.svg";
+import MainLogoSvg from "../../assets/main-logo.svg";
+import { useMediaQuery } from "usehooks-ts";
 
 const Footer = () => {
+  const isMobileView = useMediaQuery("(max-width: 768px)");
   const socialLinks = [
     {
-      name: 'Medium',
-      url: 'https://www.facebook.com/your-facebook-id'
+      name: "Medium",
+      url: Medium,
     },
     {
-      name: 'Twitter',
-      url: 'https://twitter.com/your-twitter-id'
+      name: "Twitter",
+      url: Twitter,
     },
     {
-      name: 'Instagram',
-      url: 'https://www.instagram.com/your-instagram-id'
+      name: "Instagram",
+      url: Instagram,
     },
+  ];
 
-    }
+  const scrollToTop = () => {
+    document.documentElement.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth", // Optional if you want to skip the scrolling animation
+    });
+  };
+
   return (
-    <div>Footer</div>
-  )
-}
+    <div className="flex items-center justify-between w-full flex-row">
+      <div>
+        {socialLinks.map((link, index) => (
+          <a
+            key={index}
+            href={link.url}
+            target="_blank"
+            rel="noreferrer"
+            className="mr-4"
+          >
+            <img src={link.url} alt={link.name} />
+          </a>
+        ))}
+      </div>
+      <img
+        className="w-[250px] h-[100px] cursor-pointer"
+        src={MainLogoSvg}
+        alt="Factor"
+        onClick={() => scrollToTop()}
+      />
+      <div className="flex items-center justify-between w-1/3">
+        <div className="flex flex-col items-end justify-end">
+          <p className="text-sm text-white">© 2023 MintyBadger</p>
+          <p className="text-sm text-white">All rights reserved</p>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default Footer
+export default Footer;
