@@ -84,30 +84,8 @@ export const getChainRPC = (chainId: SupportedChains): AppConfig => {
   } as AppConfig;
 };
 
-const getAddresses = (): ContractAddresses => {
-  let factorAddresses = {} as FactorContractAddresses;
-  try {
-    factorAddresses = getContractAddressesForChainOrThrow(window.CHAIN_ID);
-  } catch {}
-
-  // NOTE: this "if" condition is for custom node config only in development mode
-  if (window.CHAIN_ID === 31337) {
-    return {
-      ...factorAddresses,
-    };
-  }
-  if (window.CHAIN_ID === 42161) {
-    return {
-      ...factorAddresses,
-    };
-  }
-
-  return { ...factorAddresses };
-};
-
 export const config = () => ({
   app: getChainRPC(window.CHAIN_ID),
-  addresses: getAddresses(),
 });
 
 export default config;

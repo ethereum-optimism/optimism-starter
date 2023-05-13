@@ -4,9 +4,7 @@ import { appRoutes } from '../../lib/appRoutes'
 
 const Navbar = () => {
   const navLinks = [
-    { title: `Home`, path: appRoutes.home_path },
-    { title: `About`, path: appRoutes.about_path },
-    { title: `Contact`, path: appRoutes.contact_path }
+    { title: `Mint`, path: appRoutes.home_path },
   ]
   return (
     <div>
