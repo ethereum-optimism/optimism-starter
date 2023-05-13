@@ -1,4 +1,3 @@
-import React from "react";
 import Twitter from "../../assets/social/twitter.svg";
 import Medium from "../../assets/social/medium.svg";
 import Instagram from "../../assets/social/instagram.svg";
@@ -31,8 +30,8 @@ const Footer = () => {
   };
 
   return (
-    <div className="flex items-center justify-between w-full flex-row">
-      <div>
+    <div className="flex flex-row items-center justify-around w-full mobile:px-4 tablet:px-8 desktop:px-16">
+      <div className="w-1/3">
         {socialLinks.map((link, index) => (
           <a
             key={index}
@@ -45,12 +44,14 @@ const Footer = () => {
           </a>
         ))}
       </div>
-      <img
-        className="w-[250px] h-[100px] cursor-pointer"
-        src={MainLogoSvg}
-        alt="Factor"
-        onClick={() => scrollToTop()}
-      />
+      <div className="w-1/3">
+        <img
+          className="w-[250px] h-[100px] cursor-pointer"
+          src={MainLogoSvg}
+          alt="Factor"
+          onClick={() => scrollToTop()}
+        />
+      </div>
       <div className="flex items-center justify-between w-1/3">
         <div className="flex flex-col items-end justify-end">
           <p className="text-sm text-white">© 2023 MintyBadger</p>
