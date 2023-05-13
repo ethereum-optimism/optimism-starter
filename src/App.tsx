@@ -5,10 +5,8 @@ import { Outlet } from "react-router-dom";
 
 export function App() {
   return (
-    <div className="bg-primary h-screen p-5">
+    <div className="bg-primary w-full">
       <Header />
-      <h1>Welcome to Minty Badget!</h1>
-
       <main className="main-wrapper">
         <RouterConfig />
         <Outlet />

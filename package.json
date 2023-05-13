@@ -31,6 +31,7 @@
     "react-dom": "^18.2.0",
     "react-router": "^6.11.1",
     "react-router-dom": "^6.11.1",
+    "usehooks-ts": "^2.9.1",
     "util": "^0.12.4",
     "wagmi": "^0.11.7"
   },

@@ -6,6 +6,7 @@ import { WagmiConfig } from "wagmi";
 import { BrowserRouter } from "react-router-dom";
 import { App } from "./App";
 import { chains, client } from "./wagmi";
+import { rainbowKitTheme } from "./clients/rainbowKitTheme";
 import "./index.css";
 
 /**
@@ -18,7 +19,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
       <WagmiConfig client={client}>
-        <RainbowKitProvider chains={chains}>
+        <RainbowKitProvider chains={chains} theme={rainbowKitTheme}>
           <App />
         </RainbowKitProvider>
       </WagmiConfig>
