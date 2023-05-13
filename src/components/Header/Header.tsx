@@ -6,7 +6,7 @@ import { useAccount } from 'wagmi';
 const Header = () => {
   const { isConnected } = useAccount();
   return (
-    <div className='flex flex-row justify-between'>
+    <div className='flex flex-row justify-between bg-primary'>
       <img src={mainlogo} alt="" />
 
       <ConnectButton />
