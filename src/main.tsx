@@ -19,7 +19,11 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
       <WagmiConfig client={client}>
-        <RainbowKitProvider chains={chains} theme={rainbowKitTheme}>
+        <RainbowKitProvider
+          chains={chains}
+          theme={rainbowKitTheme}
+          modalSize="compact"
+        >
           <App />
         </RainbowKitProvider>
       </WagmiConfig>
