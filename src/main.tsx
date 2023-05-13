@@ -6,6 +6,7 @@ import { WagmiConfig } from "wagmi";
 
 import { App } from "./App";
 import { chains, client } from "./wagmi";
+import "./index.css";
 
 /**
  * Root providers and initialization of app
