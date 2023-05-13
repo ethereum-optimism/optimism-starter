@@ -2,9 +2,25 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 import React from "react";
 import { useAccount } from "wagmi";
 import Badget from "../../assets/badger.svg";
+import Badge from "../../components/UI/Badge";
 
 const Mint = () => {
-  const { isConnected } = useAccount();
+  const { isConnected, address } = useAccount();
+
+  const badgeList = [
+    {
+      title: "Trader",
+      icon: "",
+      subTitle: "Trader",
+      description: "Trader",
+    },
+    {
+      title: "Trader",
+      icon: "",
+      subTitle: "Trader",
+      description: "Trader",
+    },
+  ];
 
   return (
     <div className="page-container">
@@ -28,7 +44,18 @@ const Mint = () => {
           </div>
         </div>
       </div>
-      <div></div>
+      <div>
+        <h1 className="mb-7 title">Badges Available</h1>
+        <p className="sub-title">
+          Aggregate, analyze, and showcase your DeFi trader performance while
+          maintaining your privacy.
+        </p>
+      </div>
+      <div className="flex flex-row gap-4">
+        {badgeList.map((badge, index) => (
+          <Badge key={index} {...badge} />
+        ))}
+      </div>
     </div>
   );
 };
