@@ -1,4 +1,3 @@
-
 ul {
   margin: 0;
   padding: 0;
@@ -78,7 +77,14 @@ ul {
 }
 
 body {
-  background: radial-gradient(103.85% 193.13% at 16.46% 50.06%, #81D6BF 10.77%, #A4E0D1 42.71%, #81D6BF 64.52%, #B4D1C1 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  background: radial-gradient(
+      103.85% 193.13% at 16.46% 50.06%,
+      #81d6bf 10.77%,
+      #a4e0d1 42.71%,
+      #81d6bf 64.52%,
+      #b4d1c1 100%
+    )
+    /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
 
   width: 100vw;
   overflow-y: scroll;
@@ -87,19 +93,6 @@ body {
 
 .main-wrapper {
   flex-grow: 1;
-}
-
-.footer-container {
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 999;
-}
-
-.no-break-word {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 label,
@@ -113,82 +106,3 @@ button {
     padding-top: 80px;
   }
 }
-
-#RFS-StepButton .active {
-  color: rgb(255, 255, 255);
-  background: white;
-  border-radius: 100px;
-  padding: 8px;
-  font-size: 1px;
-}
-
-.divider {
-  /* width: 100px; */
-  height: 3px;
-  background: #192f4d;
-  border-radius: 0px 0px 1px 1px;
-}
-
-.input-field {
-  background: #010325;
-  border: 1px solid #192f4d;
-  border-radius: 8px;
-  width: 320px;
-  height: 40px;
-  margin-top: 8px;
-  color: #a8a9b3;
-  padding: 15px;
-}
-
-.input-field:focus {
-  outline: none;
-}
-
-.text-area-field {
-  background: #010325;
-  border: 1px solid #192f4d;
-  border-radius: 8px;
-  width: 740px;
-  margin-top: 8px;
-  color: #a8a9b3;
-  padding: 15px;
-  height: 150px;
-}
-
-.text-area-field:focus {
-  outline: none;
-}
-
-.horizontal-slider {
-  width: 100%;
-  height: 50px;
-}
-.example-thumb {
-  cursor: pointer;
-  background: #192f4d;
-  box-shadow: 0px 1px 4px rgba(44, 63, 88, 0.25);
-  border-radius: 100%;
-  padding: 10px;
-}
-.example-thumb.active {
-  background-color: #192f4d;
-}
-.example-track {
-  background: #192f4d;
-  border-radius: 20px;
-}
-.example-track.example-track-0 {
-  background: linear-gradient(55.87deg, #3383c5 19.25%, #29c4b8 80.38%);
-}
-.horizontal-slider .example-track {
-  top: 22px;
-  height: 4px;
-}
-.horizontal-slider .example-thumb {
-  top: 15px;
-  width: 10px;
-  outline: none;
-  height: 10px;
-  line-height: 38px;
-}
-

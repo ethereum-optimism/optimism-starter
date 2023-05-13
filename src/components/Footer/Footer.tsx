@@ -30,8 +30,8 @@ const Footer = () => {
   };
 
   return (
-    <div className="flex flex-row items-center justify-around w-full mobile:px-4 tablet:px-8 desktop:px-16">
-      <div className="w-1/3">
+    <footer className="flex flex-row items-center justify-around w-full mobile:px-4 tablet:px-8 desktop:px-16">
+      <div className="flex flex-row items-center justify-start w-1/3">
         {socialLinks.map((link, index) => (
           <a
             key={index}
@@ -44,7 +44,7 @@ const Footer = () => {
           </a>
         ))}
       </div>
-      <div className="w-1/3">
+      <div className="flex flex-row items-center justify-center w-1/3 ">
         <img
           className="w-[250px] h-[100px] cursor-pointer"
           src={MainLogoSvg}
@@ -52,13 +52,13 @@ const Footer = () => {
           onClick={() => scrollToTop()}
         />
       </div>
-      <div className="flex items-center justify-between w-1/3">
-        <div className="flex flex-col items-end justify-end">
-          <p className="text-sm text-white">© 2023 MintyBadger</p>
-          <p className="text-sm text-white">All rights reserved</p>
+      <div className="flex flex-row items-center justify-end w-1/3">
+        <div className="flex flex-row gap-4 ">
+          <p className="cursor-pointer link-text">Privacy Policy</p>
+          <p className="cursor-pointer link-text">Terms Of Service</p>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

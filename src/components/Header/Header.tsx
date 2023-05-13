@@ -25,10 +25,10 @@ const Header = () => {
     <header
       className={`${
         isMobileView
-          ? `fixed top-0 flex flex-row w-full z-50 h-[80px] ${
+          ? `fixed top-0 flex flex-row w-full z-50 h-[50px] ${
               isScrolled ? "bg-ui_surface_opc rounded-b-3xl " : ""
             }`
-          : "h-[120px]"
+          : "h-[100px]"
       } bg-primary flex flex-row items-center justify-between mobile:px-4 tablet:px-8 desktop:px-16 transition-all duration-200 border-bottom-header shadow-lg w-full`}
     >
       <MainLogo />

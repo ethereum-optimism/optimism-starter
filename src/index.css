@@ -24,26 +24,26 @@ input[type="number"] {
 @layer components {
   /* Layout */
   .page-container {
-    @apply flex flex-col justify-between w-screen pt-8 pb-16 desktop:flex-col mobile:px-4 tablet:px-8 desktop:px-16;
+    @apply flex flex-col justify-between w-screen pb-16 pt-14 desktop:flex-col mobile:px-4 tablet:px-8 desktop:px-16;
   }
-}
 
-.mint-btn {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 16px;
+  .base-btn {
+    @apply inline-flex items-center justify-center px-4 py-2 w-[301px] h-[52px] bg-[#58c6aa] shadow-sm rounded-lg border-none cursor-pointer text-white;
+  }
 
-  width: 301px;
-  height: 52px;
+  .inverse-base-btn {
+    @apply inline-flex items-center justify-center px-4 py-2 w-[301px] h-[52px] rounded-lg cursor-pointer text-green-950 text-[20px] font-semibold leading-8 bg-transparent border-green-950 border-solid;
+  }
 
-  background: #58c6aa;
-  /* Black Shadows/Black E1 */
+  .title {
+    @apply text-[42px] font-bold leading-[63px];
+  }
 
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.08);
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-  color: white;
+  .sub-title {
+    @apply font-medium text-[24px] leading-9 text-[#0F1D40];
+  }
+
+  .link-text {
+    @apply text-[#0F1D40] text-[18px] leading-[28.8px];
+  }
 }
