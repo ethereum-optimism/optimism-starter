@@ -29,10 +29,9 @@ const Header = () => {
               isScrolled ? "bg-ui_surface_opc rounded-b-3xl " : ""
             }`
           : "h-[120px]"
-      } flex flex-row items-center mobile:justify-between desktop:justify-start mobile:px-4 tablet:px-8 desktop:px-16 transition-all duration-200 border-bottom-header shadow-lg w-full`}
+      } bg-primary flex flex-row items-center justify-between mobile:px-4 tablet:px-8 desktop:px-16 transition-all duration-200 border-bottom-header shadow-lg w-full`}
     >
       <MainLogo />
-      {!isMobileView && <Navbar />}
 
       <ConnectButton
         label="Connect Wallet"
