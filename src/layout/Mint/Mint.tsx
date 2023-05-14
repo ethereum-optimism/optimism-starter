@@ -2,23 +2,49 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 import React from "react";
 import { useAccount } from "wagmi";
 import Badget from "../../assets/badger.svg";
+
+// Assets
+import JustSproutedSvg from "../../assets/tiers/just-sprouted.svg";
+import BreezyMintSvg from "../../assets/tiers/breezy-mint.svg";
+import FreshlyPickedSvg from "../../assets/tiers/freshly-picked.svg";
+import CoolingSensationSvg from "../../assets/tiers/cooling-sensation.svg";
+import SuperFreshSvg from "../../assets/tiers/superfresh.svg";
 import Badge from "../../components/UI/Badge";
 
 const Mint = () => {
   const { isConnected, address } = useAccount();
 
-  const badgeList = [
+  const tierData = [
     {
-      title: "Trader",
-      icon: "",
-      subTitle: "Trader",
-      description: "Trader",
+      title: "Just Sprouted",
+      icon: JustSproutedSvg,
+      subTitle: "Tier 1",
+      description: "You've just started your journey towards freshness!",
     },
     {
-      title: "Trader",
-      icon: "",
-      subTitle: "Trader",
-      description: "Trader",
+      title: "Breezy Mint",
+      icon: BreezyMintSvg,
+      subTitle: "Tier 2",
+      description: "You're experiencing a gentle breeze of minty freshness!",
+    },
+    {
+      title: "Freshly Picked",
+      icon: FreshlyPickedSvg,
+      subTitle: "Tier 3",
+      description:
+        "You're enjoying the crispness of freshly picked refreshment!",
+    },
+    {
+      title: "Cooling Sensation",
+      icon: CoolingSensationSvg,
+      subTitle: "Tier 4",
+      description: "You've reached a new level of invigorating coolness!",
+    },
+    {
+      title: "SuperFresh",
+      icon: SuperFreshSvg,
+      subTitle: "Tier 5",
+      description: "Congratulations! You've achieved the ultimate freshness!",
     },
   ];
 
@@ -52,7 +78,7 @@ const Mint = () => {
         </p>
       </div>
       <div className="flex flex-row gap-4">
-        {badgeList.map((badge, index) => (
+        {tierData.map((badge, index) => (
           <Badge key={index} {...badge} />
         ))}
       </div>
