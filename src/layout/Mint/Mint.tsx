@@ -1,14 +1,14 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import React from "react";
 import { useAccount } from "wagmi";
-import Badget from "../../assets/badger.svg";
+import Badger from "../../assets/badger.svg";
 
 // Assets
 import JustSproutedSvg from "../../assets/tiers/just-sprouted.svg";
 import BreezyMintSvg from "../../assets/tiers/breezy-mint.svg";
 import FreshlyPickedSvg from "../../assets/tiers/freshly-picked.svg";
 import CoolingSensationSvg from "../../assets/tiers/cooling-sensation.svg";
-import SuperFreshSvg from "../../assets/tiers/superfresh.svg";
+import SuperFreshSvg from "../../assets/tiers/super-fresh.svg";
 import Badge from "../../components/UI/Badge";
 
 const Mint = () => {
@@ -66,7 +66,7 @@ const Mint = () => {
             )}
           </div>
           <div>
-            <img src={Badget} alt="Badger" />
+            <img src={Badger} alt="Badger" />
           </div>
         </div>
       </div>

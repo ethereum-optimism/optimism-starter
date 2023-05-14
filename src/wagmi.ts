@@ -1,5 +1,5 @@
 import { configureChains, createClient } from "wagmi";
-import { foundry, optimism, optimismGoerli } from "wagmi/chains";
+import { foundry, polygon, polygonMumbai } from "wagmi/chains";
 import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 // import { alchemyProvider } from "wagmi/providers/alchemy";
 import { getDefaultWallets } from "@rainbow-me/rainbowkit";
@@ -10,7 +10,7 @@ import { getDefaultWallets } from "@rainbow-me/rainbowkit";
  * @see https://wagmi.sh/react/providers/configuring-chains
  */
 const { chains, provider, webSocketProvider } = configureChains(
-  [optimism, optimismGoerli, foundry],
+  [polygon, polygonMumbai, foundry],
   [
     /**
      * Uncomment this line to use Alchemy as your provider
@@ -44,8 +44,7 @@ export { chains };
  * @see https://wagmi.sh/react/connectors
  */
 const { connectors } = getDefaultWallets({
-  appName:
-    "Optimism attestation station + Forge + Wagmi + RainbowKit + Vite App",
+  appName: "MintyBadger",
   chains,
 });
 

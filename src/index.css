@@ -8,6 +8,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* src/fonts.css */
+@font-face {
+  font-family: "General Sans";
+  src: url("./assets/fonts/GeneralSans/Fonts/Variable/GeneralSans-Variable.ttf")
+    format("truetype");
+  /* Add more src lines for other font file formats if available */
+}
+
 /* Remove number type input arrows */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
@@ -21,6 +29,9 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
+* {
+  font-family: "General Sans", sans-serif;
+}
 @layer components {
   /* Layout */
   .page-container {
