@@ -77,11 +77,15 @@ function calculateBadges(userData) {
   return badges;
 }
 
-// Fetch and process the data for a user's Ethereum address
-fetchUserData("0xYourEthereumAddressHere")
-  .then((userData) => {
-    console.log("User Data:", userData);
-    const badges = calculateBadges(userData);
-    console.log("User Badges:", badges);
-  })
-  .catch((error) => console.error("Error fetching data:", error));
+const verifyEligibility = async (address: string) => {
+  // Fetch and process the data for a user's Ethereum address
+  fetchUserData("0x1234...")
+    .then((userData) => {
+      console.log("User Data:", userData);
+      const badges = calculateBadges(userData);
+      console.log("User Badges:", badges);
+    })
+    .catch((error) => console.error("Error fetching data:", error));
+  const badges = calculateBadges(userData);
+  return badges;
+};

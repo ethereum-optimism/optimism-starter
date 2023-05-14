@@ -2,6 +2,7 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 import React from "react";
 import { useAccount } from "wagmi";
 import Badger from "../../assets/badger.svg";
+import Carousel from "nuka-carousel";
 
 // Assets
 import JustSproutedSvg from "../../assets/tiers/just-sprouted.svg";
@@ -10,41 +11,39 @@ import FreshlyPickedSvg from "../../assets/tiers/freshly-picked.svg";
 import CoolingSensationSvg from "../../assets/tiers/cooling-sensation.svg";
 import SuperFreshSvg from "../../assets/tiers/super-fresh.svg";
 import Badge from "../../components/UI/Badge";
+import { BadgeData } from "../../state/badges/types";
+
+const carouselItemStyles = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
+  borderRadius: "10px",
+  padding: "20px",
+  margin: "10px",
+};
 
 const Mint = () => {
   const { isConnected, address } = useAccount();
 
-  const tierData = [
+  const badgeData: BadgeData[] = [
     {
-      title: "Just Sprouted",
-      icon: JustSproutedSvg,
-      subTitle: "Tier 1",
-      description: "You've just started your journey towards freshness!",
+      badgeId: 1,
+      name: "First Swap",
+      imageUri: JustSproutedSvg,
+      tier: "Tier 1",
+      protocolId: 1,
+      description: "First swap on Uniswap.",
+      eligibilityStatus: "idle",
     },
     {
-      title: "Breezy Mint",
-      icon: BreezyMintSvg,
-      subTitle: "Tier 2",
-      description: "You're experiencing a gentle breeze of minty freshness!",
-    },
-    {
-      title: "Freshly Picked",
-      icon: FreshlyPickedSvg,
-      subTitle: "Tier 3",
-      description:
-        "You're enjoying the crispness of freshly picked refreshment!",
-    },
-    {
-      title: "Cooling Sensation",
-      icon: CoolingSensationSvg,
-      subTitle: "Tier 4",
-      description: "You've reached a new level of invigorating coolness!",
-    },
-    {
-      title: "SuperFresh",
-      icon: SuperFreshSvg,
-      subTitle: "Tier 5",
-      description: "Congratulations! You've achieved the ultimate freshness!",
+      badgeId: 2,
+      name: "Liquidity Providing",
+      imageUri: JustSproutedSvg,
+      tier: "Tier 1",
+      protocolId: 1,
+      description: "First time you provided liquidity to a pool on Uniswap.",
+      eligibilityStatus: "idle",
     },
   ];
 
@@ -77,11 +76,24 @@ const Mint = () => {
           maintaining your privacy.
         </p>
       </div>
-      <div className="flex flex-row gap-4">
-        {tierData.map((badge, index) => (
-          <Badge key={index} {...badge} />
+      <Carousel
+        autoplay
+        autoplayInterval={3000}
+        pauseOnHover
+        wrapAround
+        renderCenterLeftControls={({ previousSlide }) => (
+          <button onClick={previousSlide}>&lt;</button>
+        )}
+        renderCenterRightControls={({ nextSlide }) => (
+          <button onClick={nextSlide}>&gt;</button>
+        )}
+      >
+        {badgeData.map((badge, index) => (
+          <div key={index} style={carouselItemStyles}>
+            <Badge {...badge} />
+          </div>
         ))}
-      </div>
+      </Carousel>
     </div>
   );
 };
