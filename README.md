@@ -12,7 +12,7 @@ This is a [Optimism](https://github.com/ethereum-optimism) + [wagmi](https://wag
 This starter is a great choice for any of the following groups:
 
 - Hackers hacking on [Optimism](https://www.optimism.io/)
-- Hackers hacking on the [Attestation Station](https://attestationstation.xyz/)
+- Hackers hacking on the [Attestation Station](https://community.optimism.io/docs/identity/build/)
 - Hackers interested in using [the most modern and robust web3 full stack development stack](https://twitter.com/gakonst/status/1630038261941796866)
 
 ## Getting Started
