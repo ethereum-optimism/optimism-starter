@@ -2,13 +2,6 @@
   <a href="https://ethglobal.com/events/lisbon"><img width="250" alt="scaling-ethereum" src="https://user-images.githubusercontent.com/35039927/236523442-f1dbfc7a-7acf-43a7-92ea-9851230e7d7b.png"></a>
   <br />
   <br />
-  ✦
-  <br />
-  <br />
-  <a href="https://optimism.io"><img alt="Optimism" src="https://raw.githubusercontent.com/ethereum-optimism/brand-kit/main/assets/svg/OPTIMISM-R.svg" width=320></a>
-  <br />
-  <h2><a href="https://optimism.io">Optimism</a> starterkit.</h2>
-  <br />
 </div>
 
 This is a [Optimism](https://github.com/ethereum-optimism) + [wagmi](https://wagmi.sh) + [Foundry](https://book.getfoundry.sh/) + [Rainbowkit](https://www.rainbowkit.com/) + [Vite](https://vitejs.dev/) project originally bootstrapped with [`create-wagmi`](https://github.com/wagmi-dev/wagmi/tree/main/packages/create-wagmi) built with ❤️ for hackers.
@@ -175,20 +168,6 @@ Now that your contract has been deployed to Anvil, you can start playing around 
 Head to [localhost:5173](http://localhost:5173) in your browser, connect your wallet, and try increment a counter on the Foundry chain.   Use the generated code in `src/generated.ts` to do it and follow the [Attestooooor](https://github.com/ethereum-optimism/optimism-starter/blob/main/src/components/Attestoooooor.tsx) component as an example
 
 > Tip: If you import an Anvil private key into your browser wallet (MetaMask, Coinbase Wallet, etc) – you will have 10,000 ETH to play with 😎. The private key is found in the terminal under "Private Keys" when you start up an Anvil instance with `npm run dev:foundry`.
-
-## Attestation station
-
-This starterkit comes preloaded with tools for working with the attestation station!
-
-[@eth-optimism/atst](https://github.com/ethereum-optimism/optimism/blob/willc/alpha-final/packages/atst/docs/sdk.md) - Is a typescript sdk for easily interacting with the attestation in vanilla javascript and react. The react hooks for your convenience are also in this package at `src/generated.ts`
-
-Also included is a [CLI](https://github.com/ethereum-optimism/optimism/blob/willc/alpha-final/packages/atst/docs/cli.md) for interacting with the attestation. To get started run
-
-```bash
-npx atst --help
-```
-
-![preview](https://user-images.githubusercontent.com/35039927/222435290-0271bc85-1e62-4d0a-b539-084af1e22ded.gif)
 
 ## Alternatives
 
