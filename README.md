@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://ethglobal.com/events/lisbon"><img width="250" alt="scaling-ethereum" src="https://user-images.githubusercontent.com/35039927/236523442-f1dbfc7a-7acf-43a7-92ea-9851230e7d7b.png"></a>
+  <a href="https://optimism.io"><img alt="Optimism" src="https://raw.githubusercontent.com/ethereum-optimism/brand-kit/main/assets/svg/OPTIMISM-R.svg" width=320></a>
   <br />
   <br />
 </div>
