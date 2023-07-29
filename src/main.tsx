@@ -5,7 +5,7 @@ import * as ReactDOM from "react-dom/client";
 import { WagmiConfig } from "wagmi";
 
 import { App } from "./App";
-import { chains, client } from "./wagmi";
+import { chains, config } from "./wagmi";
 
 /**
  * Root providers and initialization of app
@@ -15,7 +15,7 @@ import { chains, client } from "./wagmi";
  */
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <WagmiConfig client={client}>
+    <WagmiConfig config={config}>
       <RainbowKitProvider chains={chains}>
         <App />
       </RainbowKitProvider>
