@@ -90,7 +90,8 @@ export function Attestooooooor() {
       </button>
       {isLoading && <ProcessingMessage hash={data?.hash} />}
       <div>
-        Gas fee: <span>{config.request?.gasLimit.toString()}</span>
+        {/* // TODO: */}
+        {/* Gas fee: <span>{config.request?.gasLimit.toString()}</span> */}
       </div>
     </div>
   );
