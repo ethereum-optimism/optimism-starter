@@ -126,6 +126,8 @@ You will first need to set up your `.env` to tell Forge where to deploy your con
 
    - `FORGE_PRIVATE_KEY`: The private key of the wallet you want to deploy from.
 
+   - `VITE_WALLETCONNECT_PROJECT_ID`: WalletConnect v2 requires a project ID. You can obtain it from your WC dashboard: https://docs.walletconnect.com/2.0/web/web3wallet/installation#obtain-project-id
+
 ## Deploy contract
 
 You can now deploy your contract!
