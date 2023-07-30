@@ -1,4 +1,4 @@
-import { configureChains, createClient } from "wagmi";
+import { configureChains, createConfig } from "wagmi";
 import { foundry, optimism, optimismGoerli } from "wagmi/chains";
 import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 // import { alchemyProvider } from "wagmi/providers/alchemy";
@@ -9,7 +9,7 @@ import { getDefaultWallets } from "@rainbow-me/rainbowkit";
  * To add a new chain simply import it and add it here
  * @see https://wagmi.sh/react/providers/configuring-chains
  */
-const { chains, provider, webSocketProvider } = configureChains(
+const { chains, publicClient } = configureChains(
   [optimism, optimismGoerli, foundry],
   [
     /**
@@ -47,15 +47,16 @@ const { connectors } = getDefaultWallets({
   appName:
     "Optimism attestation station + Forge + Wagmi + RainbowKit + Vite App",
   chains,
+  projectId: import.meta.env.VITE_WALLETCONNECT_PROJECT_ID,
 });
 
 /**
  * Creates a singleton wagmi client for the app
  * @see https://wagmi.sh/react/client
  */
-export const client = createClient({
+export const config = createConfig({
   autoConnect: true,
   connectors: connectors,
-  provider,
-  webSocketProvider,
+  publicClient,
+  webSocketPublicClient: publicClient,
 });
