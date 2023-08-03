@@ -38,6 +38,36 @@ You will need to install [Foundry](https://book.getfoundry.sh/getting-started/in
 
 </details>
 
+## Set up environment
+
+### Get an Etherscan key
+
+1. Register for [Etherscan on Optimism](https://explorer.optimism.io/register).
+   This account is different from your normal Etherscan account.
+
+1. Go to [the API keys page](https://explorer.optimism.io/myapikey) and click **Add** to create a new API key.
+
+### Specify .env
+
+You will first need to set up your `.env` to tell Forge where to deploy your contract.
+
+1. Copy `.env.example` to `.env`.
+
+   ```sh
+   cp .env.example .env
+   ```
+
+1. Edit your `.env` to specify the environment variables.
+
+   - `ETHERSCAN_API_KEY`: Your Etherscan API Key.
+
+   - `FORGE_RPC_URL`: The RPC URL of the network to which you deploy.
+     If you use [Alchemy](https://github.com/ethereum-optimism/optimism-tutorial/tree/main/ecosystem/alchemy), your URL will look like this: `https://opt-goerli.g.alchemy.com/v2/<Alchemy API Key>`
+
+   - `FORGE_PRIVATE_KEY`: The private key of the wallet you want to deploy from.
+
+   - `VITE_WALLETCONNECT_PROJECT_ID`: WalletConnect v2 requires a project ID. You can obtain it from your WC dashboard: https://docs.walletconnect.com/2.0/web/web3wallet/installation#obtain-project-id
+
 ## Start the application
 
 <img width="450" alt="starter-app-screenshot" src="https://user-images.githubusercontent.com/389705/225778318-4e6fb8c0-c5d7-4aea-9fc2-2efd17ca435c.png">
@@ -97,36 +127,6 @@ To deploy your contracts to a network, you can use Foundry's [Forge](https://boo
 You can read a more in-depth guide on using Forge to deploy a smart contract [here](https://book.getfoundry.sh/forge/deploying), but we have included a simple script in the `package.json` to get you started.
 
 Below are the steps to deploying a smart contract to Ethereum Mainnet using Forge:
-
-## Set up environment
-
-### Get an Etherscan key
-
-1. Register for [Etherscan on Optimism](https://explorer.optimism.io/register).
-   This account is different from your normal Etherscan account.
-
-1. Go to [the API keys page](https://explorer.optimism.io/myapikey) and click **Add** to create a new API key.
-
-### Specify .env
-
-You will first need to set up your `.env` to tell Forge where to deploy your contract.
-
-1. Copy `.env.example` to `.env`.
-
-   ```sh
-   cp .env.example .env
-   ```
-
-1. Edit your `.env` to specify the environment variables.
-
-   - `ETHERSCAN_API_KEY`: Your Etherscan API Key.
-
-   - `FORGE_RPC_URL`: The RPC URL of the network to which you deploy.
-     If you use [Alchemy](https://github.com/ethereum-optimism/optimism-tutorial/tree/main/ecosystem/alchemy), your URL will look like this: `https://opt-goerli.g.alchemy.com/v2/<Alchemy API Key>`
-
-   - `FORGE_PRIVATE_KEY`: The private key of the wallet you want to deploy from.
-
-   - `VITE_WALLETCONNECT_PROJECT_ID`: WalletConnect v2 requires a project ID. You can obtain it from your WC dashboard: https://docs.walletconnect.com/2.0/web/web3wallet/installation#obtain-project-id
 
 ## Deploy contract
 
