@@ -1,6 +1,7 @@
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import Link from "next/link";
 import Image from "next/image";
 
 export default function Header() {
@@ -32,30 +33,30 @@ export default function Header() {
                   />
                 </div>
                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-                  <a
+                  <Link
                     href="/"
                     className="inline-flex items-center border-b-2  px-1 pt-1 text-sm font-medium text-gray-900"
                   >
                     Home
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="/create-grant"
                     className="inline-flex items-center border-b-2  px-1 pt-1 text-sm font-medium text-gray-900"
                   >
                     Create Grant
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="/create-milestone"
                     className="inline-flex items-center border-b-2  px-1 pt-1 text-sm font-medium text-gray-900"
                   >
                     Create Milestone
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="/grants"
                     className="inline-flex items-center border-b-2  px-1 pt-1 text-sm font-medium text-gray-900"
                   >
                     Grants
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">

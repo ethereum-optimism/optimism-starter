@@ -1,4 +1,4 @@
-export default function MilestonePage() {
+export default function MilestoneDetailPage() {
   return (
     <div>
       <div className="h1">Milestone Page</div>
