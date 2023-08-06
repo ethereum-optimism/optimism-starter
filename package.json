@@ -28,6 +28,7 @@
     "process": "^0.11.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.2",
     "util": "^0.12.4",
     "viem": "^1.4.2",
     "wagmi": "^1.3.9"
