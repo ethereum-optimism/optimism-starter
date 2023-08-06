@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@celo/rainbowkit-celo": "^1.0.1",
+    "@ethereum-attestation-service/eas-sdk": "^1.0.0-beta.0",
     "@headlessui/react": "^1.7.14",
     "@heroicons/react": "^2.0.18",
     "@rainbow-me/rainbowkit": "^1.0.2",

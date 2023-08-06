@@ -1,7 +1,7 @@
 import type { AppProps } from "next/app";
 import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
-import { optimism, optimismGoerli, baseGoerli, base } from "wagmi/chains";
+import { optimism, optimismGoerli, baseGoerli } from "wagmi/chains";
 import celoGroups from "@celo/rainbowkit-celo/lists";
 import Layout from "../components/Layout";
 import "../styles/globals.css";
@@ -12,7 +12,7 @@ import { Alfajores, Celo } from "@celo/rainbowkit-celo/chains";
 const projectId = process.env.NEXT_PUBLIC_WC_PROJECT_ID as string; // get one at https://cloud.walletconnect.com/app
 
 const { chains, publicClient } = configureChains(
-  [Celo, Alfajores, optimism, optimismGoerli, baseGoerli, base],
+  [optimism, optimismGoerli, baseGoerli],
   [publicProvider()]
 );
 
