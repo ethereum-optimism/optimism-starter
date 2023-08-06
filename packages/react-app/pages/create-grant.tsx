@@ -6,7 +6,6 @@ export const EASContractAddress = "0x1a5650d0ecbca349dd84bafa85790e3e6955eb84"; 
 
 export default function CreateApprovedGrantPage() {
   const { data: walletClient } = useWalletClient();
-  console.log(useWalletClient.account);
 
   const [grantRecipient, setGrantRecipient] = useState(
     "0x99B551F0Bb2e634D726d62Bb2FF159a34964976C"
