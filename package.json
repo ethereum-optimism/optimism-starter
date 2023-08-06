@@ -1,44 +1,40 @@
 {
-  "name": "optimism-starter",
-  "version": "0.0.4",
-  "private": true,
-  "scripts": {
-    "anvil": "source .env && anvil --fork-url $ANVIL_FORK_URL --chain-id $ANVIL_CHAIN_ID",
-    "deploy": "source .env && forge create contracts/src/Counter.sol:Counter --rpc-url $FORGE_RPC_URL --private-key $FORGE_PRIVATE_KEY --etherscan-api-key $ETHERSCAN_API_KEY --verify",
-    "deploy:anvil": "source .env && forge create contracts/src/AttestationStation.sol:AttestationStation --rpc-url http://127.0.0.1:8545 --private-key 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80 --legacy",
-    "dev": "npm run wagmi && vite",
-    "dev:foundry": "npm run dev & wagmi generate --watch & npm run anvil",
-    "build": "npm run wagmi && vite build",
-    "build:production": "vite build",
-    "preview": "vite preview",
-    "lint": "prettier --write \"**/*.{ts,tsx}\"",
-    "typecheck": "tsc --noEmit",
-    "wagmi": "wagmi generate"
-  },
-  "dependencies": {
-    "@eth-optimism/atst": "^0.0.0-20230306200511",
-    "@eth-optimism/contracts-bedrock": "^0.12.1",
-    "@eth-optimism/contracts-periphery": "^1.0.7",
-    "@eth-optimism/sdk": "0.0.0-20230301065104",
-    "@openzeppelin/contracts": "4.7.3",
-    "@openzeppelin/contracts-upgradeable": "4.7.3",
-    "@rainbow-me/rainbowkit": "^1.0.7",
-    "@wagmi/cli": "^1.3.0",
-    "buffer": "^6.0.3",
-    "process": "^0.11.10",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.14.2",
-    "util": "^0.12.4",
-    "viem": "^1.4.2",
-    "wagmi": "^1.3.9"
-  },
-  "devDependencies": {
-    "@types/react": "^18.0.9",
-    "@types/react-dom": "^18.0.3",
-    "@vitejs/plugin-react": "^3.1.0",
-    "prettier": "^2.8.4",
-    "typescript": "^4.9.5",
-    "vite": "^4.1.4"
-  }
+    "name": "asd",
+    "version": "1.0.0",
+    "description": "Custom Celo Composer project.",
+    "private": true,
+    "author": "Celo",
+    "license": "MIT",
+    "scripts": {
+        "react-app:dev": "yarn workspace @asd/react-app dev",
+        "react-app:build": "yarn workspace @asd/react-app build",
+        "react-app:start": "yarn workspace @asd/react-app start",
+        "react-app:lint": "yarn workspace @asd/react-app lint",
+        "hardhat:test": "yarn workspace @asd/hardhat test",
+        "hardhat:test-local": "yarn workspace @asd/hardhat test-local",
+        "hardhat:create-account": "yarn workspace @asd/hardhat create-account",
+        "hardhat:accounts": "yarn workspace @asd/hardhat accounts",
+        "hardhat:devchain": "yarn workspace @asd/hardhat devchain",
+        "hardhat:deploy": "yarn workspace @asd/hardhat deploy",
+        "hardhat:deploy-reset-watch": "yarn workspace @asd/hardhat deploy-reset-watch",
+        "hardhat:watch": "yarn workspace @asd/hardhat watch",
+        "hardhat:fork-mainnet": "yarn workspace @asd/hardhat fork-mainnet",
+        "subgraphs:test": "yarn workspace @asd/subgraphs test",
+        "subgraphs:get-abi": "yarn workspace @asd/subgraphs get-abi"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/celo-org/celo-composer.git"
+    },
+    "bugs": {
+        "url": "https://github.com/celo-org/celo-composer/issues"
+    },
+    "homepage": "https://github.com/celo-org/celo-composer/blob/main/README.md",
+    "workspaces": [
+        "packages/*"
+    ],
+    "keywords": [
+        "celo-composer",
+        "celo"
+    ]
 }

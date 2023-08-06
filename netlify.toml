@@ -1,0 +1,12 @@
+# Settings in the [build] context are global and are applied to 
+# all contexts unless otherwise overridden by more specific contexts.
+[build]
+  # Directory to change to before starting a build.
+  # This is where we will look for package.json/.nvmrc/etc.
+  # If not set, defaults to the root directory.
+  base = "/"
+  publish = "packages/react-app/.next"
+  command = "yarn build-ui"
+
+[[plugins]]
+package = "@netlify/plugin-nextjs"

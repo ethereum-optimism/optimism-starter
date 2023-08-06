@@ -1,190 +1,197 @@
-<div align="center">
-  <a href="https://optimism.io"><img alt="Optimism" src="https://raw.githubusercontent.com/ethereum-optimism/brand-kit/main/assets/svg/OPTIMISM-R.svg" width=320></a>
-  <br />
-  <br />
-</div>
+<!-- TITLE -->
+<p align="center"> 
+  <img width="100px" src="https://github.com/celo-org/celo-composer/blob/main/images/readme/celo_isotype.svg" align="center" alt="Celo" />
+ <h2 align="center">Celo Composer</h2>
+ <p align="center">Build, deploy, and iterate quickly on decentralized applications using Celo.</p>
+</p>
+  <p align="center">
+    <a href="https://github.com/celo-org/celo-composer/graphs/stars">
+      <img alt="GitHub Contributors" src="https://img.shields.io/github/stars/celo-org/celo-composer?color=FCFF52" />
+    </a>
+    <a href="https://github.com/celo-org/celo-composer/graphs/contributors">
+      <img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/celo-org/celo-composer?color=E7E3D4" />
+    </a>
+    <a href="https://github.com/celo-org/celo-composer/issues">
+      <img alt="Issues" src="https://img.shields.io/github/issues/celo-org/celo-composer?color=E7E3D4" />
+    </a>
+    <a href="https://github.com/celo-org/celo-composer/pulls">
+      <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/celo-org/celo-composer?color=E7E3D4" />
+    </a>
+    <a href="https://opensource.org/license/mit/">
+      <img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+    </a>
+  </p>
+</p>
 
-This is a [Optimism](https://github.com/ethereum-optimism) + [wagmi](https://wagmi.sh) + [Foundry](https://book.getfoundry.sh/) + [Rainbowkit](https://www.rainbowkit.com/) + [Vite](https://vitejs.dev/) project originally bootstrapped with [`create-wagmi`](https://github.com/wagmi-dev/wagmi/tree/main/packages/create-wagmi) built with ❤️ for hackers.
+<!-- TABLE OF CONTENTS -->
 
-## Who is this for?
-
-This starter is a great choice for any of the following groups:
-
-- Hackers hacking on [Optimism](https://www.optimism.io/)
-- Hackers hacking on the [Attestation Station](https://community.optimism.io/docs/identity/build/)
-- Hackers interested in using [the most modern and robust web3 full stack development stack](https://twitter.com/gakonst/status/1630038261941796866)
-
-## Getting Started
-
-### Install Node
-
-[See here](https://nodejs.org/en/download/).
-Note that you need Node at a later version than 14.18.0, or 16 and above.
-These instructions were verified with Node 18.
-
-### Install Foundry
-
-You will need to install [Foundry](https://book.getfoundry.sh/getting-started/installation) to build your smart contracts.
-
-1. Run the following command:
-
-   ```sh
-   curl -L https://foundry.paradigm.xyz | bash
-   ```
-
-1. Source your environment as requested by Foundry.
-
-1. Run `foundryup`.
-
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
 </details>
 
-## Set up environment
+<!-- ABOUT THE PROJECT -->
 
-### Get an Etherscan key
+## About The Project
 
-1. Register for [Etherscan on Optimism](https://explorer.optimism.io/register).
-   This account is different from your normal Etherscan account.
+Celo Composer allows you to quickly build, deploy, and iterate on decentralized applications using Celo. It provides a number of frameworks, examples, and Celo specific functionality to help you get started with your next dApp.
 
-1. Go to [the API keys page](https://explorer.optimism.io/myapikey) and click **Add** to create a new API key.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-### Specify .env
+## Built With
 
-You will first need to set up your `.env` to tell Forge where to deploy your contract.
+Celo Composer is built on Celo to make it simple to build dApps using a variety of front-end frameworks, and libraries.
 
-1. Copy `.env.example` to `.env`.
+- [Celo](https://celo.org/)
+- [Solidity](https://docs.soliditylang.org/en/v0.8.19/)
+- [Next.js](https://nextjs.org/)
+- [React.js](https://reactjs.org/)
+- [Material UI](https://mui.com/)
+- [React Native](https://reactnative.dev/)
+- [Flutter](https://docs.flutter.dev/)
+- [React-celo](https://github.com/celo-org/react-celo/)
+- [Rainbowkit-celo](https://github.com/celo-org/rainbowkit-celo)
 
-   ```sh
-   cp .env.example .env
-   ```
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-1. Edit your `.env` to specify the environment variables.
+<!-- GETTING STARTED -->
 
-   - `ETHERSCAN_API_KEY`: Your Etherscan API Key.
+## Prerequisites
 
-   - `FORGE_RPC_URL`: The RPC URL of the network to which you deploy.
-     If you use [Alchemy](https://github.com/ethereum-optimism/optimism-tutorial/tree/main/ecosystem/alchemy), your URL will look like this: `https://opt-goerli.g.alchemy.com/v2/<Alchemy API Key>`
+- Node
+- Git (v2.38 or higher)
 
-   - `FORGE_PRIVATE_KEY`: The private key of the wallet you want to deploy from.
+## How to use Celo Composer
 
-   - `VITE_WALLETCONNECT_PROJECT_ID`: WalletConnect v2 requires a project ID. You can obtain it from your WC dashboard: https://docs.walletconnect.com/2.0/web/web3wallet/installation#obtain-project-id
+The easiest way to start with Celo Composer is using `@celo/celo-composer`. This CLI tool lets you quickly start building dApps on Celo for multiple frameworks, including React (with either react-celo or rainbowkit-celo), React Native (w/o Expo), Flutter, and Angular. To get started, just run the following command, and follow the steps:
 
-## Start the application
-
-<img width="450" alt="starter-app-screenshot" src="https://user-images.githubusercontent.com/389705/225778318-4e6fb8c0-c5d7-4aea-9fc2-2efd17ca435c.png">
-
-1. Clone/fork the optimism-starter repo
-
-   ```sh
-   git clone https://github.com/ethereum-optimism/optimism-starter.git
-   ```
-
-1. Install the necessary node packages:
-
-   ```sh
-   cd optimism-starter
-   npm install
-   ```
-
-1. Start the frontend with `npm run dev`
-
-   ```sh
-   npm run dev
-   ```
-
-   If you get errors during this step, you might need to [update your Foundry to the latest version](#install-foundry).
-
-1. Open [localhost:5173](http://localhost:5173) in your browser.
-
-   Once the webpage has loaded, changes made to files inside the `src/` directory (e.g. `src/App.tsx`) will automatically update the webpage.
-
-See below for general usage instructions or [FAQ](./FAQ.md) for answers to general questions such as:
-
-- [Where to get goerli eth]().
-- [How to deploy a public version of your app](./FAQ.md#how-do-i-deploy-this).
-
-## Generate ABIs & React Hooks
-
-This project comes with `@wagmi/cli` built-in, which means you can generate wagmi-compatible (type safe) ABIs & React Hooks straight from the command line.
-
-To generate ABIs & Hooks, follow the steps below.
-
-## Generate code
-
-To generate ABIs & React Hooks from your Foundry project (in `./contracts`), you can run:
-
-```sh
-npm run wagmi
+```bash
+npx @celo/celo-composer@latest create
 ```
 
-This will use the wagmi config (`wagmi.config.ts`) to generate a `src/generated.ts` file which will include your ABIs & Hooks that you can start using in your project.
+### Front-end framework
 
-[Here is an example](https://github.com/ethereum-optimism/optimism-starter/blob/main/src/components/Attestoooooor.tsx#L77) of Hooks from the generated file being used.
+![Celo Composer select framework](https://github.com/celo-org/celo-composer/blob/main/images/readme/cc_step_1.png?raw=true)
 
-## Deploying Contracts
+### Web3 library (for react-app)
 
-To deploy your contracts to a network, you can use Foundry's [Forge](https://book.getfoundry.sh/forge/) – a command-line tool to tests, build, and deploy your smart contracts.
+![Celo Composer select framework](https://github.com/celo-org/celo-composer/blob/main/images/readme/cc_step_2.png?raw=true)
 
-You can read a more in-depth guide on using Forge to deploy a smart contract [here](https://book.getfoundry.sh/forge/deploying), but we have included a simple script in the `package.json` to get you started.
+### Smart contract framework
 
-Below are the steps to deploying a smart contract to Ethereum Mainnet using Forge:
+![Celo Composer tool selection](https://github.com/celo-org/celo-composer/blob/main/images/readme/cc_step_3.png?raw=true)
 
-## Deploy contract
+### Subgraph
 
-You can now deploy your contract!
+![Celo Composer subgraph support](https://github.com/celo-org/celo-composer/blob/main/images/readme/cc_step_4.png?raw=true)
 
-```sh
-npm run deploy
-```
+### Name your dApp
 
-## Developing with Anvil (Optimism Mainnet Fork)
+![Celo Composer dApp name](https://github.com/celo-org/celo-composer/blob/main/images/readme/cc_step_5.png?raw=true)
 
-Let's combine the above sections and use Anvil alongside our development environment to use our contracts (`./contracts`) against an Optimism fork.
+**_🔥Voila, you have a dApp ready to go. Voila, you have a dApp ready to go. Start building your dApp on Celo._**
 
-### Start dev server
+### Getting started
 
-Run the command:
+Once your custom dApp has been created, just install dependencies, either with `yarn` or `npm i`, and run the respective script from the `package.json` file.
+## Supported Frameworks
 
-```sh
-npm run dev:foundry
-```
+### React
 
-This will:
+- Support for Website and Progressive Web Application.
+- Works with all major crypto wallets.
 
-- Start a vite dev server,
-- Start the `@wagmi/cli` in [**watch mode**](https://wagmi.sh/cli/commands/generate#options) to listen to changes in our contracts, and instantly generate code,
-- Start an Anvil instance (Goerli Optimism Fork) on an RPC URL.
+Check [package readme](https://github.com/celo-org/celo-composer/blob/main/packages/react-app/README.md) to learn more about.
 
-### Deploy our contract to Anvil
+### React Native
 
-Now that we have an Anvil instance up and running, let's deploy our smart contract to the Anvil network:
+- Out of the box config, just focus on buidl.
+- Support for Android and IOS.
+- Works with and without [Expo](https://expo.dev/).
+- Working example app included.
 
-```sh
-npm run deploy:anvil
-```
+Check [package readme](https://github.com/celo-org/celo-composer/blob/main/packages/react-native-app/README.md) to learn more about.
 
-## Start developing
+### Flutter
 
-Now that your contract has been deployed to Anvil, you can start playing around with your contract straight from the web interface!
+- One command to get started - Type `flutter run` to start development in your mobile phone.
+- Works with all major mobile crypto wallets.
+- Support for Android, IOS (Web, Windows, and Linux coming soon).
+- Working example app included.
 
-Head to [localhost:5173](http://localhost:5173) in your browser, connect your wallet, and try increment a counter on the Foundry chain. Use the generated code in `src/generated.ts` to do it and follow the [Attestooooor](https://github.com/ethereum-optimism/optimism-starter/blob/main/src/components/Attestoooooor.tsx) component as an example
+Check [package readme](https://github.com/celo-org/celo-composer/blob/main/packages/flutter-app/README.md) to learn more about.
 
-> Tip: If you import an Anvil private key into your browser wallet (MetaMask, Coinbase Wallet, etc) – you will have 10,000 ETH to play with 😎. The private key is found in the terminal under "Private Keys" when you start up an Anvil instance with `npm run dev:foundry`.
+### Angular
 
-## Alternatives
+- Support for Website and Progressive Web Application.
+- Works with all major crypto wallets.
 
-Looking to use burner wallets? Prefer hardhat? Prefer NEXT.js? Check out these amazing alternatives:
+Check [package readme](https://github.com/celo-org/celo-composer/blob/main/packages/angular-app/README.md) to learn more about.
 
-- [create wagmi cli](https://wagmi.sh/cli/create-wagmi) - A flexible cli with many templates (this starterkit was started from vite-react-cli-foundry)
-- [scaffold-eth](https://github.com/scaffold-eth/se-2) - The new 2nd version of a popular NEXT.js based starter including hardhat, burner wallets, great documentation, and an active telegram for support
-- [Awesome wagmi](https://github.com/wagmi-dev/awesome-wagmi#templates) - Has other alternative examples
-- [Create Eth App](https://usedapp-docs.netlify.app/docs/Getting%20Started/Create%20Eth%20App) - Uses a wagmi alternative called useDapp that is used at OP Labs
+<!-- USAGE EXAMPLES -->
 
-## Learn more
+## 🔭 Learning Solidity
 
-To learn more about [Optimism](https://optimism.io), [Vite](https://vitejs.dev/), [Foundry](https://book.getfoundry.sh/), [Rainbow kit](https://www.rainbowkit.com/) or [wagmi](https://wagmi.sh), check out the following resources:
+📕 Read the docs: <https://docs.soliditylang.org>
 
-- [Foundry Documentation](https://book.getfoundry.sh/) – learn more about the Foundry stack (Anvil, Forge, etc).
-- [wagmi Documentation](https://wagmi.sh) – learn about wagmi Hooks and API.
-- [wagmi Examples](https://wagmi.sh/examples/connect-wallet) – a suite of simple examples using wagmi.
-- [@wagmi/cli Documentation](https://wagmi.sh/cli) – learn more about the wagmi CLI.
-- [Vite Documentation](https://vitejs.dev/) – learn about Vite features and API.
+- [Primitive Data Types](https://solidity-by-example.org/primitives/)
+- [Mappings](https://solidity-by-example.org/mapping/)
+- [Structs](https://solidity-by-example.org/structs/)
+- [Modifiers](https://solidity-by-example.org/function-modifier/)
+- [Events](https://solidity-by-example.org/events/)
+- [Inheritance](https://solidity-by-example.org/inheritance/)
+- [Payable](https://solidity-by-example.org/payable/)
+- [Fallback](https://solidity-by-example.org/fallback/)
+
+📧 Learn the [Solidity globals and units](https://solidity.readthedocs.io/en/v0.8.19/units-and-global-variables.html)
+
+## Support
+
+Join the Celo Discord server at <https://chat.celo.org>. Reach out on the dedicated repo channel [here](https://discord.com/channels/600834479145353243/941003424298856448).
+
+<!-- ROADMAP -->
+
+## Roadmap
+
+See the [open issues](https://github.com/celo-org/celo-composer/issues) for a full list of proposed features (and known issues).
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- CONTRIBUTING -->
+
+## Contributing
+
+We welcome contributions from the community.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## License
+
+Distributed under the MIT License. See `LICENSE.txt` for more information.
+
+<!-- CONTACT -->
+## Contact
+
+- [@CeloDevs](https://twitter.com/CeloDevs)
+- [Discord](https://discord.com/invite/celo)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
