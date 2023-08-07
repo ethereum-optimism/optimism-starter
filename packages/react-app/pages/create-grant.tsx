@@ -43,11 +43,14 @@ export default function CreateApprovedGrantPage() {
       {
         recipient: grantRecipient,
         // Unix timestamp of when attestation expires. (0 for no expiration)
+        /* eslint-disable-next-line */
         expirationTime: 0,
         // Unix timestamp of current time
+        /* eslint-disable-next-line */
         time: 1671219636,
         revocable: false,
         version: 1,
+        /* eslint-disable-next-line */
         nonce: 0,
         schema: schemaUID,
         refUID:
