@@ -1,11 +1,13 @@
 import { EAS, SchemaEncoder } from "@ethereum-attestation-service/eas-sdk";
 import { useState } from "react";
 import { useWalletClient } from "wagmi";
+import { useEthersSigner } from "../utils/ethers";
 
 export const EASContractAddress = "0x1a5650d0ecbca349dd84bafa85790e3e6955eb84"; // GoerliOptimism v0.26
 
 export default function CreateApprovedGrantPage() {
   const { data: walletClient } = useWalletClient();
+  const signer = useEthersSigner();
 
   const [grantRecipient, setGrantRecipient] = useState(
     "0x99B551F0Bb2e634D726d62Bb2FF159a34964976C"
@@ -18,7 +20,7 @@ export default function CreateApprovedGrantPage() {
   const [grantAmount, setGrantAmount] = useState(0); // eth => BigNumber???
 
   const eas = new EAS(EASContractAddress);
-  eas.connect(walletClient);
+  eas.connect(signer);
 
   const schemaEncoder = new SchemaEncoder(
     "address grantRecipient,string grantTitle,string bannerURL,uint256 startDate,uint256 endDate,uint256 numberOfMilestones,uint256 grantAmount"
@@ -37,30 +39,19 @@ export default function CreateApprovedGrantPage() {
     "0xca41e9d72f7190f0c47f590388930c46c4229f6284f4ca07d59e37f4d5df53e7";
 
   const createAttestation = async () => {
-    const offchain = await eas.getOffchain();
-
-    const offchainAttestation = await offchain.signOffchainAttestation(
-      {
+    const offchainAttestation = await eas.attest({
+      schema: schemaUID,
+      data: {
         recipient: grantRecipient,
         // Unix timestamp of when attestation expires. (0 for no expiration)
         /* eslint-disable-next-line */
-        expirationTime: 0,
-        // Unix timestamp of current time
-        /* eslint-disable-next-line */
-        time: 1671219636,
+        expirationTime: BigInt(0),
         revocable: false,
-        version: 1,
-        /* eslint-disable-next-line */
-        nonce: 0,
-        schema: schemaUID,
-        refUID:
-          "0x0000000000000000000000000000000000000000000000000000000000000000",
         data: encodedData,
       },
-      walletClient
-    );
+    });
 
-    console.log("New attestation UID:", offchainAttestation.uid);
+    console.log("New attestation UID:", offchainAttestation);
   };
 
   return (
@@ -126,7 +117,7 @@ export default function CreateApprovedGrantPage() {
               type="date"
               required
               className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              onChange={(e) => setStartDate(e.target.value)}
+              onChange={(e) => setStartDate(new Date(e.target.value).getTime())}
             />
           </div>
         </div>
@@ -141,7 +132,7 @@ export default function CreateApprovedGrantPage() {
               type="date"
               required
               className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              onChange={(e) => setEndDate(e.target.value)}
+              onChange={(e) => setEndDate(new Date(e.target.value).getTime())}
             />
           </div>
         </div>
@@ -157,7 +148,7 @@ export default function CreateApprovedGrantPage() {
               type="number"
               required
               className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              onChange={(e) => setNumberOfMilestones(e.target.value)}
+              onChange={(e) => setNumberOfMilestones(Number(e.target.value))}
             />
           </div>
         </div>
@@ -172,7 +163,7 @@ export default function CreateApprovedGrantPage() {
               type="number"
               required
               className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              onChange={(e) => setGrantAmount(e.target.value)}
+              onChange={(e) => setGrantAmount(Number(e.target.value))}
             />
           </div>
         </div>
