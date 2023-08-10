@@ -1,10 +1,6 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.0;
 
-interface GnosisSafe {
-    // Omitted for brevity. You can copy the functions you require from the GnosisSafe interface.
-}
-
 contract GrantsModule {
     string public constant NAME = "GRANTS Module";
     string public constant VERSION = "0.1.0";
@@ -21,15 +17,33 @@ contract GrantsModule {
         uint16 nonce; // You mentioned you're unsure about the nonce. For now, I've added it.
     }
 
+    address public owner; // contract owner/admin
     mapping(address => Grant) public grants;
     mapping(address => bool) public approvedDelegates;
+
+    modifier onlyOwner() {
+        require(msg.sender == owner, "Not authorized: must be owner");
+        _;
+    }
 
     modifier onlyApprovedDelegate(address _delegate) {
         require(approvedDelegates[_delegate], "Not an approved delegate");
         _;
     }
 
-    function addDelegates(address[] memory _delegates) public {
+    modifier onlyDelegateOrOwner(address _grantAddress) {
+        require(
+            msg.sender == grants[_grantAddress].delegate || msg.sender == owner,
+            "Not authorized: must be current delegate or owner"
+        );
+        _;
+    }
+
+    constructor() {
+        owner = msg.sender; // Set the contract deployer as the initial owner.
+    }
+
+    function addDelegates(address[] memory _delegates) public onlyOwner {
         for (uint i = 0; i < _delegates.length; i++) {
             approvedDelegates[_delegates[i]] = true;
         }
@@ -57,6 +71,12 @@ contract GrantsModule {
         return grants[_grantAddress];
     }
 
+    function updateGrantDelegate(address _grantAddress, address _newDelegate) public onlyDelegateOrOwner(_grantAddress) {
+        require(approvedDelegates[_newDelegate], "New delegate is not approved");
+    
+        grants[_grantAddress].delegate = _newDelegate;
+    }
+
     function updateGrant(address _grantAddress, uint96 _currentMilestone, address _delegate) public onlyApprovedDelegate(_delegate) {
         Grant storage grant = grants[_grantAddress];
         require(_delegate == grant.delegate, "Not authorized");
@@ -64,7 +84,7 @@ contract GrantsModule {
         grant.distributedAmount += _currentMilestone;
     }
 
-    function executeMilestoneTransfer(address _grantAddress) public {
+    function executeMilestoneTransfer(address _grantAddress) public onlyDelegateOrOwner(_grantAddress) {
         Grant storage grant = grants[_grantAddress];
     
         require(approvedDelegates[grant.delegate], "Not an approved delegate");
@@ -81,10 +101,9 @@ contract GrantsModule {
         
         // Update the distributed amount for the grant.
         grant.distributedAmount += transferAmount;
-
     }
 
-    function deleteGrant(address _grantAddress) public {
+    function deleteGrant(address _grantAddress) public onlyOwner {
         delete grants[_grantAddress];
     }
 }
