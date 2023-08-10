@@ -1,12 +1,10 @@
 import { EAS, SchemaEncoder } from "@ethereum-attestation-service/eas-sdk";
 import { useState } from "react";
-import { useWalletClient } from "wagmi";
 import { useEthersSigner } from "../utils/ethers";
 
 export const EASContractAddress = "0x1a5650d0ecbca349dd84bafa85790e3e6955eb84"; // GoerliOptimism v0.26
 
 export default function CreateApprovedGrantPage() {
-  const { data: walletClient } = useWalletClient();
   const signer = useEthersSigner();
 
   const [grantRecipient, setGrantRecipient] = useState(
@@ -59,7 +57,7 @@ export default function CreateApprovedGrantPage() {
 
   return (
     <div>
-      <div className="h1 font-Telegraf">
+      <div className="h1 font-Telegraf text-4xl text-lena">
         {" "}
         <h1>Create Grant </h1>
       </div>
