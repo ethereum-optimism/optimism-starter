@@ -9,18 +9,7 @@
         "react-app:dev": "yarn workspace @asd/react-app dev",
         "react-app:build": "yarn workspace @asd/react-app build",
         "react-app:start": "yarn workspace @asd/react-app start",
-        "react-app:lint": "yarn workspace @asd/react-app lint",
-        "hardhat:test": "yarn workspace @asd/hardhat test",
-        "hardhat:test-local": "yarn workspace @asd/hardhat test-local",
-        "hardhat:create-account": "yarn workspace @asd/hardhat create-account",
-        "hardhat:accounts": "yarn workspace @asd/hardhat accounts",
-        "hardhat:devchain": "yarn workspace @asd/hardhat devchain",
-        "hardhat:deploy": "yarn workspace @asd/hardhat deploy",
-        "hardhat:deploy-reset-watch": "yarn workspace @asd/hardhat deploy-reset-watch",
-        "hardhat:watch": "yarn workspace @asd/hardhat watch",
-        "hardhat:fork-mainnet": "yarn workspace @asd/hardhat fork-mainnet",
-        "subgraphs:test": "yarn workspace @asd/subgraphs test",
-        "subgraphs:get-abi": "yarn workspace @asd/subgraphs get-abi"
+        "react-app:lint": "yarn workspace @asd/react-app lint"
     },
     "repository": {
         "type": "git",
