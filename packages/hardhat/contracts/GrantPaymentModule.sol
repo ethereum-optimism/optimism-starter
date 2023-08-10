@@ -18,7 +18,7 @@ interface GnosisSafe {
     ) external returns (bool success);
 }
 
-contract GrantsModule {
+contract GrantPaymentModule {
     string public constant NAME = "GRANTS Module";
     string public constant VERSION = "0.1.0";
     bytes32 public constant GRANT_TRANSFER_TYPEHASH =
@@ -115,20 +115,20 @@ contract GrantsModule {
     ) public onlyApprovedDelegate(_delegate) {
         Grant storage grant = grants[_granteeAddress];
         require(_delegate == grant.delegate, "Not authorized");
-        grant.reachedMilestoneAmount += _currentMilestone;
-        grant.distributedAmount += _currentMilestone;
+        if (grant.reachedMilestoneAmount != _currentMilestone) {
+            grant.reachedMilestoneAmount = _currentMilestone;
+        }
+        if (grant.delegate != _delegate) {
+            grant.delegate = _delegate;
+        }
+        executeMilestoneTransfer(_granteeAddress);
     }
 
-    function executeMilestoneTransfer(
-        address _granteeAddress
-    ) public onlyDelegateOrOwner(_granteeAddress) {
+    function executeMilestoneTransfer(address _granteeAddress) internal {
         Grant storage grant = grants[_granteeAddress];
 
-        require(approvedDelegates[grant.delegate], "Not an approved delegate");
-
         // Calculate the amount to transfer for the reached milestone.
-        uint96 transferAmount = grant.milestoneAmount *
-            grant.reachedMilestoneAmount;
+        uint96 transferAmount = grant.amount / grant.milestoneAmount;
 
         // Ensure the contract has enough funds and the grant has not exceeded its limit.
         require(
