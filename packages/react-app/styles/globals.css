@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Garet-Book";
+  src: url("../assets/fonts/Garet-Book.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Telegraf";
+  src: url("../assets/fonts/PPTelegraf-Regular.otf") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
