@@ -41,6 +41,9 @@ export default function CreateApprovedGrantPage() {
   const schemaUID =
     "0xfcdd634433b8be51c4c171791f603be2b8417ed90d648a075de83f405dcfa911";
 
+  const attestationUID =
+    "0x6dfce2a2f96d4c2c1e6f5ee34a3c79cf62c0033c6c4db18a9917bbec0dd7a722";
+
   const createAttestation = async () => {
     const offchainAttestation = await eas.attest(
       {
@@ -49,6 +52,7 @@ export default function CreateApprovedGrantPage() {
           recipient: grantRecipient,
           // Unix timestamp of when attestation expires. (0 for no expiration)
           /* eslint-disable-next-line */
+          refUID: attestationUID,
           expirationTime: BigInt(0),
           revocable: false,
           data: encodedData,
