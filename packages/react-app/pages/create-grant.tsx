@@ -1,11 +1,66 @@
 import { EAS, SchemaEncoder } from "@ethereum-attestation-service/eas-sdk";
 import { useState } from "react";
 import { useEthersSigner } from "../utils/ethers";
+import { ethers } from "ethers";
+import {
+  EthersAdapter,
+  SafeAccountConfig,
+  SafeFactory,
+} from "@safe-global/protocol-kit";
+import SafeApiKit from "@safe-global/api-kit";
 
 export const EASContractAddress = "0x1a5650d0ecbca349dd84bafa85790e3e6955eb84"; // GoerliOptimism v0.26
 
 export default function CreateApprovedGrantPage() {
   const signer = useEthersSigner();
+  // console.log(signer);
+
+  // init signer, provider, eth adapter
+  const RPC_URL = "https://base-goerli.public.blastapi.io";
+  const provider = new ethers.providers.JsonRpcProvider(RPC_URL);
+  console.log(process.env.OWNER_1_PRIVATE_KEY);
+
+  const owner1Signer = new ethers.Wallet(
+    process.env.OWNER_1_PRIVATE_KEY,
+    provider
+  );
+  const ethAdapterOwner1 = new EthersAdapter({
+    ethers,
+    signerOrProvider: owner1Signer,
+  });
+
+  // init SafeAPI
+  // const txServiceUrl = "https://safe-transaction-base-testnet.safe.global";
+  // const safeService = new SafeApiKit({
+  //   txServiceUrl,
+  //   ethAdapter: ethAdapterOwner1,
+  // });
+
+  const ceateSafe = async (): Promise<string> => {
+    // init Protocol Kit
+    const safeFactory = await SafeFactory.create({
+      ethAdapter: ethAdapterOwner1,
+    });
+
+    // create Safe Wallet
+    const safeAccountConfig: SafeAccountConfig = {
+      owners: [await owner1Signer.getAddress()],
+      threshold: 1,
+      // ... (Optional params)
+    };
+
+    //    This Safe is tied to owner 1 because the factory was initialized with
+    // an adapter that had owner 1 as the signer.
+    const safeSdkOwner1 = await safeFactory.deploySafe({ safeAccountConfig });
+
+    const safeAddress = await safeSdkOwner1.getAddress();
+
+    console.log("Your Safe has been deployed:");
+    console.log(`https://goerli.basescan.org/address/${safeAddress}`);
+    console.log(`https://app.safe.global/base-gor::${safeAddress}`);
+
+    return safeAddress;
+  };
 
   const [grantRecipient, setGrantRecipient] = useState(
     "0x99B551F0Bb2e634D726d62Bb2FF159a34964976C"
@@ -20,23 +75,18 @@ export default function CreateApprovedGrantPage() {
   const eas = new EAS(EASContractAddress);
   eas.connect(signer);
 
+  // add multisgWallet to schema
   const schemaEncoder = new SchemaEncoder(
     "address grantRecipient,string grantTitle,string bannerURL,uint256 startDate,uint256 endDate,uint256 numberOfMilestones,uint256 grantAmount"
   );
-  const encodedData = schemaEncoder.encodeData([
-    { name: "grantRecipient", value: grantRecipient, type: "address" },
-    { name: "grantTitle", value: grantTitle, type: "string" },
-    { name: "bannerURL", value: bannerURL, type: "string" },
-    { name: "startDate", value: startDate, type: "uint256" },
-    { name: "endDate", value: endDate, type: "uint256" },
-    { name: "numberOfMilestones", value: numberOfMilestones, type: "uint256" },
-    { name: "grantAmount", value: grantAmount, type: "uint256" },
-  ]);
 
   const schemaUID =
     "0xca41e9d72f7190f0c47f590388930c46c4229f6284f4ca07d59e37f4d5df53e7";
 
   const createAttestation = async () => {
+    // TODO: create multisig wallet
+    // const multisigWallet = await ceateSafe();
+
     const attestation = await eas.attest(
       {
         schema: schemaUID,
@@ -46,7 +96,20 @@ export default function CreateApprovedGrantPage() {
           /* eslint-disable-next-line */
           expirationTime: BigInt(0),
           revocable: false,
-          data: encodedData,
+          data: schemaEncoder.encodeData([
+            { name: "grantRecipient", value: grantRecipient, type: "address" },
+            // { name: "multisignWallet", value: multisigWallet, type: "address" },
+            { name: "grantTitle", value: grantTitle, type: "string" },
+            { name: "bannerURL", value: bannerURL, type: "string" },
+            { name: "startDate", value: startDate, type: "uint256" },
+            { name: "endDate", value: endDate, type: "uint256" },
+            {
+              name: "numberOfMilestones",
+              value: numberOfMilestones,
+              type: "uint256",
+            },
+            { name: "grantAmount", value: grantAmount, type: "uint256" },
+          ]),
         },
       },
       { gasLimit: 2500000 }

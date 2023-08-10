@@ -4,6 +4,7 @@ import { providers } from "ethers";
 
 export function walletClientToSigner(walletClient: WalletClient) {
   const { account, chain, transport } = walletClient;
+
   const network = {
     chainId: chain.id,
     name: chain.name,
