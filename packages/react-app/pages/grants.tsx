@@ -15,7 +15,8 @@ export default function GrantsListPage() {
 
   const { address } = useAccount();
   const client = new Client({
-    url: "https://optimism-goerli.easscan.org/graphql",
+    // url: "https://optimism-goerli.easscan.org/graphql",
+    url: "https://base-goerli.easscan.org/graphql",
     exchanges: [cacheExchange, fetchExchange],
   });
 
@@ -47,16 +48,23 @@ export default function GrantsListPage() {
   `;
 
     const result = await client.query(query, {}).toPromise();
-
+    const attestationList = result.data?.attestations.map((att: any) => ({
+      refUID: att.refUID,
+      grantRecipient: att.recipient,
+      multisigWallet: att.data.multisigWallet,
+      title: att.data.grantTitle,
+      milestones: att.data.numberOfMilestones,
+      amount: att.data.grantAmount,
+    }));
     console.log(result.data);
 
     if (result.error) throw result.error;
-    if (result.data?.attestations) setAttestations(result.data.attestations);
+    if (result.data?.attestations) setAttestations(attestationList);
   };
 
   useEffect(() => {
     getAttestations();
-  }, []);
+  }, [getAttestations]);
   return (
     <div>
       <div className="h1 font-Telegraf text-4xl text-lena">
