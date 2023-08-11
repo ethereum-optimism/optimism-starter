@@ -67,7 +67,7 @@ export default function CreateApprovedGrantPage() {
 
   return (
     <div>
-      <div className="h1 font-Telegraf text-4xl text-lena">
+      <div className="h1 -ml-8 mb-10 font-Telegraf text-4xl text-lena">
         {" "}
         <h1>Create Grant </h1>
       </div>
@@ -78,8 +78,8 @@ export default function CreateApprovedGrantPage() {
           method="POST"
         >
           <div>
-            <div className="w-80 mt-2 mr-4 flex flex-row">
-              <label className="w-60 block text-m mr-4 mt-2 leading-6 font-medium font-Garet text-gray-900">
+            <div className="w-100 mt-2 mr-4 flex flex-row">
+              <label className="w-60 block text-m  mr-4 mt-2 leading-6 font-medium font-Garet text-gray-900">
                 Grant Recipient
               </label>
               <input
@@ -87,7 +87,7 @@ export default function CreateApprovedGrantPage() {
                 name="grantRecipient"
                 type="text"
                 required
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block ml-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 onChange={(e) => setGrantRecipient(e.target.value)}
               />
             </div>
@@ -173,7 +173,7 @@ export default function CreateApprovedGrantPage() {
                   name="startDate"
                   type="date"
                   required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 pl-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   onChange={(e) =>
                     setStartDate(new Date(e.target.value).getTime())
                   }
@@ -190,7 +190,7 @@ export default function CreateApprovedGrantPage() {
                   name="endDate"
                   type="date"
                   required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 pl-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   onChange={(e) =>
                     setEndDate(new Date(e.target.value).getTime())
                   }

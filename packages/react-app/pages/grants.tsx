@@ -67,7 +67,7 @@ export default function GrantsListPage() {
   }, [getAttestations]);
   return (
     <div>
-      <div className="h1 font-Telegraf text-4xl text-lena">
+      <div className="h1 -ml-8 mb-10 font-Telegraf text-4xl text-lena">
         {" "}
         <h1>Grants List</h1>
       </div>
