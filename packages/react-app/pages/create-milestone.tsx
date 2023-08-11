@@ -69,7 +69,7 @@ export default function CreateApprovedGrantPage() {
 
   return (
     <div>
-      <div className="h1 font-Telegraf text-4xl text-lena">
+      <div className="h1 -ml-8 mb-10 font-Telegraf text-4xl text-lena">
         {" "}
         <h1>Create Milestone </h1>
       </div>{" "}
