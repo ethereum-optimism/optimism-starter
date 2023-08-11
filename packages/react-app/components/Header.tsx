@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function Header() {
   return (
-    <Disclosure as="nav" className="bg-prosperity border-b ">
+    <Disclosure as="nav" className="bg-visor  ">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -25,35 +25,35 @@ export default function Header() {
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
                   <Image
-                    className="block h-8 w-auto sm:block lg:block"
-                    src="/logo.svg"
+                    className="block h-16 w-auto sm:block lg:block"
+                    src="/logo1.svg"
                     width="24"
                     height="24"
-                    alt="Celo Logo"
+                    alt="GrantVisor Logo"
                   />
                 </div>
                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                   <Link
                     href="/"
-                    className="inline-flex items-center border-b-2  px-1 pt-1 text-sm font-medium text-gray-900"
+                    className="inline-flex items-center   px-1 pt-1 text-sm font-medium font-Garet text-blessing"
                   >
                     Home
                   </Link>
                   <Link
                     href="/create-grant"
-                    className="inline-flex items-center border-b-2  px-1 pt-1 text-sm font-medium text-gray-900"
+                    className="inline-flex items-center   px-1 pt-1 text-sm font-medium font-Garet text-blessing"
                   >
                     Create Grant
                   </Link>
                   <Link
                     href="/create-milestone"
-                    className="inline-flex items-center border-b-2  px-1 pt-1 text-sm font-medium text-gray-900"
+                    className="inline-flex items-center   px-1 pt-1 text-sm font-medium font-Garet text-blessing"
                   >
                     Create Milestone
                   </Link>
                   <Link
                     href="/grants"
-                    className="inline-flex items-center border-b-2  px-1 pt-1 text-sm font-medium text-gray-900"
+                    className="inline-flex items-center   px-1 pt-1 text-sm font-medium font-Garet text-blessing"
                   >
                     Grants
                   </Link>
@@ -61,7 +61,9 @@ export default function Header() {
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <ConnectButton
-                  showBalance={{ smallScreen: true, largeScreen: false }}
+                  showBalance={{ smallScreen: false, largeScreen: false }}
+                  chainStatus={{ smallScreen: "icon", largeScreen: "icon" }}
+                  accountStatus="avatar"
                 />
               </div>
             </div>
@@ -72,7 +74,7 @@ export default function Header() {
               <Disclosure.Button
                 as="a"
                 href="#"
-                className="block border-l-4  py-2 pl-3 pr-4 text-base font-medium text-black"
+                className="block border-l-4  py-2 pl-3 pr-4 text-base font-medium font-Garet text-black"
               >
                 Home
               </Disclosure.Button>
