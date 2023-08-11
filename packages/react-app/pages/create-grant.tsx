@@ -1,67 +1,13 @@
 import { EAS, SchemaEncoder } from "@ethereum-attestation-service/eas-sdk";
 import { useState } from "react";
 import { useEthersSigner } from "../utils/ethers";
-import { ethers } from "ethers";
-import {
-  EthersAdapter,
-  SafeAccountConfig,
-  SafeFactory,
-} from "@safe-global/protocol-kit";
-import SafeApiKit from "@safe-global/api-kit";
+import { ceateSafe } from "../utils/safe";
 
 export const EASContractAddress = "0x1a5650d0ecbca349dd84bafa85790e3e6955eb84"; // GoerliOptimism v0.26
+// export const EASContractAddress = " 0xAcfE09Fd03f7812F022FBf636700AdEA18Fd2A7A"; // GoerliBase v0.26
 
 export default function CreateApprovedGrantPage() {
   const signer = useEthersSigner();
-  // console.log(signer);
-
-  // init signer, provider, eth adapter
-  const RPC_URL = "https://base-goerli.public.blastapi.io";
-  const provider = new ethers.providers.JsonRpcProvider(RPC_URL);
-  console.log(process.env.OWNER_1_PRIVATE_KEY);
-
-  const owner1Signer = new ethers.Wallet(
-    "9df5a13acad59070d7c6b10bf80a5ec55b1bce1169d906ea43262f417e800393" ||
-      process.env.OWNER_1_PRIVATE_KEY,
-    provider
-  );
-  const ethAdapterOwner1 = new EthersAdapter({
-    ethers,
-    signerOrProvider: owner1Signer,
-  });
-
-  // init SafeAPI
-  // const txServiceUrl = "https://safe-transaction-base-testnet.safe.global";
-  // const safeService = new SafeApiKit({
-  //   txServiceUrl,
-  //   ethAdapter: ethAdapterOwner1,
-  // });
-
-  const ceateSafe = async (): Promise<string> => {
-    // init Protocol Kit
-    const safeFactory = await SafeFactory.create({
-      ethAdapter: ethAdapterOwner1,
-    });
-
-    // create Safe Wallet
-    const safeAccountConfig: SafeAccountConfig = {
-      owners: [await owner1Signer.getAddress()],
-      threshold: 1,
-      // ... (Optional params)
-    };
-
-    //    This Safe is tied to owner 1 because the factory was initialized with
-    // an adapter that had owner 1 as the signer.
-    const safeSdkOwner1 = await safeFactory.deploySafe({ safeAccountConfig });
-
-    const safeAddress = await safeSdkOwner1.getAddress();
-
-    console.log("Your Safe has been deployed:");
-    console.log(`https://goerli.basescan.org/address/${safeAddress}`);
-    console.log(`https://app.safe.global/base-gor::${safeAddress}`);
-
-    return safeAddress;
-  };
 
   const [grantRecipient, setGrantRecipient] = useState(
     "0x99B551F0Bb2e634D726d62Bb2FF159a34964976C"
@@ -76,7 +22,7 @@ export default function CreateApprovedGrantPage() {
   const eas = new EAS(EASContractAddress);
   eas.connect(signer);
 
-  // add multisgWallet to schema
+  // TODO:add multisgWallet to schema
   const schemaEncoder = new SchemaEncoder(
     "address grantRecipient,string grantTitle,string bannerURL,uint256 startDate,uint256 endDate,uint256 numberOfMilestones,uint256 grantAmount"
   );
@@ -86,7 +32,7 @@ export default function CreateApprovedGrantPage() {
 
   const createAttestation = async () => {
     // TODO: create multisig wallet
-    // const multisigWallet = await ceateSafe();
+    const multisigWallet = await ceateSafe();
 
     const attestation = await eas.attest(
       {

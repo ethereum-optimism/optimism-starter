@@ -3,6 +3,7 @@ pragma solidity ^0.8.0;
 
 import "./Enum.sol";
 import "./SignatureDecoder.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 interface GnosisSafe {
     /// @dev Allows a Module to execute a Safe transaction without any further confirmations.
@@ -19,6 +20,9 @@ interface GnosisSafe {
 }
 
 contract GrantPaymentModule {
+    IERC20 public usdcToken; // Declare the USDC token contract
+    address usdcTokenAddress;
+
     string public constant NAME = "GRANTS Module";
     string public constant VERSION = "0.1.0";
     bytes32 public constant GRANT_TRANSFER_TYPEHASH =
@@ -61,8 +65,10 @@ contract GrantPaymentModule {
         _;
     }
 
-    constructor() {
+    constructor(address _usdcTokenAddress) {
         owner = msg.sender; // Set the contract deployer as the initial owner.
+        usdcTokenAddress = _usdcTokenAddress;
+        usdcToken = IERC20(usdcTokenAddress); // Initialize the USDC token contract
     }
 
     // do we need this????
@@ -141,7 +147,9 @@ contract GrantPaymentModule {
         );
 
         // Transfer the funds.
-        payable(_granteeAddress).transfer(transferAmount);
+        usdcToken.approve(msg.sender, transferAmount);
+        usdcToken.transferFrom(msg.sender, _granteeAddress, transferAmount);
+        // payable(_granteeAddress).transfer(transferAmount);
 
         // Update the distributed amount for the grant.
         grant.distributedAmount += transferAmount;
