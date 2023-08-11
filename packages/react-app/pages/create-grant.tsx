@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useEthersSigner } from "../utils/ethers";
 import { ceateSafe } from "../utils/safe";
 
-export const EASContractAddress = "0x1a5650d0ecbca349dd84bafa85790e3e6955eb84"; // GoerliOptimism v0.26
+export const EASContractAddress = "0x4200000000000000000000000000000000000021"; // GoerliOptimism v0.26
 // export const EASContractAddress = " 0xAcfE09Fd03f7812F022FBf636700AdEA18Fd2A7A"; // GoerliBase v0.26
 
 export default function CreateApprovedGrantPage() {
@@ -32,7 +32,7 @@ export default function CreateApprovedGrantPage() {
 
   const createAttestation = async () => {
     // TODO: create multisig wallet
-    const multisigWallet = await ceateSafe();
+    // const multisigWallet = await ceateSafe();
 
     const attestation = await eas.attest(
       {
