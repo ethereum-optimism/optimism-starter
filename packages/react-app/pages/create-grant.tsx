@@ -12,31 +12,27 @@ export default function CreateApprovedGrantPage() {
   const [grantRecipient, setGrantRecipient] = useState(
     "0x99B551F0Bb2e634D726d62Bb2FF159a34964976C"
   );
-  const [grantTitle, setGrantTitel] = useState("");
-  const [bannerURL, setBannerURL] = useState("");
-  const [startDate, setStartDate] = useState(0); // date => timestamp
-  const [endDate, setEndDate] = useState(0);
-  const [numberOfMilestones, setNumberOfMilestones] = useState(0);
+  const [grantTitle, setGrantTitle] = useState("");
+  const [grantDescription, setGrantDescription] = useState("");
+  const [numberOfMilestones, setNumberOfMilestones] = useState("");
   const [grantAmount, setGrantAmount] = useState(0); // eth => BigNumber???
+ 
 
   const eas = new EAS(EASContractAddress);
   eas.connect(signer);
 
   const schemaEncoder = new SchemaEncoder(
-    "address grantRecipient,string grantTitle,string bannerURL,uint256 startDate,uint256 endDate,uint256 numberOfMilestones,uint256 grantAmount"
+    "string grantTitle,string grantDescription,string numberOfMilestones,uint256 grantAmount"
   );
   const encodedData = schemaEncoder.encodeData([
-    { name: "grantRecipient", value: grantRecipient, type: "address" },
     { name: "grantTitle", value: grantTitle, type: "string" },
-    { name: "bannerURL", value: bannerURL, type: "string" },
-    { name: "startDate", value: startDate, type: "uint256" },
-    { name: "endDate", value: endDate, type: "uint256" },
-    { name: "numberOfMilestones", value: numberOfMilestones, type: "uint256" },
+    { name: "grantDescription", value: grantDescription, type: "string" },
+    { name: "numberOfMilestones", value: numberOfMilestones, type: "string" },
     { name: "grantAmount", value: grantAmount, type: "uint256" },
   ]);
 
   const schemaUID =
-    "0xca41e9d72f7190f0c47f590388930c46c4229f6284f4ca07d59e37f4d5df53e7";
+    "0x40f3d426f8aef71e7426b6bdd8b858f865e716cfb8d0a1b32df80056079e49dc";
 
   const createAttestation = async () => {
     const offchainAttestation = await eas.attest({
@@ -58,18 +54,19 @@ export default function CreateApprovedGrantPage() {
     <div>
       <div className="h1">Create Approved Grant Page</div>
       <form className="space-y-6" action="#" method="POST">
+        
         <div>
-          <div className="mt-2 mr-4 flex flex-row">
+          <div className="mt-2 mr-4 flex flex-row ">
             <label className="block text-m mr-4 mt-2 leading-6 font-medium text-gray-900">
-              Grant Recipient
+              Grant Title
             </label>
             <input
-              id="grantRecipient"
-              name="grantRecipient"
+              id="grantTitle"
+              name="grantTitle"
               type="text"
               required
               className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              onChange={(e) => setGrantRecipient(e.target.value)}
+              onChange={(e) => setGrantTitle(e.target.value)}
             />
           </div>
         </div>
@@ -77,62 +74,15 @@ export default function CreateApprovedGrantPage() {
         <div>
           <div className="mt-2 mr-4 flex flex-row ">
             <label className="block text-m mr-4 mt-2 leading-6 font-medium text-gray-900">
-              Grant Titel
+            Grant Description
             </label>
             <input
-              id="grantTitel"
-              name="grantTitel"
+              id="grant description"
+              name="grantDescription"
               type="text"
               required
               className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              onChange={(e) => setGrantTitel(e.target.value)}
-            />
-          </div>
-        </div>
-
-        <div>
-          <div className="mt-2 mr-4 flex flex-row ">
-            <label className="block text-m mr-4 mt-2 leading-6 font-medium text-gray-900">
-              Banner URL
-            </label>
-            <input
-              id="bannerURL"
-              name="bannerURL"
-              type="text"
-              required
-              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              onChange={(e) => setBannerURL(e.target.value)}
-            />
-          </div>
-        </div>
-
-        <div>
-          <div className="mt-2 mr-4 flex flex-row ">
-            <label className="block text-m mr-4 mt-2 leading-6 font-medium text-gray-900">
-              Start Date
-            </label>
-            <input
-              id="startDate"
-              name="startDate"
-              type="date"
-              required
-              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              onChange={(e) => setStartDate(new Date(e.target.value).getTime())}
-            />
-          </div>
-        </div>
-        <div>
-          <div className="mt-2 mr-4 flex flex-row ">
-            <label className="block text-m mr-4 mt-2 leading-6 font-medium text-gray-900">
-              End Date
-            </label>
-            <input
-              id="endDate"
-              name="endDate"
-              type="date"
-              required
-              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              onChange={(e) => setEndDate(new Date(e.target.value).getTime())}
+              onChange={(e) => setGrantDescription(e.target.value)}
             />
           </div>
         </div>
@@ -148,7 +98,7 @@ export default function CreateApprovedGrantPage() {
               type="number"
               required
               className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              onChange={(e) => setNumberOfMilestones(Number(e.target.value))}
+              onChange={(e) => setNumberOfMilestones(e.target.value)}
             />
           </div>
         </div>

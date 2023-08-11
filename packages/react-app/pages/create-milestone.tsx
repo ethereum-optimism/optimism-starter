@@ -14,23 +14,21 @@ export default function CreateApprovedGrantPage() {
   const [grantRecipient, setGrantRecipient] = useState(
     "0x99B551F0Bb2e634D726d62Bb2FF159a34964976C"
   );
-  const [RefUID, setRefUID] = useState("");
   const [grantTitle, setGrantTitle] = useState("");
   const [milestoneNumber, setMileStoneNumber] = useState(0);
   const [milestoneDescription, setMilestoneDescription] = useState(""); 
-  const [date, setDate] = useState(0);
-  const [status, setStatus] = useState("");
+ 
 
   const eas = new EAS(EASContractAddress);
   eas.connect(signer);
 
   const schemaEncoder = new SchemaEncoder(
-    "string RefUID,string grantTitle,uint256 milestoneNumber,string milestoneDescription,uint256 date,string status"
+    "string grantTitle,uint256 milestoneNumber,string milestoneDescription"
   );
 
   //string RefUID,string grantTitle,uint256 milestoneNumber,string milestoneDescription,uint256 date,string status
   const encodedData = schemaEncoder.encodeData([
-    { name: "RefUID", value: RefUID, type: "string" },
+   
     { name: "grantTitle", value: grantTitle, type: "string" },
     { name: "milestoneNumber", value: milestoneNumber, type: "uint256" },
     {
@@ -38,12 +36,11 @@ export default function CreateApprovedGrantPage() {
       value: milestoneDescription,
       type: "string",
     },
-    { name: "date", value: date, type: "uint256" },
-    { name: "status", value: status, type: "string" },
+  
   ]);
 
   const schemaUID =
-    "0xfcdd634433b8be51c4c171791f603be2b8417ed90d648a075de83f405dcfa911";
+    "0x83f0b577c98f5eca3ba23e3ee5628d0062d910614c34f118956e15ddb13641c1";
 
   const createAttestation = async () => {
     const offchainAttestation = await eas.attest({
@@ -68,21 +65,6 @@ export default function CreateApprovedGrantPage() {
     <div>
       <div className="h1">Create Approved Grant Page</div>
       <form className="space-y-6" action="#" method="POST">
-        <div>
-          <div className="mt-2 mr-4 flex flex-row">
-            <label className="block text-m mr-4 mt-2 leading-6 font-medium text-gray-900">
-              RefUID
-            </label>
-            <input
-              id="RefUID"
-              name="RefUID"
-              type="text"
-              required
-              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              onChange={(e) => setRefUID(e.target.value)}
-            />
-          </div>
-        </div>
 
         <div>
           <div className="mt-2 mr-4 flex flex-row ">
@@ -129,37 +111,6 @@ export default function CreateApprovedGrantPage() {
               className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               onChange={(e) =>
                 setMilestoneDescription(e.target.value)}
-            />
-          </div>
-        </div>
-        <div>
-          <div className="mt-2 mr-4 flex flex-row ">
-            <label className="block text-m mr-4 mt-2 leading-6 font-medium text-gray-900">
-              Date
-            </label>
-            <input
-              id="date"
-              name="date"
-              type="date"
-              required
-              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              onChange={(e) => setDate(new Date(e.target.value).getTime())}
-            />
-          </div>
-        </div>
-
-        <div>
-          <div className="mt-2 mr-4 flex flex-row ">
-            <label className="block text-m mr-4 mt-2 leading-6 font-medium text-gray-900">
-              Status
-            </label>
-            <input
-              id="status"
-              name="status"
-              type="text"
-              required
-              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              onChange={(e) => setStatus(e.target.value)}
             />
           </div>
         </div>
