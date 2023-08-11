@@ -99,7 +99,7 @@ export default function CreateApprovedGrantPage() {
           revocable: false,
           data: schemaEncoder.encodeData([
             { name: "grantRecipient", value: grantRecipient, type: "address" },
-            // { name: "multisignWallet", value: multisigWallet, type: "address" },
+            // { name: "multisigWallet", value: multisigWallet, type: "address" },
             { name: "grantTitle", value: grantTitle, type: "string" },
             { name: "bannerURL", value: bannerURL, type: "string" },
             { name: "startDate", value: startDate, type: "uint256" },
