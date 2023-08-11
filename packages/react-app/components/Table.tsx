@@ -51,7 +51,7 @@ export default function Table({
               const isLast = index === rows.length - 1;
               const classes = isLast
                 ? "p-4"
-                : "p-4 border-b border-blue-gray-50";
+                : "p-4 border-b bg-lena2 border-blue-gray-50";
 
               return (
                 <tr key={refUID}>
