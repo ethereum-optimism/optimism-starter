@@ -2,9 +2,7 @@ import { EAS, SchemaEncoder } from "@ethereum-attestation-service/eas-sdk";
 import { useState } from "react";
 import Link from "next/link";
 import { useEthersSigner } from "../utils/ethers";
-
-// export const EASContractAddress = "0x4200000000000000000000000000000000000021"; // GoerliOptimism v0.26
-export const EASContractAddress = "0xAcfE09Fd03f7812F022FBf636700AdEA18Fd2A7A"; // GoerliBase v0.26
+import { EASContractAddress } from "./grants";
 
 export default function CreateApprovedGrantPage() {
   const signer = useEthersSigner();
@@ -17,8 +15,7 @@ export default function CreateApprovedGrantPage() {
   const [milestoneDescription, setMilestoneDescription] = useState("");
 
   const eas = new EAS(EASContractAddress);
-  eas.connect(signer);
-
+  signer && eas.connect(signer);
   const schemaEncoder = new SchemaEncoder(
     "string grantTitle,uint256 milestoneNumber,string milestoneDescription"
   );

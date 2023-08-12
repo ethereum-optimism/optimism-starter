@@ -2,12 +2,13 @@
 
 import { useRouter } from "next/navigation";
 
-export default function ApprovedGrantPage() {
+export default function MilestoneDetailPage() {
   const router = useRouter();
-  console.log(router);
+  console.log(router?.query);
+
   return (
     <div>
-      <div className="h1">Grant Page</div>
+      <div className="h1">Milestone Page</div>
     </div>
   );
 }

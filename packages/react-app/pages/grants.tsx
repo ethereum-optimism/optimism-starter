@@ -1,22 +1,32 @@
 import { useEffect, useState } from "react";
 import { Client, cacheExchange, fetchExchange, gql, useQuery } from "urql";
 import { useAccount } from "wagmi";
+import { getNetwork } from "@wagmi/core";
 import Table from "@/components/Table";
+
+const { chain } = getNetwork();
+console.log(chain);
+
+// export const EASContractAddress = "0x4200000000000000000000000000000000000021"; // GoerliOptimism v0.26
+export const EASContractAddress =
+  chain && chain.network === "base-goerli"
+    ? "0xAcfE09Fd03f7812F022FBf636700AdEA18Fd2A7A" // GoerliBase v0.26
+    : "0x4200000000000000000000000000000000000021";
 
 export default function GrantsListPage() {
   const headerCells = [
-    "refUID",
-    "grantRecipient",
-    "multisigWallet",
-    "title",
-    "milestones",
-    "amount",
+    "ID",
+    "Title",
+    "Recipient",
+    "Multisig Wallet",
+    "Milestones",
+    "Amount",
   ];
+  const { chain, chains } = getNetwork();
 
   const { address } = useAccount();
   const client = new Client({
-    // url: "https://optimism-goerli.easscan.org/graphql",
-    url: "https://base-goerli.easscan.org/graphql",
+    url: `https://${chain?.network}.easscan.org/graphql`,
     exchanges: [cacheExchange, fetchExchange],
   });
 
@@ -49,21 +59,21 @@ export default function GrantsListPage() {
 
     const result = await client.query(query, {}).toPromise();
     const attestationList = result.data?.attestations.map((att: any) => ({
-      refUID: att.refUID,
+      refUID: att.id,
       grantRecipient: att.recipient,
       multisigWallet: att.data.multisigWallet,
       title: att.data.grantTitle,
       milestones: att.data.numberOfMilestones,
       amount: att.data.grantAmount,
     }));
-    console.log(result.data);
+    console.log(attestationList);
 
     if (result.error) throw result.error;
     if (result.data?.attestations) setAttestations(attestationList);
   };
 
   useEffect(() => {
-    getAttestations();
+    attestations.length === 0 && getAttestations();
   }, [getAttestations]);
   return (
     <div>
@@ -71,7 +81,7 @@ export default function GrantsListPage() {
         {" "}
         <h1>Grants List</h1>
       </div>
-      <Table columns={headerCells} rows={attestations} />
+      <Table columns={headerCells} rows={attestations} chain={chain} />
     </div>
   );
 }

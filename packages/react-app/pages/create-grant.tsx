@@ -6,9 +6,7 @@ import Link from "next/link";
 import { ethers } from "ethers";
 
 import { ceateSafe } from "../utils/safe";
-
-// export const EASContractAddress = "0x4200000000000000000000000000000000000021"; // GoerliOptimism v0.26
-export const EASContractAddress = "0xAcfE09Fd03f7812F022FBf636700AdEA18Fd2A7A"; // GoerliBase v0.26
+import { EASContractAddress } from "./grants";
 
 export default function CreateApprovedGrantPage() {
   const signer = useEthersSigner();
@@ -23,7 +21,8 @@ export default function CreateApprovedGrantPage() {
   const [attestation, setAttestation] = useState("");
 
   const eas = new EAS(EASContractAddress);
-  eas.connect(signer);
+  signer && eas.connect(signer);
+  console.log(EASContractAddress);
 
   // TODO:add multisgWallet to schema
   const schemaEncoder = new SchemaEncoder(

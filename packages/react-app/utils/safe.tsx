@@ -13,8 +13,7 @@ function createWalletSignerandOwner() {
   console.log(process.env.OWNER_1_PRIVATE_KEY);
 
   const owner1Signer = new ethers.Wallet(
-    "9df5a13acad59070d7c6b10bf80a5ec55b1bce1169d906ea43262f417e800393" ||
-      process.env.OWNER_1_PRIVATE_KEY,
+    process.env.OWNER_1_PRIVATE_KEY,
     provider
   );
   const ethAdapterOwner1 = new EthersAdapter({

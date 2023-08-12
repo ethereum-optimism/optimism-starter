@@ -1,8 +1,10 @@
 import { Card, Typography } from "@material-tailwind/react";
+import Link from "next/link";
 
 export default function Table({
   columns,
   rows,
+  chain,
 }: {
   columns: string[];
   rows: Array<{
@@ -13,6 +15,7 @@ export default function Table({
     milestones: BigInt;
     amount: BigInt;
   }>;
+  chain: any;
 }) {
   return (
     <Card className="h-full w-full overflow-scroll block rounded-ml ">
@@ -61,7 +64,13 @@ export default function Table({
                       color="blue-gray"
                       className="font-normal"
                     >
-                      {refUID}
+                      <a
+                        href={`https://${chain?.network}.easscan.org/attestation/view/${refUID}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {refUID}
+                      </a>
                     </Typography>
                   </td>
                   <td className={classes}>
@@ -118,7 +127,14 @@ export default function Table({
                       color="blue-gray"
                       className="font-medium"
                     >
-                      Approve
+                      <Link
+                        href={{
+                          pathname: "/grant/[id]",
+                          query: { id: refUID },
+                        }}
+                      >
+                        View
+                      </Link>
                     </Typography>
                   </td>
                 </tr>

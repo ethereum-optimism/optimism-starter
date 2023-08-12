@@ -15,8 +15,7 @@ export default function CreateApprovedGrantPage() {
   const [file, setFile] = useState("");
 
   const eas = new EAS(EASContractAddress);
-  eas.connect(signer);
-
+  signer && eas.connect(signer);
   const schemaEncoder = new SchemaEncoder("string file, ");
 
   //string RefUID,string grantTitle,uint256 milestoneNumber,string milestoneDescription,uint256 date,string status
