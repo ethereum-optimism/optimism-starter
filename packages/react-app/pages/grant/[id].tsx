@@ -1,7 +1,11 @@
 "use client";
 
 import { useRouter } from "next/router";
-import { Attestation, EAS } from "@ethereum-attestation-service/eas-sdk";
+import {
+  Attestation,
+  EAS,
+  SchemaEncoder,
+} from "@ethereum-attestation-service/eas-sdk";
 import { useEffect, useState } from "react";
 import { getNetwork } from "@wagmi/core";
 import { useEthersSigner } from "../../utils/ethers";
@@ -11,7 +15,13 @@ import MilestoneTable from "@/components/MilestoneTable";
 
 export default function GrantDetailPage() {
   const signer = useEthersSigner();
-  const [attestation, setAttestation] = useState<Attestation>([]);
+  const [attestation, setAttestation] = useState<{
+    ID: string;
+    grantTitle: string;
+    grantDescription: string;
+    numberOfMilestones: number;
+    grantAmount: number;
+  }>({});
   const RPC_URL = "https://base-goerli.public.blastapi.io";
   const provider = new ethers.providers.JsonRpcProvider(RPC_URL);
 
@@ -32,6 +42,10 @@ export default function GrantDetailPage() {
     "Description",
   ];
 
+  const schemaEncoder = new SchemaEncoder(
+    "string grantTitle,string grantDescription,string numberOfMilestones,uint256 grantAmount"
+  );
+
   const getAttestation = async () => {
     console.log(id);
 
@@ -41,14 +55,23 @@ export default function GrantDetailPage() {
         id ||
           "0xb8106c50b334a974b863df6dfa095eddaa5017e29c6b70e124593854c3069d10"
       ));
-    console.log(result);
+    const decoded = schemaEncoder.decodeData(result?.data);
+    console.log(decoded);
 
-    result && setAttestation(result);
+    result &&
+      decoded &&
+      setAttestation({
+        ID: result.uid,
+        grantTitle: decoded[0].value.value,
+        grantDescription: decoded[0].value.value,
+        numberOfMilestones: decoded[0].value.value,
+        grantAmount: decoded[0].value.value,
+      });
     console.log(attestation);
   };
 
   useEffect(() => {
-    attestation.uid || getAttestation();
+    attestation.ID || getAttestation();
   });
 
   return (
