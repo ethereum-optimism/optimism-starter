@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useWalletClient } from "wagmi";
 import { useEthersSigner } from "../utils/ethers";
 
-export const EASContractAddress = "0x1a5650d0ecbca349dd84bafa85790e3e6955eb84"; // GoerliOptimism v0.26
+export const EASContractAddress = "0x4200000000000000000000000000000000000021"; // GoerliOptimism v0.26
 
 export default function CreateApprovedGrantPage() {
   const { data: walletClient } = useWalletClient();
@@ -13,43 +13,36 @@ export default function CreateApprovedGrantPage() {
     "0x99B551F0Bb2e634D726d62Bb2FF159a34964976C"
   );
   const [file, setFile] = useState("");
- 
-
 
   const eas = new EAS(EASContractAddress);
-  eas.connect(signer);
-
-  const schemaEncoder = new SchemaEncoder(
-    "string file, "
-    );
+  signer && eas.connect(signer);
+  const schemaEncoder = new SchemaEncoder("string file, ");
 
   //string RefUID,string grantTitle,uint256 milestoneNumber,string milestoneDescription,uint256 date,string status
   const encodedData = schemaEncoder.encodeData([
     { name: "file", value: file, type: "string" },
-
   ]);
 
   const schemaUID =
-    "0xda8a2d9619a05ffcb8dd6fb663777b2bd355c99b7b83a957c3eec3f8ba850709"
-
+    "0xda8a2d9619a05ffcb8dd6fb663777b2bd355c99b7b83a957c3eec3f8ba850709";
 
   const createAttestation = async () => {
-    const offchainAttestation = await eas.attest({
-      schema: schemaUID,
-      data: {
-        recipient: grantRecipient,
-        // Unix timestamp of when attestation expires. (0 for no expiration)
-        /* eslint-disable-next-line */
-        expirationTime: BigInt(0),
-        revocable: false,
-        data: encodedData,
+    const offchainAttestation = await eas.attest(
+      {
+        schema: schemaUID,
+        data: {
+          recipient: grantRecipient,
+          // Unix timestamp of when attestation expires. (0 for no expiration)
+          /* eslint-disable-next-line */
+          expirationTime: BigInt(0),
+          revocable: false,
+          data: encodedData,
+        },
       },
-    },   
-    {
-             gasLimit: 2500000,
-      });
-
-  
+      {
+        gasLimit: 2500000,
+      }
+    );
 
     console.log("New attestation UID:", offchainAttestation);
   };
@@ -73,10 +66,6 @@ export default function CreateApprovedGrantPage() {
             />
           </div>
         </div>
-
-      
-
-       
       </form>
       <div>
         <button
