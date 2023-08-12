@@ -15,7 +15,7 @@ export default function Table({
     milestones: BigInt;
     amount: BigInt;
   }>;
-  chain: any;
+  chain: string;
 }) {
   return (
     <Card className="h-full w-full overflow-scroll block rounded-ml ">

@@ -3,14 +3,18 @@ import { Card, Typography } from "@material-tailwind/react";
 import { getNetwork } from "@wagmi/core";
 import Link from "next/link";
 
-const classes = "p-4 border-b bg-lena2 border-blue-gray-50";
-
 export default function MilestoneTable({
   columns,
   rows,
 }: {
   columns: string[];
-  rows: Attestation;
+  rows: Array<{
+    ID: string;
+    grantTitle: string;
+    grantUID: string;
+    milestoneDescription: string;
+    numberOfMilestones: number;
+  }>;
 }) {
   const { chain, chains } = getNetwork();
 
@@ -36,78 +40,98 @@ export default function MilestoneTable({
           </tr>
         </thead>
         <tbody>
-          <tr key={rows.uid}>
-            <td className={classes}>
-              <Typography
-                variant="small"
-                color="blue-gray"
-                className="font-normal"
-              >
-                <a
-                  href={`https://${chain?.network}.easscan.org/attestation/view/${rows.uid}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {rows.uid}
-                </a>
-              </Typography>
-            </td>
-            <td className={classes}>
-              <Typography
-                variant="small"
-                color="blue-gray"
-                className="font-normal"
-              >
-                Milestone Title
-              </Typography>
-            </td>
-            <td className={classes}>
-              <Typography
-                variant="small"
-                color="blue-gray"
-                className="font-normal"
-              >
-                {rows.refUID}
-              </Typography>
-            </td>
-            <td className={classes}>
-              <Typography
-                variant="small"
-                color="blue-gray"
-                className="font-normal"
-              >
-                2
-              </Typography>
-            </td>
-            <td className={classes}>
-              <Typography
-                variant="small"
-                color="blue-gray"
-                className="font-normal"
-              >
-                Milestone Description
-              </Typography>
-            </td>
+          {rows.map(
+            (
+              {
+                ID,
+                grantTitle,
+                grantUID,
+                milestoneDescription,
+                numberOfMilestones,
+              },
+              index
+            ) => {
+              const isLast = index === rows.length - 1;
+              const classes = isLast
+                ? "p-4"
+                : "p-4 border-b bg-lena2 border-blue-gray-50";
 
-            <td className={classes}>
-              <Typography
-                as="a"
-                href="#"
-                variant="small"
-                color="blue-gray"
-                className="font-medium"
-              >
-                <Link
-                  href={{
-                    pathname: "/milestone/[id]",
-                    query: { id: rows.uid },
-                  }}
-                >
-                  Approve
-                </Link>
-              </Typography>
-            </td>
-          </tr>
+              return (
+                <tr key={ID}>
+                  <td className={classes}>
+                    <Typography
+                      variant="small"
+                      color="blue-gray"
+                      className="font-normal"
+                    >
+                      <a
+                        href={`https://${chain?.network}.easscan.org/attestation/view/${rows.uid}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {ID}
+                      </a>
+                    </Typography>
+                  </td>
+                  <td className={classes}>
+                    <Typography
+                      variant="small"
+                      color="blue-gray"
+                      className="font-normal"
+                    >
+                      {grantTitle}
+                    </Typography>
+                  </td>
+                  <td className={classes}>
+                    <Typography
+                      variant="small"
+                      color="blue-gray"
+                      className="font-normal"
+                    >
+                      {grantUID}
+                    </Typography>
+                  </td>
+                  <td className={classes}>
+                    <Typography
+                      variant="small"
+                      color="blue-gray"
+                      className="font-normal"
+                    >
+                      {milestoneDescription}
+                    </Typography>
+                  </td>
+                  <td className={classes}>
+                    <Typography
+                      variant="small"
+                      color="blue-gray"
+                      className="font-normal"
+                    >
+                      {numberOfMilestones}
+                    </Typography>
+                  </td>
+
+                  <td className={classes}>
+                    <Typography
+                      as="a"
+                      href="#"
+                      variant="small"
+                      color="blue-gray"
+                      className="font-medium"
+                    >
+                      <Link
+                        href={{
+                          pathname: "/milestone/[id]",
+                          query: { id: ID },
+                        }}
+                      >
+                        Approve
+                      </Link>
+                    </Typography>
+                  </td>
+                </tr>
+              );
+            }
+          )}
         </tbody>
       </table>
     </Card>
