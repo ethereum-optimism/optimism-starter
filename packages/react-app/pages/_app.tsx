@@ -3,10 +3,11 @@ import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import { optimism, optimismGoerli, baseGoerli } from "wagmi/chains";
 import celoGroups from "@celo/rainbowkit-celo/lists";
-import { publicProvider } from "wagmi/providers/public";
 import Layout from "../components/Layout";
 import "../styles/globals.css";
 import "@rainbow-me/rainbowkit/styles.css";
+import { publicProvider } from "wagmi/providers/public";
+import { Alfajores, Celo } from "@celo/rainbowkit-celo/chains";
 
 const projectId = process.env.NEXT_PUBLIC_WC_PROJECT_ID as string; // get one at https://cloud.walletconnect.com/app
 

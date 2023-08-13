@@ -1,0 +1,23 @@
+specVersion: 0.0.2
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Storage
+    network: celo-alfajores
+    source:
+      address: "0x5ba3ec4808A655381452f4b58C929e4200B4DF69"
+      abi: Storage
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - newNumber
+      abis:
+        - name: Storage
+          file: ./abis/Storage.json
+      eventHandlers:
+        - event: newNumber(uint256,address)
+          handler: handlenewNumber
+      file: ./src/mapping.ts
