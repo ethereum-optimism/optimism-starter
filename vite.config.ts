@@ -12,6 +12,19 @@ export default defineConfig({
   define: {
     global: "globalThis",
   },
+  /**
+   * Fixes the `define` behavior which replaces `global` with `globalThis` where unappropriate
+   * @see https://github.com/wagmi-dev/create-wagmi/pull/73/files
+   * @see https://github.com/wagmi-dev/wagmi/issues/2989
+   */
+  build: {
+    rollupOptions: {
+      external: [
+        "@safe-globalThis/safe-apps-provider",
+        "@safe-globalThis/safe-apps-sdk",
+      ],
+    },
+  },
   resolve: {
     /**
      * Polyfills nodejs imports
