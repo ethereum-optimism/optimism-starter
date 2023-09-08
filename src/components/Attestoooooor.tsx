@@ -1,25 +1,17 @@
 import { useState } from "react";
-import { useAccount, useNetwork, useWaitForTransaction } from "wagmi";
+import { useAccount, useChainId, useContractRead, useContractWrite, useNetwork, usePrepareContractWrite, useWaitForTransaction } from "wagmi";
 import {
   parseString,
   stringifyAttestationBytes,
   encodeRawKey,
 } from "@eth-optimism/atst";
-
-/**
- * These react hooks are generated with the wagmi cli via `wagmi generate`
- * @see ROOT/wagmi.config.ts
- */
-import {
-  useAttestationStationAttest,
-  usePrepareAttestationStationAttest,
-  useAttestationStationAttestations,
-} from "../generated";
+import { AttestationStation } from '../../contracts/src/AttestationStation.sol'
 
 /**
  * An example component using the attestation station
  */
 export function Attestooooooor() {
+  const chainId = useChainId()
   /**
    * @see https://wagmi.sh/docs/hooks/useAccount
    */
@@ -44,15 +36,15 @@ export function Attestooooooor() {
    * Automatically generated hook to prepare the transaction
    * @see https://wagmi.sh/react/prepare-hooks/usePrepareContractWrite
    */
-  const { config } = usePrepareAttestationStationAttest({
-    args: [address!, key, newAttestation],
-  });
+  const { config } = usePrepareContractWrite(
+    AttestationStation.write({chainId}).attest(address!, key, newAttestation),
+  );
 
   /**
    * Automatically generated hook to execute the transaction
    * @see https://wagmi.sh/react/execute-hooks/useContractWrite
    */
-  const { data, write } = useAttestationStationAttest({
+  const { data, write } = useContractWrite({
     ...config,
     onSuccess: () => setValue(""),
   });
@@ -61,9 +53,9 @@ export function Attestooooooor() {
    * Automatically generated hook to read the attestation
    * @see https://wagmi.sh/react/execute-hooks/useContractRead
    */
-  const { refetch, data: attestation } = useAttestationStationAttestations({
-    args: [address!, address!, key],
-  });
+  const { refetch, data: attestation } = useContractRead(
+    AttestationStation.read({chainId}).attestations(address!, address!, key)
+  );
 
   /**
    * Wagmi hook to wait for the transaction to be complete
