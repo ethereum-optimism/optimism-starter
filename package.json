@@ -6,38 +6,41 @@
     "anvil": "source .env && anvil --fork-url $ANVIL_FORK_URL --chain-id $ANVIL_CHAIN_ID",
     "deploy": "source .env && forge create contracts/src/Counter.sol:Counter --rpc-url $FORGE_RPC_URL --private-key $FORGE_PRIVATE_KEY --etherscan-api-key $ETHERSCAN_API_KEY --verify",
     "deploy:anvil": "source .env && forge create contracts/src/AttestationStation.sol:AttestationStation --rpc-url http://127.0.0.1:8545 --private-key 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80 --legacy",
-    "dev": "npm run wagmi && vite",
-    "dev:foundry": "npm run dev & wagmi generate --watch & npm run anvil",
-    "build": "npm run wagmi && vite build",
+    "dev": "vite",
+    "dev:foundry": "npm run dev & npm run anvil",
+    "build": "vite build",
     "build:production": "vite build",
     "preview": "vite preview",
     "lint": "prettier --write \"**/*.{ts,tsx}\"",
-    "typecheck": "tsc --noEmit",
-    "wagmi": "wagmi generate"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@eth-optimism/atst": "^0.0.0-20230306200511",
     "@eth-optimism/contracts-bedrock": "^0.12.1",
     "@eth-optimism/contracts-periphery": "^1.0.7",
     "@eth-optimism/sdk": "0.0.0-20230301065104",
+    "@evmts/core": "^0.8.1",
     "@openzeppelin/contracts": "4.7.3",
     "@openzeppelin/contracts-upgradeable": "4.7.3",
     "@rainbow-me/rainbowkit": "^1.0.7",
-    "@wagmi/cli": "^1.3.0",
+    "@safe-global/safe-apps-provider": "^0.18.0",
     "buffer": "^6.0.3",
     "process": "^0.11.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "util": "^0.12.4",
-    "viem": "^1.4.2",
-    "wagmi": "^1.3.9"
+    "viem": "^1.10.8",
+    "wagmi": "^1.4.1"
   },
   "devDependencies": {
+    "@evmts/ts-plugin": "^0.9.0",
+    "@evmts/vite-plugin": "^0.9.0",
     "@types/react": "^18.0.9",
     "@types/react-dom": "^18.0.3",
     "@vitejs/plugin-react": "^3.1.0",
     "prettier": "^2.8.4",
+    "solc": "^0.8.21",
     "typescript": "^4.9.5",
-    "vite": "^4.1.4"
+    "vite": "^4.4.9"
   }
 }

@@ -1,5 +1,19 @@
 {
   "compilerOptions": {
+    "plugins": [{
+      "name": "@evmts/ts-plugin",
+      "localContracts": {
+        "contracts": [
+          {
+            "name": "AttestationStation",
+            "addresses": {
+              "1": "0xEE36eaaD94d1Cc1d0eccaDb55C38bFfB6Be06C77",
+              "420": "0xEE36eaaD94d1Cc1d0eccaDb55C38bFfB6Be06C77"
+            }
+          }
+        ]
+      }
+    }],
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": false,
