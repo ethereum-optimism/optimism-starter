@@ -20,7 +20,7 @@
     "@eth-optimism/contracts-bedrock": "^0.12.1",
     "@eth-optimism/contracts-periphery": "^1.0.7",
     "@eth-optimism/sdk": "0.0.0-20230301065104",
-    "@openzeppelin/contracts": "4.7.3",
+    "@openzeppelin/contracts": "4.9.6",
     "@openzeppelin/contracts-upgradeable": "4.7.3",
     "@rainbow-me/rainbowkit": "^1.0.7",
     "@wagmi/cli": "^1.3.0",
